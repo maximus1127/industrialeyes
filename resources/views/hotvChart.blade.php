@@ -271,9 +271,9 @@ img {
 
     $('html').on('keydown', function(event){
 
-  
+
       if (event.which == 54 ){
-        var sixSize = localStorage.getItem('storeSize');
+        var sixSize = {{$calibration->size}};
         $("#content").css('font-size', (sixSize * .6) + 'px');
       };
       if (event.which == 78 ){
@@ -346,11 +346,7 @@ img {
     $(document).ready(function(){
 
       $("#currentExam").html('Right Eye Distance');
-      if (!localStorage.getItem('storeSize')) {
-        currentZoom = 20;
-      } else {
-      $("#content").css('font-size', localStorage.getItem('storeSize') + 'px');
-      }
+      $("#content").css('font-size', {{$calibration->size}} + "px");
 
     });
 

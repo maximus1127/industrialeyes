@@ -12,7 +12,8 @@
 */
 
 
-Route::get('/', 'ChartController@index');
+Route::get('/', 'HomeController@index');
+Route::get('chartHome', 'ChartController@index');
 Route::get('/exam', 'ChartController@exam')->name('exam');
 Route::get('/exam2', 'ChartController@exam2')->name('exam2');
 Route::get('/exam3', 'ChartController@exam3')->name('exam3');
@@ -31,3 +32,8 @@ Route::post('/uploadFile', 'DataController@uploadFile');
 Route::get('/export', 'DataController@exportIndex')->name('export.index');
 Route::get('/export/date', 'DataController@exportData')->name('export');
 Route::get('/deleteDatabase', 'DataController@deleteDatabase')->name('deleteDatabase');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/insert', 'CalibrationController@insert');

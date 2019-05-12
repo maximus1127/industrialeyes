@@ -285,7 +285,7 @@ img {
         shrink();
       };
       if (event.which == 54 ){
-        var sixSize = localStorage.getItem('storeSize');
+        var sixSize = {{$calibration->size}};
         $("#content").css('font-size', (sixSize * .6) + 'px');
       };
       if (event.which == 78 ){
@@ -333,29 +333,29 @@ img {
 
 
 
-    var currentZoom = 20;
-    function grow(){
-        currentZoom += 1;
-        $("#content").css('font-size', currentZoom + 'px');
-        localStorage.setItem('storeSize', currentZoom);
-        // localStorage.setItem("storeSize", currentZoom);
-
-    }
-
-
-    function shrink(){
-       currentZoom -= 1;
-       $("#content").css('font-size', currentZoom + 'px');
-       localStorage.setItem("storeSize", currentZoom);
-
-    }
+    // var currentZoom = 20;
+    // function grow(){
+    //     currentZoom += 1;
+    //     $("#content").css('font-size', currentZoom + 'px');
+    //     localStorage.setItem('storeSize', currentZoom);
+    //     // localStorage.setItem("storeSize", currentZoom);
+    //
+    // }
+    //
+    //
+    // function shrink(){
+    //    currentZoom -= 1;
+    //    $("#content").css('font-size', currentZoom + 'px');
+    //    localStorage.setItem("storeSize", currentZoom);
+    //
+    // }
 
 
     $(document).ready(function(){
 
       $("#currentExam").html('Right Eye Distance');
 
-      $("#content").css('font-size', (localStorage.getItem('storeSize') * .6) + 'px');
+        $("#content").css('font-size', ({{$calibration->size}} * .6) + "px");
 
 
     });

@@ -1,5 +1,7 @@
 function loadStudent(e){
 
+    var fails = ['20/40', '20/50', '20/60', '20/80', '20/100', '20/200', '20/400'];
+
     $(".student_list").css('background-color', 'white');
     $("#fname").val($(e).data('fname'));
     $("#lname").val($(e).data('lname'));
@@ -22,12 +24,26 @@ function loadStudent(e){
     $("#os_near").val($(e).data('osnear'));
     $("#ou_dist").val($(e).data('oudist'));
     $("#ou_near").val($(e).data('ounear'));
-    $(e).css('background-color', '#218838');
+    $(e).css('background-color', '#11b21c');
     var stunum = $(e).data('identify');
     $('#printExam').attr( 'href','/print/'+ stunum);
     $('#deleteExam').attr( 'href','/delete/'+ stunum);
 
-
+    if (fails.includes($(e).data('oddist'))){
+      $(".od-background").css('background', '#d84b4b');
+    } else {
+      $(".od-background").css('background', '#11b21c');
+    }
+    if (fails.includes($(e).data('osdist'))){
+      $(".os-background").css('background', '#d84b4b');
+    } else {
+      $(".os-background").css('background', '#11b21c');
+    }
+    if (fails.includes($(e).data('oudist'))){
+      $(".ou-background").css('background', '#d84b4b');
+    } else {
+      $(".ou-background").css('background', '#11b21c');
+    }
 
 }
 // function loadStudent2(e){

@@ -285,7 +285,7 @@ img {
         shrink();
       };
       if (event.which == 54 ){
-        var sixSize = localStorage.getItem('storeSize');
+        var sixSize = {{$calibration->size}};
         $("#content").css('font-size', (sixSize * .6) + 'px');
       };
       if (event.which == 78 ){
@@ -331,6 +331,11 @@ img {
     });
 
 
+function setNear(){
+    var smallLine = {{$calibration->size}};
+    $("#content").css('font-size', (smallLine * .2) + "px");
+}
+
 
 
 
@@ -339,7 +344,7 @@ img {
     $(document).ready(function(){
 
       $("#currentExam").html('Right Eye Near');
-    setNear();
+      setNear();
 
     });
 

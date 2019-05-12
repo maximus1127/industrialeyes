@@ -166,7 +166,7 @@ img {
       <p id="letterSize"></p>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{{asset("/js/jquery.js")}}"></script>
     <script>
 
 
@@ -285,7 +285,7 @@ img {
         shrink();
       };
       if (event.which == 54 ){
-        var sixSize = localStorage.getItem('storeSize');
+        var sixSize = {{$calibration->size}};
         $("#content").css('font-size', (sixSize * .6) + 'px');
       };
       if (event.which == 78 ){
@@ -337,28 +337,33 @@ img {
     function grow(){
         currentZoom += 1;
         $("#content").css('font-size', currentZoom + 'px');
-        localStorage.setItem('storeSize', currentZoom);
-        // localStorage.setItem("storeSize", currentZoom);
+        $.ajax({
+          url: "/insert",
+          data:{
+            size: currentZoom
+          }
 
+        });
     }
 
 
     function shrink(){
        currentZoom -= 1;
        $("#content").css('font-size', currentZoom + 'px');
-       localStorage.setItem("storeSize", currentZoom);
+       $.ajax({
+         url: "/insert",
+         data:{
+           size: currentZoom
+         }
 
+       });
     }
 
 
     $(document).ready(function(){
 
       $("#currentExam").html('Right Eye Distance');
-      if (!localStorage.getItem('storeSize')) {
-        currentZoom = 20;
-      } else {
-      $("#content").css('font-size', localStorage.getItem('storeSize') + 'px');
-      }
+      $("#content").css('font-size', {{$calibration->size}} + "px");
 
     });
 

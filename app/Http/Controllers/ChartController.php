@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use PDF;
+use App\Calibration;
 
 class ChartController extends Controller
 {
@@ -40,19 +41,23 @@ class ChartController extends Controller
 
 
     public function exam(){
-      return view('distanceChart');
+      $calibration = Calibration::find(1) ;
+      return view('distanceChart')->with(compact('calibration'));
     }
     public function exam2(){
-      return view('nearChart');
+      $calibration = Calibration::find(1) ;
+      return view('nearChart')->with(compact('calibration'));
     }
     public function exam3(){
       return view('colorChart');
     }
     public function exam4(){
-      return view('sixChart');
+            $calibration = Calibration::find(1) ;
+      return view('sixChart')->with(compact('calibration'));
     }
     public function exam5(){
-      return view('hotvChart');
+            $calibration = Calibration::find(1) ;
+      return view('hotvChart')->with(compact('calibration'));
     }
     public function submit(Request $request){
 
