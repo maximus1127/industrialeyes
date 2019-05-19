@@ -48,7 +48,8 @@ class LiveSearch extends Controller
                                            data-oscolor = "'.$student->os_color.'"
                                             data-oudist = "'.$student->ou_dist.'"
                                              data-ounear = "'.$student->ou_near.'"
-
+                                             data-notes = "'.$student->notes.'"
+                                             data-nurse = "'.$student->nurse.'"
 
                                     onclick="loadStudent(this)">
                                       '.$student->fname." ".$student->lname.'
@@ -67,6 +68,8 @@ class LiveSearch extends Controller
                                            data-oscolor = "'.$student->os_color.'"
                                             data-oudist = "'.$student->ou_dist.'"
                                              data-ounear = "'.$student->ou_near.'"
+                                             data-notes = "'.$student->notes.'"
+                                             data-nurse = "'.$student->nurse.'"
 
 
                                     onclick="loadStudent(this)">

@@ -83,7 +83,9 @@ class ChartController extends Controller
       $student->os_cyl = $request->os_cyl;
       $student->ou_dist = $request->ou_dist;
       $student->ou_near = $request->ou_near;
+      $student->notes = $request->notes;
       $student->complete = 1;
+      $student->nurse = $request->nurse;
       $student->save();
       return back();
     } else{
@@ -107,7 +109,9 @@ class ChartController extends Controller
       $student->os_cyl = $request->os_cyl;
       $student->ou_dist = $request->ou_dist;
       $student->ou_near = $request->ou_near;
+      $student->notes = $request->notes;
       $student->complete = 1;
+        $student->nurse = $request->nurse;
       $student->save();
       return back();
 

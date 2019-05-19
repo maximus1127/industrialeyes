@@ -59,6 +59,16 @@
           <input type='submit' name='submit' value='Export' class="btn btn-primary">
         </div>
      </form>
+     <hr>
+     <form method='get' action='{{route('exportRoster')}}' >
+       {{ csrf_field() }}
+       <div class="form-group">
+          <label for="exampleFormControlFile1">Click below to download a pass or fail roster</label>
+          {{-- <input type="date" name="date" class="form-control" id="exampleFormControlFile1"> --}}
+          <br /><br />
+          <input type='submit' name='submit' value='Download' class="btn btn-primary">
+        </div>
+     </form>
      <hr />
      <form method='get' action='{{route('deleteDatabase')}}' >
        {{ csrf_field() }}

@@ -8,6 +8,7 @@ use App\Student;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use App\Exports\StudentsExport;
+use PDF;
 
 class DataController extends Controller{
 
@@ -108,7 +109,7 @@ class DataController extends Controller{
 
 
 public function exportIndex(){
-  return view('Download');
+  return view('download');
 }
 
   public function exportData(Request $request){
@@ -126,6 +127,20 @@ public function deleteDatabase(){
   $students->each->delete();
   return back();
 }
+
+public function exportRoster(){
+
+$students = Student::where('complete', 1)->get();
+$pdf = PDF::loadView('printRoster', compact('students'));
+return $pdf->stream('document.pdf');
+
+
+
+
+
+}
+
+
 
 
 }

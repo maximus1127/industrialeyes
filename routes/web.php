@@ -31,6 +31,7 @@ Route::post('/uploadFile', 'DataController@uploadFile');
 
 Route::get('/export', 'DataController@exportIndex')->name('export.index');
 Route::get('/export/date', 'DataController@exportData')->name('export');
+Route::get('/export/roster', 'DataController@exportRoster')->name('exportRoster');
 Route::get('/deleteDatabase', 'DataController@deleteDatabase')->name('deleteDatabase');
 
 Auth::routes();

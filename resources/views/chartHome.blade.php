@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -14,13 +14,17 @@
 
          <style>
              html{
-                 font-size: 10pt;
+                 font-size: 13pt;
              }
              li{
                  font-size: 12pt;
                  border-top: 1px solid black;
                  cursor: pointer;
                  list-style-type: none;
+             }
+
+             #notes{
+
              }
 
          </style>
@@ -30,7 +34,7 @@
 
      </head>
      <body onunload="closeChild();">
-
+@if(Auth::user()->is_admin == 1)
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
      <a class="navbar-brand" href="#">Industrial Eyes</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,34 +51,44 @@
          <li class="nav-item">
            <a class="nav-link" href="{{route('export.index')}}">Download Data</a>
          </li>
-         <li class="nav-item dropdown">
-             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                 {{ Auth::user()->name }} <span class="caret"></span>
-             </a>
 
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                 <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                     {{ __('Logout') }}
-                 </a>
+         <li>
 
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                     @csrf
-                 </form>
-             </div>
+
          </li>
        </ul>
      </div>
 
    </nav>
+ @endif
+ <div >
+     {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+         {{ Auth::user()->name }} <span class="caret"></span>
+     </a> --}}
+
+     {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
+         <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             {{ __('Logout') }}
+         </a>
+
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+             @csrf
+         </form>
+
+     {{-- </div> --}}
+
+
+ </div>
      <div class="container">
    <br>
 
          <div class="chartForm">
             <div class="row">
            <div class="leftSideBar col-md-3 d-inline-block align-top">
-               <div class="searh-box"><input type="text" id="search" name="search" placeholder="Search" class="form-control"/></div>
+             <div class="searh-box"><input  type="text" id="search" name="search" placeholder="Search" class="form-control"/></div>
+
              <div class="students-list">
                     <ul id="students">
 
@@ -100,7 +114,7 @@
                     <div class="clearfix"></div>
                 </div>
 
-                <h3>Student Data</h3>
+                {{-- <h3>Student Data</h3> --}}
                 <hr>
            <div class="content">
              <form class="exam_data" method="post" action = "{{route('submitExam')}}">
@@ -158,6 +172,12 @@
                        <input type="text" class="form-control" name="teacher" id="teacher" placeholder="Teacher" />
                      </div>
                  </div>
+                 <div class="col-md-6 col-lg-4">
+                     <div class="form-group">
+                       <!--<label for="teacher">Teacher</label>-->
+                       <input type="text" id="nurse" name="nurse" class="form-control" placeholder="Nurse Name"/>
+                     </div>
+                 </div>
                </div><!--/ .row ends-->
              </div>
 
@@ -189,7 +209,7 @@
               </div><!--Right sidebar-->
             </div><!--row ends-->
            <div class="exam">
-                <h3 class="text-center">Exam Data</h3>
+                {{-- <h3 class="text-center">Exam Data</h3> --}}
                 <hr>
                 <div class="all-btns text-center">
 
@@ -264,7 +284,12 @@
                         </div><!--exam-data-new ends-->
                     </div>
                   </div><!--/ .row ends-->
+                  <br />
+                  <label for="notes"><h3>Notes</h3></label>
+                  <textarea class="form-control" rows="4" name="notes" id="notes">
 
+
+                  </textarea>
 
               </form>
 
@@ -285,6 +310,7 @@
 
 <script>
 $(document).ready(function(){
+
 var search = sessionStorage.getItem('currentFilter');
 $("#search").val(search);
  fetch_customer_data(search);
@@ -299,7 +325,7 @@ $("#search").val(search);
    {
     $('#students').html(data.table_data);
     $('#students2').html(data.table_data2);
-    sessionStorage.setItem('currentFilter', query);
+
     // $('#total_records').text(data.total_data);
    }
   })
@@ -307,6 +333,7 @@ $("#search").val(search);
  $(document).on('keyup', '#search', function(){
   var query = $(this).val();
   fetch_customer_data(query);
+  sessionStorage.setItem('currentFilter', query);
  });
 });
 function showExam(){

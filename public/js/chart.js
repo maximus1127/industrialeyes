@@ -1,6 +1,7 @@
 function loadStudent(e){
 
     var fails = ['20/40', '20/50', '20/60', '20/80', '20/100', '20/200', '20/400'];
+    var tester = sessionStorage.getItem('nurseName');
 
     $(".student_list").css('background-color', 'white');
     $("#fname").val($(e).data('fname'));
@@ -24,6 +25,12 @@ function loadStudent(e){
     $("#os_near").val($(e).data('osnear'));
     $("#ou_dist").val($(e).data('oudist'));
     $("#ou_near").val($(e).data('ounear'));
+    $("#notes").val($(e).data('notes'));
+    if($(e).data('nurse') == ""){
+      $("#nurse").val(tester);
+    } else {
+    $("#nurse").val($(e).data('nurse'));
+  }
     $(e).css('background-color', '#11b21c');
     var stunum = $(e).data('identify');
     $('#printExam').attr( 'href','/print/'+ stunum);
@@ -78,6 +85,10 @@ function loadStudent(e){
 //
 // }
 
+
+$("#nurse").keyup(function(){
+  sessionStorage.setItem('nurseName', $(this).val());
+});
 
 
 
