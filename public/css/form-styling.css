@@ -8,7 +8,7 @@
     background: #f6f6f6;
     border-radius: 10px;
 }
-.students-list {padding:10px;}
+.students-list {padding:10px; max-height: 200px; overflow: scroll;}
 .leftSideBar ul, .rightSideBar ul {padding-left:0;}
 .btn {min-width:77px; margin:5px 0;}
 .searh-box {
