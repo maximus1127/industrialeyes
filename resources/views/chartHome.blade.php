@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('/css/bootstrap-grid.min.css')}}" crossorigin="anonymous">
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
     <link href="{{asset('/css/form-styling.css')}}" rel="stylesheet" type="text/css">
+    {{-- <link href="form-styling.css" rel="stylesheet" type="text/css"> --}}
 
          <style>
              html{
@@ -22,11 +23,8 @@
                  cursor: pointer;
                  list-style-type: none;
              }
-
              #notes{
-
              }
-
          </style>
 
 
@@ -81,12 +79,13 @@
 
 
  </div>
-     <div class="container">
+     <div class="container-fluid">
    <br>
 
          <div class="chartForm">
             <div class="row">
-           <div class="leftSideBar col-md-3 d-inline-block align-top">
+              <div class="col-md-4 d-inline-block align-top">
+           <div class="leftSideBar">
              <div class="searh-box"><input  type="text" id="search" name="search" placeholder="Search" class="form-control"/></div>
 
              <div class="students-list">
@@ -107,7 +106,8 @@
 
 
            </div>
-           <div class="main-form-content col-md-6 d-inline-block align-top">
+            </div>
+           <div class="main-form-content col-md-8 d-inline-block align-top">
                 <div class="add-student">
                     <h3>Add New Student</h3>
                     <button onclick="reload()" class="btn btn-info new-student"><img src="/images/add-student-icon.png"></button>
@@ -116,7 +116,7 @@
 
                 {{-- <h3>Student Data</h3> --}}
                 <hr>
-           <div class="content">
+           <div class="content" style = "font-size: 20px;">
              <form class="exam_data" method="post" action = "{{route('submitExam')}}">
                <input type="hidden" id="student_id" name="student_id"/>
                    @csrf
@@ -182,31 +182,7 @@
              </div>
 
            </div><!--/ .main-form-content-->
-           <div class="rightSideBar col-md-3 d-inline-block align-top students-list">
-                <ul id="students2" >
 
-                  {{-- @foreach($students as $student)
-                    @if($student->complete == 1)
-                      <li class="student_list" data-fname = "{{$student->fname}}" data-lname = "{{$student->lname}}" data-identify = "{{$student->id}}" data-dob = "{{$student->dob}}" data-gender = "{{$student->gender}}" data-number = "{{$student->student_number}}" data-school = "{{$student->school}}" data-teacher = "{{$student->teacher}}" data-district = "{{$student->district}}"
-                         data-oddist = "{{$student->od_dist}}"
-                          data-odnear = "{{$student->os_dist}}"
-                           data-osdist = "{{$student->od_near}}"
-                            data-osnear = "{{$student->os_near}}"
-                             data-odcyl = "{{$student->od_cyl}}"
-                              data-oscyl = "{{$student->os_cyl}}"
-                               data-odcolor = "{{$student->od_color}}"
-                                data-oscolor = "{{$student->os_color}}"
-                                 data-oudist = "{{$student->ou_dist}}"
-                                  data-ounear = "{{$student->ou_near}}"
-                         onclick="loadStudent(this)">
-                        {{$student->fname.' '.$student->lname}}
-                      </li>
-                    @endif
-                  @endforeach --}}
-
-              </ul>
-
-              </div><!--Right sidebar-->
             </div><!--row ends-->
            <div class="exam">
                 {{-- <h3 class="text-center">Exam Data</h3> --}}
@@ -310,7 +286,6 @@
 
 <script>
 $(document).ready(function(){
-
 var search = sessionStorage.getItem('currentFilter');
 $("#search").val(search);
  fetch_customer_data(search);
@@ -325,7 +300,6 @@ $("#search").val(search);
    {
     $('#students').html(data.table_data);
     $('#students2').html(data.table_data2);
-
     // $('#total_records').text(data.total_data);
    }
   })

@@ -132,6 +132,14 @@
     font-size: 18pt;
     float: left;
   }
+#page{
+  bottom: 0;
+  right: 10px;
+  position: absolute;
+  font-weight: bolder;
+  font-size: 18pt;
+  float: left;
+}
   #currentExam{
     bottom: 0;
     left: 0;
@@ -164,6 +172,7 @@ img {
 
       </p>
       <p id="letterSize"></p>
+        <p id="page">10ft</p>
     </div>
 
 <script src="{{asset("/js/jquery.js")}}"></script>
