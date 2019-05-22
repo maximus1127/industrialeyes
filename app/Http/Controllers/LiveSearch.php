@@ -34,7 +34,7 @@ class LiveSearch extends Controller
                         {
                             foreach($data as $student)
                                 {
-                                  if($student->complete == 0){
+                                  if($student->complete == 0 || $student->complete == 1){
                                     $output .= '<li class="student_list" data-fname = "'.$student->fname.'" data-lname = "'.$student->lname.'" data-identify = "'.$student->id.'"
                                     data-dob = "'.Carbon::parse($student->dob)->format('m/d/Y').'" data-gender = "'.$student->gender.'" data-number = "'.$student->student_number.'"
                                     data-school = "'.$student->school.'" data-teacher = "'.$student->teacher.'" data-district = "'.$student->district.'"

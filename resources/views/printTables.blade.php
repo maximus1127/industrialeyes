@@ -9,13 +9,13 @@
     {{-- <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/bootstrap-grid.min.css')}}" crossorigin="anonymous"> --}}
          <style>
-             html{
-                 font-size: 10pt;
-             }
+         table{
+           border: 2px solid black;
+         }
 
-             table{
-               margin: 30px;
-             }
+         td{
+           border: 1px solid gray;
+         }
 
 
          </style>
@@ -25,101 +25,128 @@
 
      </head>
      <body style="width: 80%; margin: auto;">
-
-       <div class="row">
-         <div class="chartForm">
-
-           <div class="main-form-content col-7 d-inline-block align-top">
-           <div class="content">
-             <table style="width:100%">
-                <tr>
-                  <th>Student Name</th>
-                  <th>DOB</th>
-                  <th>Date of Screening</th>
-
-                </tr>
-                <tr>
-                  <td>{{$student->fname.' '.$student->lname}}</td>
-                  <td>{{Carbon\Carbon::parse($student->dob)->format('m/d/Y')}}</td>
-                  <td>{{$student->updated_at->format('m/d/Y')}}</td>
-                </tr>
-
-              </table>
-              <br /><br />
-              <h2>Screening Results</h2>
-              <table style="width:100%;">
-                 <tr>
-                   <th>Right Eye</th>
+       <div style="float: left; position: relative;">
 
 
-                 </tr>
-                 <tr>
-                   <td>Distance:</td>
-                   <td>{{$student->od_dist}}</td>
-                   <tr>
-                     <td>Near:</td>
-                     <td>{{$student->od_near}}</td>
-                   </tr>
-                   <tr>
-                     <td>Astigmatism:</td>
-                     <td>{{$student->od_cyl}}</td>
-                   </tr>
-                   <tr>
-                     <td>Color:</td>
-                     <td>{{$student->od_color}}</td>
-                   </tr>
+       <table style="height: 97px;" border="2px" width="700">
+<tbody>
+<tr>
+<td style="width: 342px;"><strong>Student:</strong> {{$student->fname.' '.$student->lname}}</td>
+<td style="width: 342px;"><strong>District:</strong> {{$student->district}}</td>
+</tr>
+<tr>
+<td style="width: 342px;"><strong>ID#:</strong> {{$student->student_number}}</td>
+<td style="width: 342px;"><strong>School:</strong> {{$student->school}}</td>
+</tr>
+<tr>
+<td style="width: 342px;"><strong>Date:</strong> {{Carbon\Carbon::parse($student->updated_at)->format('m/d/Y')}}</td>
+<td style="width: 342px;"><strong>Teacher:</strong> {{$student->teacher}}</td>
+</tr>
+<tr>
+<td style="width: 342px;"><strong>Nurse:</strong> {{$student->nurse}}</td>
+<td style="width: 342px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h1 style="text-align: center;">Vision Screening Summary</h1>
+<p>&nbsp;</p>
+<table style="width: 303px; float: left;" border="1px">
+<tbody>
+<tr>
+<td style="width: 150px; border: none;"><strong>Distance:</strong></td>
+<td style="width: 150px; border: none;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Right Eye</strong></td>
+<td style="width: 150px;">{{$student->od_dist}}</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Left Eye</strong></td>
+<td style="width: 150px;">{{$student->os_dist}}</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Both Eyes</strong></td>
+<td style="width: 150px;">{{$student->ou_dist}}</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 303px; float: left; margin-top: 25px;" border="1px">
+<tbody>
+<tr>
+<td style="width: 150px; border: none;"><strong>Near:</strong></td>
+<td style="width: 150px; border: none;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Right Eye</strong></td>
+<td style="width: 150px;">{{$student->od_near}}</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Left Eye</strong></td>
+<td style="width: 150px;">{{$student->os_near}}</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Both Eyes</strong></td>
+<td style="width: 150px;">{{$student->ou_near}}</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 303px; float: left; margin-top: 25px;" border="1px">
+<tbody>
+<tr>
+<td style="width: 150px;"><strong>Color (boys only):</strong></td>
+<td style="width: 150px;">R: {{$student->od_color}} / L: {{$student->os_color}}</td>
+</tr>
+<tr>
+<td style="width: 150px;"><strong>Astigmatism:</strong></td>
+<td style="width: 150px;">R: {{$student->od_cyl}} / L: {{$student->os_cyl}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="float: left; position: relative; margin-top: -360px; margin-left: 350px;">
 
-                 </tr>
+<p style="padding-left: 30px;">&nbsp;</p>
+<table style="height: 295px; margin-left: auto; margin-right: auto; margin-top: -35px;" border="3px" width="290">
+<tbody>
+<tr>
+<td style="width: 310px; text-align: center;"><strong>A Note About Vision Screenings:</strong></td>
+</tr>
+<tr>
+<td style="width: 310px;">
+<p>&nbsp;<strong>Myopia&nbsp;</strong>(Nearsightedness):</p>
+<p>Children who may be nearsighted and struggling with seeing objects at a distance clearly.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 310px;">
+<p><strong>&nbsp;Hyperopia&nbsp;</strong>(Farsightedness):</p>
+<p>Children who may be farsighted and sturggling with seeing objects that are close to them, especially for reading and writing.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 310px;">
+<p>&nbsp;<strong>Color:&nbsp;</strong></p>
+<p>Children, usually boys, who may not see red and/or green hues accurately. Colorblindness is hereditary, cannot be treated, and should be discussed with a pediatrician.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 310px;">
+<p>&nbsp;<strong>Astigmatism:</strong></p>
+<p>Astigmatism distorts images and can affect vision at all distances, near and far. Astigmatism cannot be seen, it can only be detected by an eye exam.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 310px; text-align: center; font-weight: bold;">If your child received a Referral Recommendation Result, please have your child's vision examined by an eye doctor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><strong>Notes:</strong> {{$student->notes}}</p>
+<p>&nbsp;</p>
+<p>The screening criteria has been established by the State Department of Health and Education. They are for screening purposes only and are not a replacement for diagnostic tests. If you notice any problems with your child's vision, even after passing a screening test, please consult wiht your pediatrician or family doctor right away.</p>
 
-               </table>
-               <table style="width:100%;">
-                  <tr>
-                    <th>Left Eye</th>
-
-
-                  </tr>
-                  <tr>
-                    <td>Distance:</td>
-                    <td>{{$student->os_dist}}</td>
-                    <tr>
-                      <td>Near:</td>
-                      <td>{{$student->os_near}}</td>
-                    </tr>
-                    <tr>
-                      <td>Astigmatism:</td>
-                      <td>{{$student->os_cyl}}</td>
-                    </tr>
-                    <tr>
-                      <td>Color:</td>
-                      <td>{{$student->os_color}}</td>
-                    </tr>
-
-                  </tr>
-
-                </table>
-                <table style="width:100%;">
-                   <tr>
-                     <th>Both Eyes</th>
-
-
-                   </tr>
-                   <tr>
-                     <td>Distance:</td>
-                     <td>{{$student->ou_dist}}</td>
-                   </tr>
-                     <tr>
-                       <td>Near:</td>
-                       <td>{{$student->ou_near}}</td>
-                     </tr>
-
-                 </table>
-             </div>
-           </div><!--/ .main-form-content-->
-
-
-          </div>
-
-         </div><!--.row ends-->
 
 
 
