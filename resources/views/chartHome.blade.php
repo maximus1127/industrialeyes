@@ -59,26 +59,38 @@
 
    </nav>
  @endif
- <div >
+ <div id="top-bar" >
      {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
          {{ Auth::user()->name }} <span class="caret"></span>
      </a> --}}
 
      {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
-         <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Logout') }}
-         </a>
+     <div class="top_item">
+       <a class="dropdown-item" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+           {{ __('Logout') }}
+       </a>
 
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-             @csrf
-         </form>
+       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+           @csrf
+       </form>
+     </div>
+        <div class="top_item">
+          <form method='get' action='{{route('exportRoster')}}' >
+            {{ csrf_field() }}
+
+               <input type='submit' name='submit' value='Download Roster' class="btn btn-primary">
+
+          </form>
+        </div>
+
 
      {{-- </div> --}}
 
 
  </div>
+ <br />
      <div class="container-fluid">
    <br>
 
@@ -235,6 +247,14 @@
                                 <label for="ou_near">OU Near</label>
                                 <input type="text" class="form-control" name="ou_near" id="ou_near">
                               </div>
+                              <div class="form-group">
+                                  <label for="r_ear">Right Ear</label>
+                                  <input type="text" class="form-control" name="r_ear" id="r_ear">
+                                </div>
+                                <div class="form-group">
+                                    <label for="l_ear">Left Ear</label>
+                                    <input type="text" class="form-control" name="l_ear" id="l_ear">
+                                  </div>
                           </div><!--exam-data-new ends-->
                     </div>
 

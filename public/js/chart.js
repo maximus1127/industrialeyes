@@ -26,6 +26,8 @@ function loadStudent(e){
     $("#ou_dist").val($(e).data('oudist'));
     $("#ou_near").val($(e).data('ounear'));
     $("#notes").val($(e).data('notes'));
+    $("#r_ear").val($(e).data('rear'));
+    $("#l_ear").val($(e).data('lear'));
     if($(e).data('nurse') == ""){
       $("#nurse").val(tester);
     } else {

@@ -50,6 +50,8 @@ class LiveSearch extends Controller
                                              data-ounear = "'.$student->ou_near.'"
                                              data-notes = "'.$student->notes.'"
                                              data-nurse = "'.$student->nurse.'"
+                                             data-rear = "'.$student->r_ear.'"
+                                             data-lear = "'.$student->l_ear.'"
 
                                     onclick="loadStudent(this)">
                                       '.$student->fname." ".$student->lname.'
@@ -70,6 +72,8 @@ class LiveSearch extends Controller
                                              data-ounear = "'.$student->ou_near.'"
                                              data-notes = "'.$student->notes.'"
                                              data-nurse = "'.$student->nurse.'"
+                                             data-rear = "'.$student->r_ear.'"
+                                             data-lear = "'.$student->l_ear.'"
 
 
                                     onclick="loadStudent(this)">
