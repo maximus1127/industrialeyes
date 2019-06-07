@@ -146,6 +146,15 @@ img {
   max-height: 80%;
 }
 
+#page{
+  bottom: 0;
+  right: 10px;
+  position: absolute;
+  font-weight: bolder;
+  font-size: 18pt;
+  float: left;
+}
+
 
     </style>
 
@@ -164,6 +173,7 @@ img {
 
       </p>
       <p id="letterSize"></p>
+      <p id="page">10ft</p>
     </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -275,6 +285,7 @@ img {
       if (event.which == 54 ){
         var sixSize = {{$calibration->size}};
         $("#content").css('font-size', (sixSize * .6) + 'px');
+        $("#page").html("6ft");
       };
       if (event.which == 78 ){
         setNear();
