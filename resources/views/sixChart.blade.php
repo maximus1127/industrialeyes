@@ -337,7 +337,9 @@ img {
 
       };
 
-
+      if (event.which == 37 || event.which == 39){
+        randomize();
+      }
 
 
     });
