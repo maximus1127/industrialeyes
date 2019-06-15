@@ -50,8 +50,14 @@ class LiveSearch extends Controller
                                              data-ounear = "'.$student->ou_near.'"
                                              data-notes = "'.$student->notes.'"
                                              data-nurse = "'.$student->nurse.'"
-                                             data-rear = "'.$student->r_ear.'"
-                                             data-lear = "'.$student->l_ear.'"
+                                             data-r1k = "'.$student->r1k.'"
+                                             data-r2k = "'.$student->r2k.'"
+                                             data-r4k = "'.$student->r4k.'"
+                                             data-r5k = "'.$student->r5k.'"
+                                             data-l1k = "'.$student->l1k.'"
+                                             data-l2k = "'.$student->l2k.'"
+                                             data-l4k = "'.$student->l4k.'"
+                                             data-l5k = "'.$student->l5k.'"
 
                                     onclick="loadStudent(this)">
                                       '.$student->fname." ".$student->lname.'
@@ -72,8 +78,14 @@ class LiveSearch extends Controller
                                              data-ounear = "'.$student->ou_near.'"
                                              data-notes = "'.$student->notes.'"
                                              data-nurse = "'.$student->nurse.'"
-                                             data-rear = "'.$student->r_ear.'"
-                                             data-lear = "'.$student->l_ear.'"
+                                             data-r1k = "'.$student->r1k.'"
+                                             data-r2k = "'.$student->r2k.'"
+                                             data-r4k = "'.$student->r4k.'"
+                                             data-r5k = "'.$student->r5k.'"
+                                             data-l1k = "'.$student->l1k.'"
+                                             data-l2k = "'.$student->l2k.'"
+                                             data-l4k = "'.$student->l4k.'"
+                                             data-l5k = "'.$student->l5k.'"
 
 
                                     onclick="loadStudent(this)">

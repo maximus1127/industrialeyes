@@ -26,8 +26,14 @@ function loadStudent(e){
     $("#ou_dist").val($(e).data('oudist'));
     $("#ou_near").val($(e).data('ounear'));
     $("#notes").val($(e).data('notes'));
-    $("#r_ear").val($(e).data('rear'));
-    $("#l_ear").val($(e).data('lear'));
+    $("#r1k").val($(e).data('r1k'));
+    $("#r2k").val($(e).data('r2k'));
+    $("#r4k").val($(e).data('r4k'));
+    $("#r5k").val($(e).data('r5k'));
+    $("#l1k").val($(e).data('l1k'));
+    $("#l2k").val($(e).data('l2k'));
+    $("#l4k").val($(e).data('l4k'));
+    $("#l5k").val($(e).data('l5k'));
     if($(e).data('nurse') == ""){
       $("#nurse").val(tester);
     } else {
@@ -91,6 +97,9 @@ function loadStudent(e){
 $("#nurse").keyup(function(){
   sessionStorage.setItem('nurseName', $(this).val());
 });
+
+
+
 
 
 

@@ -86,8 +86,15 @@ class ChartController extends Controller
       $student->notes = $request->notes;
       $student->complete = 1;
       $student->nurse = $request->nurse;
-      $student->r_ear = $request->r_ear;
-      $student->l_ear = $request->l_ear;
+      $student->r1k = $request->r1k;
+      $student->r2k = $request->r2k;
+      $student->r4k = $request->r4k;
+      $student->r5k = $request->r5k;
+      $student->l1k = $request->l1k;
+      $student->l2k = $request->l2k;
+      $student->l4k = $request->l4k;
+      $student->l5k = $request->l5k;
+
       $student->save();
       return back();
     } else{
@@ -114,8 +121,15 @@ class ChartController extends Controller
       $student->notes = $request->notes;
       $student->complete = 1;
         $student->nurse = $request->nurse;
-        $student->r_ear = $request->r_ear;
-        $student->l_ear = $request->l_ear;
+        $student->r1k = $request->r1k;
+        $student->r2k = $request->r2k;
+        $student->r4k = $request->r4k;
+        $student->r5k = $request->r5k;
+        $student->l1k = $request->l1k;
+        $student->l2k = $request->l2k;
+        $student->l4k = $request->l4k;
+        $student->l5k = $request->l5k;
+
       $student->save();
       return back();
 
@@ -139,6 +153,14 @@ class ChartController extends Controller
       $student->r_ear = "";
       $student->l_ear = "";
       $student->complete = 0;
+      $student->r1k = "";
+      $student->r2k = "";
+      $student->r4k = "";
+      $student->r5k = "";
+      $student->l1k = "";
+      $student->l2k = "";
+      $student->l4k = "";
+      $student->l5k = "";
       $student->save();
       return back();
     }

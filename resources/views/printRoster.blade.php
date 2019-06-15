@@ -13,12 +13,14 @@
 
 <body>
 
-  <table style="width:100%">
+  <table style="width:100%;">
     <tr>
-      <th>Student Name</th>
-      <th>Student ID</th>
-      <th>Test Date/Time</th>
-      <th>Pass/Fail</th>
+      <th align = "left">Student Name</th>
+      <th align = "left">Student ID</th>
+      <th align = "left">District</th>
+      <th align = "left">School</th>
+      <th align = "left">Test Date/Time</th>
+      <th align = "left">Pass/Fail</th>
       <th>Nurse</th>
     </tr>
     @foreach($students as $student)
@@ -28,6 +30,8 @@
     <tr>
       <td>{{$student->fname.' '.$student->lname}}</td>
       <td>{{$student->student_number}}</td>
+      <td>{{$student->district}}</td>
+      <td>{{$student->school}}</td>
       <td>{{$student->updated_at}}</td>
       @if(in_array($student->od_dist, $grade) || in_array($student->os_dist, $grade) || in_array($student->ou_dist, $grade))
       <td>Failed</td>

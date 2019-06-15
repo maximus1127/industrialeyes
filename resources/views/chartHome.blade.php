@@ -206,6 +206,7 @@
                   <button type="button" class="btn btn-success" onclick="showExam5()">HOTV</button>
                   <button type="button" class="btn btn-success" onclick="showExam2()">Near</button>
                   <button type="button" class="btn btn-success" onclick="showExam3()">Color</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Hearing</button>
                   <div class="row">
                       <div class="col-md-12">
                   <button  type="submit" class="btn btn-primary" id="startExam"><img src="images/submit-icon.png" class="submit-icon">Submit</button>
@@ -247,14 +248,14 @@
                                 <label for="ou_near">OU Near</label>
                                 <input type="text" class="form-control" name="ou_near" id="ou_near">
                               </div>
-                              <div class="form-group">
+                              {{-- <div class="form-group">
                                   <label for="r_ear">Right Ear</label>
                                   <input type="text" class="form-control" name="r_ear" id="r_ear">
                                 </div>
                                 <div class="form-group">
                                     <label for="l_ear">Left Ear</label>
                                     <input type="text" class="form-control" name="l_ear" id="l_ear">
-                                  </div>
+                                  </div> --}}
                           </div><!--exam-data-new ends-->
                     </div>
 
@@ -287,14 +288,220 @@
 
                   </textarea>
 
-              </form>
+
 
               </div>
 
 
           </div>
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" onload="loadHearingValues()">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <button type="button" class="btn btn-success" data-dismiss="modal" style="width: 10%;margin: 30px;">Save</button>
+                <div class="row">
+                  <div class="col-md-6" style="padding: 40px;">
+                          <h5>Right</h5>
+                      <div class="exam-data-new">
+                          <div class="form-group">
+                          <label for="r1k">R1k</label>
+                          <select type="text" class="form-control" name="r1k" id="r1k">
+                            <option value="">
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+                          <div class="form-group">
+                          <label for="r2k">R2k</label>
+                          <select type="text" class="form-control" name="r2k" id="r2k">
+                            <option value="">
 
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+                          <div class="form-group">
+                          <label for="r4k">R4k</label>
+                          <select type="text" class="form-control" name="r4k" id="r4k">
+                            <option value="">
 
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+                          <div class="form-group">
+                          <label for="r5k">R5k</label>
+                          <select type="text" class="form-control" name="r5k" id="r5k">
+                            <option value="">
+
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+
+                      </div><!--exam-data-new ends-->
+                  </div>
+                  <div class="col-md-6" style="padding: 40px;">
+                          <h5>Left</h5>
+                      <div class="exam-data-new" >
+                          <div class="form-group">
+                          <label for="l1k">L1k</label>
+                          <select type="text" class="form-control" name="l1k" id="l1k">
+                            <option value="">
+
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+                          <div class="form-group">
+                          <label for="l2k">L2k</label>
+                          <select type="text" class="form-control" name="l2k" id="l2k">
+                            <option value="">
+
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+                          <div class="form-group">
+                          <label for="l4k">L4k</label>
+                          <select type="text" class="form-control" name="l4k" id="l4k">
+                            <option value="">
+
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+                          <div class="form-group">
+                          <label for="l5k">L5k</label>
+                          <select type="text" class="form-control" name="l5k" id="l5k">
+                            <option value="">
+
+                            </option>
+                            <option value = '25'>25</option>
+                            <option value = '30'>30</option>
+                            <option value = '35'>35</option>
+                            <option value = '40'>40</option>
+                            <option value = '45'>45</option>
+                            <option value = '50'>50</option>
+                            <option value = '55'>55</option>
+                            <option value = '60'>60</option>
+                            <option value = '65'>65</option>
+                            <option value = '70'>70</option>
+                            <option value = '75'>75</option>
+                            <option value = '80'>80</option>
+                            <option value = '85'>85</option>
+                            <option value = '90'>90</option>
+                            <option value = '95'>95</option>
+                          </select>
+                          </div>
+
+                      </div><!--exam-data-new ends-->
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+</form>
        </div><!--.container ends-->
 
 
@@ -377,6 +584,9 @@ function reload(){
 function closeChild(){
      win2.close();
  }
+
+
+
 </script>
 
 
