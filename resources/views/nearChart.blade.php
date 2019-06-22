@@ -190,17 +190,23 @@ img {
     var selection = letters;
     var currentSize = 0;
     var loopCount = 5;
+    var single = false;
     $("#patient1").addClass(sizes[currentSize]);
 
-
+    function setSingle(){
+      single = !single;
+      console.log(single);
+    }
     function loopSet(){
     if ($('#patient1').hasClass('tumble400')){
       loopCount = 1;
-    } else if ($('#patient1').hasClass('tumble200')) {
+    } else if ($('#patient1').hasClass('tumble200') && single == false) {
       loopCount = 3;
-    } else if ($('#patient1').hasClass('tumble100')) {
+    } else if ($('#patient1').hasClass('tumble100') && single == false) {
       loopCount = 4;
     } else if ($('#patient1').hasClass('tumble300')) {
+      loopCount = 1;
+    } else if(single == true){
       loopCount = 1;
     } else {
       loopCount = 5;
@@ -271,35 +277,43 @@ img {
     var student_responses = [];
 
     $('html').on('keydown', function(event){
-
-      if (event.which == 49 ){
+      if(event.which == 79){
+        setSingle();
+        loopSet();
+        randomize();
+      }
+      if (event.which == 13){
+        randomize();
+      }
+      if (event.which == 83 ){
         selection = letters;
           randomize();
       };
-      if (event.which == 50 ){
+      if (event.which == 78 ){
         selection = numbers;
         randomize();
       };
-      if (event.which == 51 ){
+      if (event.which == 69 ){
         selection = ees;
           randomize();
       };
-      if (event.which == 52 ){
+      if (event.which == 75 ){
         selection = pictures;
           randomize();
       };
-      if (event.which == 73 ){
-        grow();
-      };
-      if (event.which == 79 ){
-        shrink();
-      };
-      if (event.which == 54 ){
+
+
+      if (event.which == 88 ){
         var sixSize = {{$calibration->size}};
         $("#content").css('font-size', (sixSize * .6) + 'px');
+        $("#page").html("6ft");
       };
-      if (event.which == 78 ){
+      if (event.which == 50 ){
         setNear();
+      };
+      if (event.which == 83 ){
+        setSingle();
+        console.log('single set');
       };
 
       if (event.which == 38 ){
@@ -324,11 +338,11 @@ img {
 
       if (event.which == 32 ){
         student_responses.push($("#letterSize").html());
-        opener.fillIn2();
+        opener.fillIn();
         if (student_responses.length == 1){
-            $("#currentExam").html('Left Eye Near');
+            $("#currentExam").html('Left Eye Distance');
         } else if (student_responses.length == 2){
-            $("#currentExam").html('Both Eyes Near');
+            $("#currentExam").html('Both Eyes Distance');
         }
         else if(student_responses.length == 3)
         window.close();
@@ -341,6 +355,37 @@ img {
 
 
     });
+
+
+
+
+    var currentZoom = 20;
+    function grow(){
+        currentZoom += 1;
+        $("#content").css('font-size', currentZoom + 'px');
+        $.ajax({
+          url: "/insert",
+          data:{
+            size: currentZoom
+          }
+
+        });
+    }
+
+
+    function shrink(){
+       currentZoom -= 1;
+       $("#content").css('font-size', currentZoom + 'px');
+       $.ajax({
+         url: "/insert",
+         data:{
+           size: currentZoom
+         }
+
+       });
+    }
+
+
 
 
 function setNear(){

@@ -297,14 +297,37 @@
           <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" onload="loadHearingValues()">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
-                <button type="button" class="btn btn-success" data-dismiss="modal" style="width: 10%;margin: 30px;">Save</button>
+
                 <div class="row">
                   <div class="col-md-6" style="padding: 40px;">
                           <h5>Right</h5>
                       <div class="exam-data-new">
+                        <div class="form-group">
+                        <label for="r5k">R5k</label>
+                        <select type="text" class="form-control hearing-dropdown" name="r5k" id="r5k">
+                          <option value="">
+
+                          </option>
+                          <option value = '25'>25</option>
+                          <option value = '30'>30</option>
+                          <option value = '35'>35</option>
+                          <option value = '40'>40</option>
+                          <option value = '45'>45</option>
+                          <option value = '50'>50</option>
+                          <option value = '55'>55</option>
+                          <option value = '60'>60</option>
+                          <option value = '65'>65</option>
+                          <option value = '70'>70</option>
+                          <option value = '75'>75</option>
+                          <option value = '80'>80</option>
+                          <option value = '85'>85</option>
+                          <option value = '90'>90</option>
+                          <option value = '95'>95</option>
+                        </select>
+                        </div>
                           <div class="form-group">
                           <label for="r1k">R1k</label>
-                          <select type="text" class="form-control" name="r1k" id="r1k">
+                          <select type="text" class="form-control hearing-dropdown" name="r1k" id="r1k">
                             <option value="">
                             </option>
                             <option value = '25'>25</option>
@@ -326,7 +349,7 @@
                           </div>
                           <div class="form-group">
                           <label for="r2k">R2k</label>
-                          <select type="text" class="form-control" name="r2k" id="r2k">
+                          <select type="text" class="form-control hearing-dropdown" name="r2k" id="r2k">
                             <option value="">
 
                             </option>
@@ -349,7 +372,7 @@
                           </div>
                           <div class="form-group">
                           <label for="r4k">R4k</label>
-                          <select type="text" class="form-control" name="r4k" id="r4k">
+                          <select type="text" class="form-control hearing-dropdown" name="r4k" id="r4k">
                             <option value="">
 
                             </option>
@@ -370,38 +393,39 @@
                             <option value = '95'>95</option>
                           </select>
                           </div>
-                          <div class="form-group">
-                          <label for="r5k">R5k</label>
-                          <select type="text" class="form-control" name="r5k" id="r5k">
-                            <option value="">
 
-                            </option>
-                            <option value = '25'>25</option>
-                            <option value = '30'>30</option>
-                            <option value = '35'>35</option>
-                            <option value = '40'>40</option>
-                            <option value = '45'>45</option>
-                            <option value = '50'>50</option>
-                            <option value = '55'>55</option>
-                            <option value = '60'>60</option>
-                            <option value = '65'>65</option>
-                            <option value = '70'>70</option>
-                            <option value = '75'>75</option>
-                            <option value = '80'>80</option>
-                            <option value = '85'>85</option>
-                            <option value = '90'>90</option>
-                            <option value = '95'>95</option>
-                          </select>
-                          </div>
 
                       </div><!--exam-data-new ends-->
                   </div>
                   <div class="col-md-6" style="padding: 40px;">
                           <h5>Left</h5>
                       <div class="exam-data-new" >
+                        <div class="form-group">
+                        <label for="l5k">L5k</label>
+                        <select type="text" class="form-control hearing-dropdown" name="l5k" id="l5k">
+                          <option value="">
+
+                          </option>
+                          <option value = '25'>25</option>
+                          <option value = '30'>30</option>
+                          <option value = '35'>35</option>
+                          <option value = '40'>40</option>
+                          <option value = '45'>45</option>
+                          <option value = '50'>50</option>
+                          <option value = '55'>55</option>
+                          <option value = '60'>60</option>
+                          <option value = '65'>65</option>
+                          <option value = '70'>70</option>
+                          <option value = '75'>75</option>
+                          <option value = '80'>80</option>
+                          <option value = '85'>85</option>
+                          <option value = '90'>90</option>
+                          <option value = '95'>95</option>
+                        </select>
+                        </div>
                           <div class="form-group">
                           <label for="l1k">L1k</label>
-                          <select type="text" class="form-control" name="l1k" id="l1k">
+                          <select type="text" class="form-control hearing-dropdown" name="l1k" id="l1k">
                             <option value="">
 
                             </option>
@@ -424,7 +448,7 @@
                           </div>
                           <div class="form-group">
                           <label for="l2k">L2k</label>
-                          <select type="text" class="form-control" name="l2k" id="l2k">
+                          <select type="text" class="form-control hearing-dropdown" name="l2k" id="l2k">
                             <option value="">
 
                             </option>
@@ -447,7 +471,7 @@
                           </div>
                           <div class="form-group">
                           <label for="l4k">L4k</label>
-                          <select type="text" class="form-control" name="l4k" id="l4k">
+                          <select type="text" class="form-control hearing-dropdown" name="l4k" id="l4k">
                             <option value="">
 
                             </option>
@@ -468,33 +492,17 @@
                             <option value = '95'>95</option>
                           </select>
                           </div>
-                          <div class="form-group">
-                          <label for="l5k">L5k</label>
-                          <select type="text" class="form-control" name="l5k" id="l5k">
-                            <option value="">
 
-                            </option>
-                            <option value = '25'>25</option>
-                            <option value = '30'>30</option>
-                            <option value = '35'>35</option>
-                            <option value = '40'>40</option>
-                            <option value = '45'>45</option>
-                            <option value = '50'>50</option>
-                            <option value = '55'>55</option>
-                            <option value = '60'>60</option>
-                            <option value = '65'>65</option>
-                            <option value = '70'>70</option>
-                            <option value = '75'>75</option>
-                            <option value = '80'>80</option>
-                            <option value = '85'>85</option>
-                            <option value = '90'>90</option>
-                            <option value = '95'>95</option>
-                          </select>
-                          </div>
 
                       </div><!--exam-data-new ends-->
                   </div>
 
+
+
+                </div>
+                <div class="row">
+                  <button type="button" class="btn btn-success" data-dismiss="modal" style="width: 10%;margin-left: 10%;">Save</button>
+                  <button type="button" class="btn btn-info" onclick="allPass()"  style="width: 10%;margin-left: 10%;">All Pass</button>
                 </div>
 
               </div>
@@ -583,6 +591,12 @@ function reload(){
 }
 function closeChild(){
      win2.close();
+ }
+
+ function allPass(){
+   $(".hearing-dropdown").each(function(){
+     $(this).val('25');
+   })
  }
 
 

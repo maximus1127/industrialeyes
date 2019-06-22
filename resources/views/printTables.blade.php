@@ -103,10 +103,40 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div style="float: left; position: relative; margin-top: -360px; margin-left: 350px;">
+<table style="width: 303px; float: left; margin-top: 25px;" border="1px">
+	<tbody>
+    <tr>
+      <td>Right Ear </td>
+      <td>Frequency </td>
+      <td>Left Ear </td>
+    </tr>
+		<tr>
+			<td>{{$student->r5k}} </td>
+			<td>5k Hertz </td>
+			<td>{{$student->l5k}} </td>
+		</tr>
+		<tr>
+			<td>{{$student->r1k}} </td>
+			<td>1k Hertz </td>
+			<td>{{$student->l1k}} </td>
+		</tr>
+		<tr>
+			<td>{{$student->r2k}} </td>
+			<td>2k Hertz </td>
+			<td>{{$student->l2k}} </td>
+		</tr>
+		<tr>
+			<td>{{$student->r4k}} </td>
+			<td>4k Hertz </td>
+			<td>{{$student->l4k}} </td>
+		</tr>
 
-<p style="padding-left: 30px;">&nbsp;</p>
+	</tbody>
+</table>
+</div>
+<div style="float: left; position: relative; margin-top: -430px; margin-left: 350px;">
+
+{{-- <p style="padding-left: 30px;">&nbsp;</p> --}}
 <table style="height: 295px; margin-left: auto; margin-right: auto; margin-top: -35px;" border="3px" width="290">
 <tbody>
 <tr>

@@ -173,7 +173,7 @@ img {
 
       </p>
       <p id="letterSize"></p>
-      <p id="page">10ft</p>
+      <p id="page">6ft</p>
     </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -280,16 +280,39 @@ img {
     var student_responses = [];
 
     $('html').on('keydown', function(event){
-
-
-      if (event.which == 54 ){
-        var sixSize = {{$calibration->size}};
-        $("#content").css('font-size', (sixSize * .6) + 'px');
-        $("#page").html("6ft");
+      if(event.which == 79){
+        setSingle();
+        randomize();
+      }
+      if (event.which == 13){
+        randomize();
+      }
+      if (event.which == 83 ){
+        selection = letters;
+          randomize();
       };
       if (event.which == 78 ){
-        setNear();
+        selection = numbers;
+        randomize();
       };
+      if (event.which == 69 ){
+        selection = ees;
+          randomize();
+      };
+      if (event.which == 75 ){
+        selection = pictures;
+          randomize();
+      };
+
+
+      if (event.which == 88 ){
+    
+        $("#content").css('font-size', {{$calibration->size}} + 'px');
+        $("#page").html("10ft");
+      };
+      // if (event.which == 50 ){
+      //   setNear();
+      // };
       if (event.which == 83 ){
         setSingle();
         console.log('single set');
@@ -342,24 +365,34 @@ img {
     function grow(){
         currentZoom += 1;
         $("#content").css('font-size', currentZoom + 'px');
-        localStorage.setItem('storeSize', currentZoom);
-        // localStorage.setItem("storeSize", currentZoom);
+        $.ajax({
+          url: "/insert",
+          data:{
+            size: currentZoom
+          }
 
+        });
     }
 
 
     function shrink(){
        currentZoom -= 1;
        $("#content").css('font-size', currentZoom + 'px');
-       localStorage.setItem("storeSize", currentZoom);
+       $.ajax({
+         url: "/insert",
+         data:{
+           size: currentZoom
+         }
 
+       });
     }
+
 
 
     $(document).ready(function(){
 
       $("#currentExam").html('Right Eye Distance');
-      $("#content").css('font-size', {{$calibration->size}} + "px");
+      $("#content").css('font-size', ({{$calibration->size}} * .6) + "px");
 
     });
 
