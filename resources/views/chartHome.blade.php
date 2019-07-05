@@ -66,7 +66,7 @@
 
      {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
      <div class="top_item">
-       <a class="dropdown-item" href="{{ route('logout') }}"
+       <a class="btn btn-secondary" style="margin: 5px 20px 0 20px;" href="{{ route('logout') }}"
           onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
            {{ __('Logout') }}
@@ -87,7 +87,9 @@
 
 
      {{-- </div> --}}
-
+     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2" style="margin-left: 20px;">
+        Select District/School
+      </button>
 
  </div>
  <br />
@@ -98,7 +100,47 @@
             <div class="row">
               <div class="col-md-4 d-inline-block align-top">
            <div class="leftSideBar">
-             <div class="searh-box"><input  type="text" id="search" name="search" placeholder="Search" class="form-control"/></div>
+
+
+              <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Filter Students</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                                     <select  id="search_district" name="search_district" onchange="populateSchool()"  class="form-control" style="height: 40px;"/>
+                                        <option>
+                                          Select District....
+                                        </option>
+                                         @foreach($districts as $district)
+                                          <option value="{{$district->district}}">
+                                              {{$district->district}}
+                                          </option>
+                                         @endforeach
+
+                                     </select>
+                                     <select  id="search_school" name="search_school"  class="form-control" onchange="populateStudents()" style="height: 40px;"/>
+                                        <option>
+                                          Select School....
+                                        </option>
+
+
+                                     </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Filter</button>
+                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             <div class="searh-box"><input  type="text" onkeyup="findName()" id="search" name="search" placeholder="Search" class="form-control"/></div>
 
              <div class="students-list">
                     <ul id="students">
@@ -283,10 +325,10 @@
                   </div><!--/ .row ends-->
                   <br />
                   <label for="notes"><h3>Notes</h3></label>
-                  <textarea class="form-control" rows="4" name="notes" id="notes">
-
-
-                  </textarea>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+                    Select Notes
+                  </button>
+                  <textarea class="form-control" rows="1" name="notes" id="notes"></textarea>
 
 
 
@@ -294,6 +336,47 @@
 
 
           </div>
+          <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel3">Select Notes</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note1" value="Language Barrier"> Language Barrier<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note2" value="Uncooperative"> Uncooperative<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note3" value="Immature"> Immature<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note4" value="Blurring"> Blurring<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note5" value="Blinking / Squinting"> Blinking / Squinting<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note6" value="Straining"> Straining<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note7" value="Eyes Water / Red"> Eyes Water / Red<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note8" value="Eyes Cross / Wandering"> Eyes Cross / Wandering<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note9" value="Does not have glasses at exam"> Does not have glasses at exam<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note10" value="Wore glasses previously"> Wore glasses previously<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note11" value="Headaches"> Headaches<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note12" value="Cold / Congested"> Cold / Congested<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note13" value="Recent or present earaches"> Recent or present earaches<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note14" value="Reports history of ear problems"> Reports history of ear problems<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note15" value="Reports ringing or head noises"> Reports ringing or head noises<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note16" value="Legal pass Ck 500 Hz"> Legal pass Ck 500 Hz<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note17" value="Reports awareness problem"> Reports awareness problem<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note18" value="Surgery"> Surgery<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note19" value="Exam within last year"> Exam within last year<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note20" value="Known problem / Under medical care"> Known problem / Under medical care<br>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+                  {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
           <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" onload="loadHearingValues()">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
@@ -520,31 +603,7 @@
        <script src="{{asset("/js/chart.js")}}"></script>
 
 <script>
-$(document).ready(function(){
-var search = sessionStorage.getItem('currentFilter');
-$("#search").val(search);
- fetch_customer_data(search);
- function fetch_customer_data(query = '')
- {
-  $.ajax({
-   url:"{{ route('live_search.action') }}",
-   method:'GET',
-   data:{query:query},
-   dataType:'json',
-   success:function(data)
-   {
-    $('#students').html(data.table_data);
-    $('#students2').html(data.table_data2);
-    // $('#total_records').text(data.total_data);
-   }
-  })
- }
- $(document).on('keyup', '#search', function(){
-  var query = $(this).val();
-  fetch_customer_data(query);
-  sessionStorage.setItem('currentFilter', query);
- });
-});
+
 function showExam(){
     return win2=window.open('{{route('exam')}}');
 }
@@ -599,6 +658,105 @@ function closeChild(){
    })
  }
 
+function populateSchool(){
+  $.ajax({
+   url:"{{ route('get_schools') }}",
+   method:'GET',
+   data:{district:$('#search_district').val()},
+   dataType:'json',
+   success:function(data)
+   {
+      $('#search_school').append(data.school_data);
+
+   }
+ });
+}
+
+function populateStudents(){
+  $.ajax({
+   url:"{{ route('get_students') }}",
+   method:'GET',
+   data:{
+            district:$('#search_district').val(),
+            school:$('#search_school').val()
+            },
+   dataType:'json',
+   success:function(childs)
+   {
+     // console.log(childs);
+      $('#students').html(childs.student_data);
+      sessionStorage.setItem("school", $('#search_school').val());
+      sessionStorage.setItem("district", $('#search_district').val());
+   }
+ });
+}
+
+function autoPopulateStudents(){
+  $.ajax({
+   url:"{{ route('get_students') }}",
+   method:'GET',
+   data:{
+            district:sessionStorage.getItem('district'),
+            school:sessionStorage.getItem('school')
+            },
+   dataType:'json',
+   success:function(childs)
+   {
+     // console.log(childs);
+      $('#students').html(childs.student_data);
+
+   }
+ });
+}
+
+function findName() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('search');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("students");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    // a = li[i].getElementsByTagName("a")[0];
+    txtValue = $(li[i]).html();
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+function autoDistrict(){
+  if( sessionStorage.getItem('district')){
+  $('#search_district').val(sessionStorage.getItem('district'));
+  setTimeout(autoSchool(), 400)
+}
+}
+
+function autoSchool(){
+  if(sessionStorage.getItem('school'))
+  $("#search_school").val(sessionStorage.getItem('school'));
+}
+
+$(document).ready(function(){
+  if(sessionStorage.getItem('district') || sessionStorage.getItem('school')){
+    autoPopulateStudents();
+    $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
+}
+
+
+});
+
+
+function addNote(e){
+var note = $(e).val();
+$("#notes").append(note + ". ");
+
+
+}
 
 
 </script>

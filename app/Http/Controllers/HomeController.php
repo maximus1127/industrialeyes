@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Student;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('chartHome');
+      $students = Student::all();
+      $districts = $students->unique('district');
+        return view('chartHome')->with(compact('districts'));
+    }
+
+    public function schoolSelect(){
+      $students = Student::all();
+      $districts = $students->unique('district');
+      return view('schoolSelect')->with(compact('districts'));
     }
 }

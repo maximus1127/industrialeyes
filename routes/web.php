@@ -38,3 +38,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/insert', 'CalibrationController@insert');
+Route::get('/schoolSelect', 'HomeController@schoolSelect')->name('schoolSelect');
+Route::get('/get_schools', 'SchoolsController@search')->name('get_schools');
+Route::get('/get_students', 'SchoolsController@searchStudents')->name('get_students');

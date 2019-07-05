@@ -33,18 +33,21 @@
     .tumble400 {
 
     font-size: 2000%;
+    /* line-height: 2000%; */
 
   }
 
   .tumble300 {
 
     font-size: 1500%;
+    /* line-height: 1500%; */
 
   }
 
   .tumble200 {
 
     font-size: 1000%;
+    /* line-height: 1000%; */
     letter-spacing: .3em;
 
   }
@@ -54,6 +57,7 @@
     padding: 20px 0;
     margin: 0;
     font-size: 500%;
+    /* line-height: 500%; */
     letter-spacing: .3em;
 
   }
@@ -62,6 +66,7 @@
     padding: 20px 0;
     margin: 0;
     font-size: 400%;
+    /* line-height: 400%; */
     letter-spacing: .35em;
 
   }
@@ -70,6 +75,7 @@
     padding: 20px 0;
     margin: 0;
     font-size: 350%;
+    /* line-height: 350%; */
     letter-spacing: .3em;
   }
 
@@ -77,6 +83,7 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 300%;
+    /* line-height: 300%; */
     letter-spacing: .3em;
 
 
@@ -86,6 +93,7 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 250%;
+    /* line-height: 250%; */
     letter-spacing: .25em;
 
 
@@ -95,6 +103,7 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 200%;
+    /* line-height: 200%; */
     letter-spacing: .2em;
 ;
   }
@@ -103,6 +112,7 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 150%;
+    /* line-height: 150%; */
     letter-spacing: .15em;
 
   }
@@ -111,6 +121,7 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 125%;
+    /* line-height: 125%; */
     letter-spacing: .125em;
 
 
@@ -120,10 +131,22 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 100%;
+    /* line-height: 100%; */
     letter-spacing: .1em;
 
   }
 
+
+/*
+  .tumble25 img{
+    height: 1em;
+  } */
+
+.tumble20 img, .tumble25 img, .tumble30 img, .tumble40 img, .tumble50 img, .tumble60 img, .tumble70 img, .tumble80 img, .tumble100 img, .tumble200 img, .tumble300 img, .tumble400  img{
+  padding: 0;
+  margin: 0 15px;
+  height: 1em;
+}
   #letterSize{
     bottom: 0;
     left: 0;
@@ -141,10 +164,7 @@
     float: left;
   }
 
-img {
-  max-width: 80%;
-  max-height: 80%;
-}
+
 
 #page{
   bottom: 0;
@@ -154,6 +174,11 @@ img {
   font-size: 18pt;
   float: left;
 }
+
+
+
+
+
 
 
     </style>
@@ -181,6 +206,7 @@ img {
 
 
     var letters = ["H", "O", "T", "V"];
+    var lea = ["<img src = '/images/leaHouse.PNG'/ />", '<img src = "/images/leaSquare.PNG" / />', '<img src = "/images/leaO.PNG"/ />', '<img src = "/images/leaHeart.PNG"/ />'];
 
     var sizes = ['tumble20', 'tumble25', 'tumble30', 'tumble40', 'tumble50', 'tumble60', 'tumble70', 'tumble80', 'tumble100', 'tumble200', 'tumble300', 'tumble400'];
 
@@ -291,8 +317,8 @@ img {
         selection = letters;
           randomize();
       };
-      if (event.which == 78 ){
-        selection = numbers;
+      if (event.which == 76 ){
+        selection = lea;
         randomize();
       };
       if (event.which == 69 ){
@@ -306,8 +332,9 @@ img {
 
 
       if (event.which == 88 ){
-    
+
         $("#content").css('font-size', {{$calibration->size}} + 'px');
+        $("#content").css('line-height', {{$calibration->size}} + 'px');
         $("#page").html("10ft");
       };
       // if (event.which == 50 ){

@@ -166,7 +166,7 @@ img {
     var ees = ["d","j","i","e", "d","j","i","e","i","j"];
     var pictures = ["k", "h", "f", "g", "b", "c", "k", "h", "f", "g", "b", "c"];
     var sizes = ['tumble20', 'tumble25', 'tumble30', 'tumble40', 'tumble50', 'tumble60', 'tumble70', 'tumble80', 'tumble100', 'tumble200', 'tumble300', 'tumble400'];
-    var images = ['ishihara5.PNG', 'ishihara8.PNG', 'ishihara29.PNG', 'ishihara74.PNG', 'astigmatism.png'];
+    var images = ['ishihara5.PNG', 'ishihara8.PNG', 'ishihara29.PNG', 'ishihara74.PNG','ishihara3.PNG','ishihara6.PNG','ishihara7.PNG','ishihara12.PNG','ishihara15.PNG','ishihara16.PNG','ishihara26.PNG','ishihara42.PNG','ishihara45.PNG','ishihara73.PNG', 'astigmatism.png'];
 
 
 
@@ -176,7 +176,7 @@ img {
   var currentImage = 0;
 
   function showImages(){
-    if (currentImage <=4){
+    if (currentImage <=14){
 
     $('#patient1').html( "<img src=/images/" + images[currentImage] + ">");
         currentImage++;

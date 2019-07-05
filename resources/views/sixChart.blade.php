@@ -191,6 +191,7 @@ img {
 
     var selection = letters;
     var currentSize = 0;
+    var single = false;
     var loopCount = 5;
     $("#patient1").addClass(sizes[currentSize]);
 
@@ -228,51 +229,51 @@ img {
   }
   }
 
-    function randomize(){
-    var display_string = "";
-    copy1 = selection.slice();
-    for (i=0; i<loopCount; i++){
-            loopArray = copy1.splice( Math.floor(Math.random()*copy1.length), 1 );
-            display_string += loopArray;
-        }
-        $("#patient1").html(display_string);
-        if($("#patient1").hasClass('tumble20')){
-          $("#letterSize").html("20/20");
-        }
-        if($("#patient1").hasClass('tumble25')){
-          $("#letterSize").html("20/25");
-        }
-        if($("#patient1").hasClass('tumble30')){
-          $("#letterSize").html("20/30");
-        }
-        if($("#patient1").hasClass('tumble40')){
-          $("#letterSize").html("20/40");
-        }
-        if($("#patient1").hasClass('tumble50')){
-          $("#letterSize").html("20/50");
-        }
-        if($("#patient1").hasClass('tumble60')){
-          $("#letterSize").html("20/60");
-        }
-        if($("#patient1").hasClass('tumble70')){
-          $("#letterSize").html("20/70");
-        }
-        if($("#patient1").hasClass('tumble80')){
-          $("#letterSize").html("20/80");
-        }
-        if($("#patient1").hasClass('tumble100')){
-          $("#letterSize").html("20/100");
-        }
-        if($("#patient1").hasClass('tumble200')){
-          $("#letterSize").html("20/200");
-        }
-        if($("#patient1").hasClass('tumble300')){
-          $("#letterSize").html("20/300");
-        }
-        if($("#patient1").hasClass('tumble400')){
-          $("#letterSize").html("20/400");
-        }
-    }
+  function randomize(){
+  var display_string = "";
+  copy1 = selection.slice();
+  for (i=0; i<loopCount; i++){
+          loopArray = copy1.splice( Math.floor(Math.random()*copy1.length), 1 );
+          display_string += loopArray;
+      }
+      $("#patient1").html(display_string);
+      if($("#patient1").hasClass('tumble20')){
+        $("#letterSize").html("20/20");
+      }
+      if($("#patient1").hasClass('tumble25')){
+        $("#letterSize").html("20/25");
+      }
+      if($("#patient1").hasClass('tumble30')){
+        $("#letterSize").html("20/30");
+      }
+      if($("#patient1").hasClass('tumble40')){
+        $("#letterSize").html("20/40");
+      }
+      if($("#patient1").hasClass('tumble50')){
+        $("#letterSize").html("20/50");
+      }
+      if($("#patient1").hasClass('tumble60')){
+        $("#letterSize").html("20/60");
+      }
+      if($("#patient1").hasClass('tumble70')){
+        $("#letterSize").html("20/70");
+      }
+      if($("#patient1").hasClass('tumble80')){
+        $("#letterSize").html("20/80");
+      }
+      if($("#patient1").hasClass('tumble100')){
+        $("#letterSize").html("20/100");
+      }
+      if($("#patient1").hasClass('tumble200')){
+        $("#letterSize").html("20/200");
+      }
+      if($("#patient1").hasClass('tumble300')){
+        $("#letterSize").html("20/300");
+      }
+      if($("#patient1").hasClass('tumble400')){
+        $("#letterSize").html("20/400");
+      }
+  }
 
 
 
