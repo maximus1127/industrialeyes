@@ -95,7 +95,7 @@
 <tbody>
 <tr>
 <td style="width: 150px;"><strong>Color (boys only):</strong></td>
-<td style="width: 150px;">R: {{$student->od_color}} / L: {{$student->os_color}}</td>
+<td style="width: 150px;">{{$student->ou_color}}</td>
 </tr>
 <tr>
 <td style="width: 150px;"><strong>Astigmatism:</strong></td>

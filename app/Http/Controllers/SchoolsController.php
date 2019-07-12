@@ -9,7 +9,9 @@ class SchoolsController extends Controller
 {
 
   public function search(Request $request){
-    $output = '';
+    $output = '<option>
+    Select School...
+    </option>';
 
     $students = Student::where('district', 'like', $request->get('district'))->get();
     $schools = $students->unique('school');
@@ -44,8 +46,8 @@ class SchoolsController extends Controller
          data-osnear = "'.$student->os_near.'"
           data-odcyl = "'.$student->od_cyl.'"
            data-oscyl = "'.$student->os_cyl.'"
-            data-odcolor = "'.$student->od_color.'"
-             data-oscolor = "'.$student->os_color.'"
+            data-oucolor = "'.$student->ou_color.'"
+
               data-oudist = "'.$student->ou_dist.'"
                data-ounear = "'.$student->ou_near.'"
                data-notes = "'.$student->notes.'"

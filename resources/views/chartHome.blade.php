@@ -23,8 +23,13 @@
                  cursor: pointer;
                  list-style-type: none;
              }
-             #notes{
+
+             #color-pass, #color-fail{
+               margin-top: 20px;
+               height: 20px;
+               width: 20px;
              }
+
          </style>
 
 
@@ -134,7 +139,7 @@
                                      </select>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Filter</button>
+                        <button type="button" class="btn btn-secondary" onclick="location.reload()" data-dismiss="modal">Filter</button>
                         {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                       </div>
                     </div>
@@ -245,7 +250,7 @@
 
                   <button type="button" class="btn btn-success" onclick="showExam()">10'</button>
                   <button type="button" class="btn btn-success" onclick="showExam4()">6'</button>
-                  <button type="button" class="btn btn-success" onclick="showExam5()">HOTV</button>
+                  <button type="button" class="btn btn-success" onclick="showExam5()">HOTV/LEA</button>
                   <button type="button" class="btn btn-success" onclick="showExam2()">Near</button>
                   <button type="button" class="btn btn-success" onclick="showExam3()">Color</button>
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Hearing</button>
@@ -273,10 +278,7 @@
                           <label for="od_cyl">OD Astigmatism</label>
                           <input type="text" class="form-control" name="od_cyl" id="od_cyl">
                       </div>
-                      <div class="form-group">
-                          <label for="od_color">OD Color</label>
-                          <input type="text" class="form-control" name="od_color" id="od_color">
-                      </div>
+
                       </div><!--exam-data-new ends-->
                     </div> <!--col-md-4-->
                     <div class="col-md-4">
@@ -290,6 +292,12 @@
                                 <label for="ou_near">OU Near</label>
                                 <input type="text" class="form-control" name="ou_near" id="ou_near">
                               </div>
+                              <div class="form-group">
+                                  <label for="ou_near">OU Color</label>
+                                  <br />
+                                  <input type="radio" name="ou_color" id="color-pass" value="Pass">Pass
+                                  <input type="radio" name="ou_color" id="color-fail" value="Fail">Fail<br>
+                                </div>
                               {{-- <div class="form-group">
                                   <label for="r_ear">Right Ear</label>
                                   <input type="text" class="form-control" name="r_ear" id="r_ear">
@@ -316,10 +324,7 @@
                                 <label for="os_cyl">OS Astigmatism</label>
                                 <input type="text" class="form-control" name="os_cyl" id="os_cyl">
                             </div>
-                            <div class="form-group">
-                                <label for="os_cyl">OS Color</label>
-                                <input type="text" class="form-control" name="os_color" id="os_color">
-                            </div>
+
                         </div><!--exam-data-new ends-->
                     </div>
                   </div><!--/ .row ends-->
@@ -328,7 +333,7 @@
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
                     Select Notes
                   </button>
-                  <textarea class="form-control" rows="1" name="notes" id="notes"></textarea>
+                  <textarea class="form-control"  name="notes" id="notes"></textarea>
 
 
 
@@ -346,26 +351,26 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note1" value="Language Barrier"> Language Barrier<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note2" value="Uncooperative"> Uncooperative<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note3" value="Immature"> Immature<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note4" value="Blurring"> Blurring<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note5" value="Blinking / Squinting"> Blinking / Squinting<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note6" value="Straining"> Straining<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note7" value="Eyes Water / Red"> Eyes Water / Red<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note8" value="Eyes Cross / Wandering"> Eyes Cross / Wandering<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note9" value="Does not have glasses at exam"> Does not have glasses at exam<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note10" value="Wore glasses previously"> Wore glasses previously<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note11" value="Headaches"> Headaches<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note12" value="Cold / Congested"> Cold / Congested<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note13" value="Recent or present earaches"> Recent or present earaches<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note14" value="Reports history of ear problems"> Reports history of ear problems<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note15" value="Reports ringing or head noises"> Reports ringing or head noises<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note16" value="Legal pass Ck 500 Hz"> Legal pass Ck 500 Hz<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note17" value="Reports awareness problem"> Reports awareness problem<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note18" value="Surgery"> Surgery<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note19" value="Exam within last year"> Exam within last year<br>
-                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note20" value="Known problem / Under medical care"> Known problem / Under medical care<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note1" value="Language Barrier. "> Language Barrier<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note2" value="Uncooperative. "> Uncooperative<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note3" value="Immature. "> Immature<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note4" value="Blurring. "> Blurring<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note5" value="Blinking / Squinting. "> Blinking / Squinting<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note6" value="Straining. "> Straining<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note7" value="Eyes Water / Red. "> Eyes Water / Red<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note8" value="Eyes Cross / Wandering. "> Eyes Cross / Wandering<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note9" value="Does not have glasses at exam. "> Does not have glasses at exam<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note10" value="Wore glasses previously. "> Wore glasses previously<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note11" value="Headaches. "> Headaches<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note12" value="Cold / Congested. "> Cold / Congested<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note13" value="Recent or present earaches. "> Recent or present earaches<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note14" value="Reports history of ear problems. "> Reports history of ear problems<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note15" value="Reports ringing or head noises. "> Reports ringing or head noises<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note16" value="Legal pass Ck 500 Hz. "> Legal pass Ck 500 Hz<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note17" value="Reports awareness problem. "> Reports awareness problem<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note18" value="Surgery. "> Surgery<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note19" value="Exam within last year. "> Exam within last year<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note20" value="Known problem / Under medical care. "> Known problem / Under medical care<br>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
@@ -597,7 +602,7 @@
 
 
        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
        <script src="{{asset('/js/bootstrap.min.js')}}"></script>
        <script src="{{asset("/js/chart.js")}}"></script>
@@ -666,7 +671,7 @@ function populateSchool(){
    dataType:'json',
    success:function(data)
    {
-      $('#search_school').append(data.school_data);
+      $('#search_school').html(data.school_data);
 
    }
  });
@@ -727,6 +732,7 @@ function findName() {
       li[i].style.display = "none";
     }
   }
+
 }
 
 function autoDistrict(){
@@ -751,12 +757,7 @@ $(document).ready(function(){
 });
 
 
-function addNote(e){
-var note = $(e).val();
-$("#notes").append(note + ". ");
 
-
-}
 
 
 </script>

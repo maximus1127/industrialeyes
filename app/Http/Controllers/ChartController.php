@@ -77,8 +77,7 @@ class ChartController extends Controller
       $student->os_dist = $request->os_dist;
       $student->od_near = $request->od_near;
       $student->os_near = $request->os_near;
-      $student->od_color = $request->od_color;
-      $student->os_color = $request->os_color;
+      $student->ou_color = $request->ou_color;
       $student->od_cyl = $request->od_cyl;
       $student->os_cyl = $request->os_cyl;
       $student->ou_dist = $request->ou_dist;
@@ -112,8 +111,7 @@ class ChartController extends Controller
       $student->os_dist = $request->os_dist;
       $student->od_near = $request->od_near;
       $student->os_near = $request->os_near;
-      $student->od_color = $request->od_color;
-      $student->os_color = $request->os_color;
+      $student->ou_color = $request->ou_color;
       $student->od_cyl = $request->od_cyl;
       $student->os_cyl = $request->os_cyl;
       $student->ou_dist = $request->ou_dist;
@@ -144,14 +142,13 @@ class ChartController extends Controller
       $student->os_dist = "";
       $student->od_near = "";
       $student->os_near = "";
-      $student->od_color = "";
-      $student->os_color = "";
+      $student->ou_color = "";
+
       $student->od_cyl = "";
       $student->os_cyl = "";
       $student->ou_dist = "";
       $student->ou_near = "";
-      $student->r_ear = "";
-      $student->l_ear = "";
+
       $student->complete = 0;
       $student->r1k = "";
       $student->r2k = "";
