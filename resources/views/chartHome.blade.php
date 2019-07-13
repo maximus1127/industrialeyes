@@ -95,6 +95,9 @@
      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2" style="margin-left: 20px;">
         Select District/School
       </button>
+      <button type="button"  onclick="bilateral()" id="bilateral-button"  style="margin-left: 20px;">
+         Bilateral Distance
+       </button>
 
  </div>
  <br />
@@ -751,12 +754,28 @@ $(document).ready(function(){
   if(sessionStorage.getItem('district') || sessionStorage.getItem('school')){
     autoPopulateStudents();
     $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
-}
 
+
+}
+    if(!sessionStorage.getItem('bilateral')){
+      $("#bilateral-button").addClass('btn btn-danger');
+    } else {
+        $("#bilateral-button").addClass('btn btn-success');
+    }
 
 });
 
-
+function bilateral(){
+  if(!sessionStorage.getItem('bilateral')){
+    sessionStorage.setItem('bilateral', 1);
+    $("#bilateral-button").removeClass();
+    $("#bilateral-button").addClass('btn btn-success');
+  } else {
+      sessionStorage.removeItem('bilateral');
+      $("#bilateral-button").removeClass();
+      $("#bilateral-button").addClass('btn btn-danger');
+  }
+}
 
 
 

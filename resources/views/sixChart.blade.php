@@ -341,6 +341,7 @@ img {
       };
 
       if (event.which == 32 ){
+        if(sessionStorage.getItem('bilateral')){
         student_responses.push($("#letterSize").html());
         opener.fillIn();
         if (student_responses.length == 1){
@@ -350,7 +351,15 @@ img {
         }
         else if(student_responses.length == 3)
         window.close();
-
+      } else if (!sessionStorage.getItem('bilateral')){
+        student_responses.push($("#letterSize").html());
+        opener.fillIn();
+        if (student_responses.length == 1){
+            $("#currentExam").html('Left Eye Distance');
+        } else if (student_responses.length == 2){
+              window.close();
+        }
+      }
       };
 
       if (event.which == 37 || event.which == 39){

@@ -200,7 +200,9 @@ img {
       if (event.which == 32 ){
           showImages();
       };
-
+      if (event.which == 27){
+        window.close();
+      }
 
 
 
