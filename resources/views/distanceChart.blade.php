@@ -338,6 +338,7 @@ img {
       };
 
       if (event.which == 32 ){
+        randomize();
         if(sessionStorage.getItem('bilateral')){
         student_responses.push($("#letterSize").html());
         opener.fillIn();
