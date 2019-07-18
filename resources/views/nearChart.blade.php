@@ -338,11 +338,11 @@ img {
 
       if (event.which == 32 ){
         student_responses.push($("#letterSize").html());
-        opener.fillIn();
+        opener.fillIn2();
         if (student_responses.length == 1){
-            $("#currentExam").html('Left Eye Distance');
+            $("#currentExam").html('Left Eye Near');
         } else if (student_responses.length == 2){
-            $("#currentExam").html('Both Eyes Distance');
+            $("#currentExam").html('Both Eyes Near');
         }
         else if(student_responses.length == 3)
         window.close();

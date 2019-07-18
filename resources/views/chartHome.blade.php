@@ -628,7 +628,7 @@ function showExam5(){
     return win2=window.open('{{route('exam5')}}');
 }
 function fillIn(){
-  var fails = ['20/40', '20/50', '20/60', '20/80', '20/100', '20/200', '20/400'];
+  var fails = ['20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/300', '20/400'];
 if (fails.includes(win2.student_responses[0])){
     $(".od-background").css('background', '#d84b4b');
   } else {

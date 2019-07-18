@@ -130,7 +130,7 @@ public function deleteDatabase(){
 
 public function exportRoster(){
 
-$students = Student::where('updated_at', 'like',  '%'.Carbon::parse(today('America/Los_Angeles'))->format('Y-m-d').'%')->get();
+$students = Student::whereDate('updated_at', Carbon::today())->get();
 $pdf = PDF::loadView('printRoster', compact('students'), [], ['orientation' => 'L']);
 return $pdf->stream('document.pdf');
 

@@ -20,7 +20,8 @@
       <th align = "left">District</th>
       <th align = "left">School</th>
       <th align = "left">Test Date/Time</th>
-      <th align = "left">Pass/Fail</th>
+      <th align = "left">Vision</th>
+      <th align = "left">Color</th>
       <th>Nurse</th>
     </tr>
     @foreach($students as $student)
@@ -40,6 +41,8 @@
         Passed
       </td>
     @endif
+
+      <td>{{$student->ou_color}}</td>
       <td>{{$student->nurse}}</td>
     </tr>
 @endforeach
