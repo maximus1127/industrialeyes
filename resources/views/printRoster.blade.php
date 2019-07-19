@@ -11,7 +11,8 @@
   </style>
 </head>
 
-<body>
+<body >
+
 
   <table style="width:100%;">
     <tr>
@@ -47,9 +48,6 @@
     </tr>
 @endforeach
   </table>
-
-
-
 
 
 </body>

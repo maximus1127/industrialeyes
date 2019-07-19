@@ -113,8 +113,41 @@ public function exportIndex(){
 }
 
   public function exportData(Request $request){
+    $headings = [
+            'id',
+            'fname',
+            'lname',
+            'student_number' ,
+            'dob',
+            'gender',
+            'district',
+            'school',
+            'teacher',
+            'created_at',
+            'updated_at',
+            'complete',
+            'od_dist',
+            'od_near',
+            'od_cyl',
+            'ou_color',
+            'os_dist',
+            'os_near',
+            'os_cyl',
+            'ou_dist',
+            'ou_near',
+            'notes',
+            'nurse',
+            'r1k',
+            'r2k',
+            'r4k',
+            'r5k',
+            'l1k',
+            'l2k',
+            'l4k',
+            'l5k'
+        ];
 
-    return Excel::download(new StudentsExport, 'students.csv');
+    return Excel::download(new StudentsExport($headings), 'students.csv');
   }
   // public function exportData(Request $request){
   //   $date = Carbon::parse($request->date)->format('Y-m-d');
@@ -132,7 +165,7 @@ public function exportRoster(){
 
 $students = Student::whereDate('updated_at', Carbon::today())->get();
 $pdf = PDF::loadView('printRoster', compact('students'), [], ['orientation' => 'L']);
-return $pdf->stream('document.pdf');
+return $pdf->download('roster'.Carbon::today().'.pdf');
 
 
 

@@ -16,6 +16,7 @@
          <style>
              html{
                  font-size: 13pt;
+
              }
              li{
                  font-size: 12pt;
@@ -85,7 +86,7 @@
           <form method='get' action='{{route('exportRoster')}}' >
             {{ csrf_field() }}
 
-               <input type='submit' name='submit' value='Download Roster' class="btn btn-primary">
+               <input type='submit' name='submit' value='Download Roster' class="btn btn-primary" target="_blank">
 
           </form>
         </div>
@@ -265,7 +266,7 @@
                  </div>
                  </div>
                 </div><!--all-btns-->
-                  <div class="row mt20">
+                  <div class="row mt20" >
                     <div class="col-md-4 od-group">
                         <h5>Right</h5>
                     <div class="exam-data-new od-background">
