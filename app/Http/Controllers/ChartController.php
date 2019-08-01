@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use PDF;
+use Illuminate\Filesystem\Filesystem;
+use Carbon\Carbon;
 use App\Calibration;
+use LynX39\LaraPdfMerger\Facades\PdfMerger;
 
 class ChartController extends Controller
 {
@@ -136,6 +139,32 @@ class ChartController extends Controller
     }
 
 
+    public function autosave(Request $request){
+      $student = Student::find($request->studentID);
+      $student->od_dist = $request->ODdist;
+      $student->os_dist = $request->OSdist;
+      $student->ou_dist = $request->OUdist;
+      $student->complete = 1;
+      $student->save();
+
+      $total = Student::whereDate('updated_at', Carbon::today())->count();
+
+      return response()->json(['total'=>$total]);
+
+    }
+
+    public function autosave2(Request $request){
+      $student = Student::find($request->studentID);
+      $student->od_near = $request->ODnear;
+      $student->os_near = $request->OSnear;
+      $student->ou_near = $request->OUnear;
+      $student->complete = 1;
+      $student->save();
+
+
+    }
+
+
     public function delete($id){
       $student = Student::find($id);
       $student->od_dist = "";
@@ -163,11 +192,59 @@ class ChartController extends Controller
     }
 
     public function print($id){
+       $student = Student::find($id);
+       $pdf = PDF::loadView('printTables', compact('student'));
+       return $pdf->stream('document.pdf');
+     }
 
-      $student = Student::find($id);
-      $pdf = PDF::loadView('printTables', compact('student'));
-      return $pdf->stream('document.pdf');
-      // return view('printExam')->with(compact('student'));
+    public function batchPrint(){
+      $pdfMerger = PDFMerger::init();
+      $i = 0;
+
+      $students = Student::whereDate('updated_at', Carbon::today('America/Los_Angeles'))->get();
+        foreach ($students as $student) {
+          $pdf = PDF::loadView('printTables', compact('student'));
+          $pdf->save('pdf/document'.$i.'.pdf');
+          $pdfMerger->addPDF('pdf/document'.$i.'.pdf');
+          $i++;
+        }
+
+      $pdfMerger->merge();
+      $pdfMerger->save("file_name.pdf", "browser");
+
+      $file = new Filesystem;
+      $file->cleanDirectory('pdf');
+
+    }
+
+    public function adminBatchPrint(Request $request){
+
+
+      $pdfMerger = PDFMerger::init();
+      $i = 0;
+
+      $students = Student::whereDate('updated_at', $request->date)->get();
+      if($students->count() > 0){
+        foreach ($students as $student) {
+          $pdf = PDF::loadView('printTables', compact('student'));
+          $pdf->save('pdf/document'.$i.'.pdf');
+          $pdfMerger->addPDF('pdf/document'.$i.'.pdf');
+          $i++;
+        }
+        $pdfMerger->merge();
+        $pdfMerger->save("batch".$request->date.".pdf", "download");
+
+        $file = new Filesystem;
+        $file->cleanDirectory('pdf');
+
+
+      } else {
+        return back()->with('error','No students from that day!');
+      }
+
+
+
+
     }
 
 

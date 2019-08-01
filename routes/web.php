@@ -22,6 +22,9 @@ Route::get('/exam5', 'ChartController@exam5')->name('exam5');
 Route::post('/submitExam', 'ChartController@submit')->name('submitExam');
 Route::get('/print/{id}', 'ChartController@print')->name('print');
 Route::get('/delete/{id}', 'ChartController@delete')->name('delete');
+Route::get('/autosave', 'ChartController@autosave')->name('autosave');
+Route::get('/autosave2', 'ChartController@autosave2')->name('autosave2');
+
 
 Route::post('/chart', 'ChartController@findStudents')->name('search');
 
@@ -33,6 +36,8 @@ Route::get('/export', 'DataController@exportIndex')->name('export.index');
 Route::get('/export/date', 'DataController@exportData')->name('export');
 Route::get('/export/roster', 'DataController@exportRoster')->name('exportRoster');
 Route::get('/deleteDatabase', 'DataController@deleteDatabase')->name('deleteDatabase');
+Route::get('/batch-print', 'ChartController@batchPrint')->name('batchPrint');
+Route::get('/admin-batch-print', 'ChartController@adminBatchPrint')->name('adminBatchPrint');
 
 Auth::routes();
 

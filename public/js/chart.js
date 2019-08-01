@@ -59,15 +59,19 @@ function loadStudent(e){
     }
     if($(e).data('oucolor')== 'Pass'){
       $("#color-pass").prop('checked', true);
-      $('$color-fail').prop('checked', false);
+      $('#color-fail').prop('checked', false);
     }else if ($(e).data('oucolor')== 'Fail'){
       $("#color-fail").prop('checked', true);
       $('$color-pass').prop('checked', false);
     }
     else if ($(e).data('oucolor')== ''){
       $("#color-fail").prop('checked', false);
-      $('$color-pass').prop('checked', false);
+      $('#color-pass').prop('checked', false);
     }
+
+    sessionStorage.setItem('autoSelect', stunum);
+
+
 
 }
 

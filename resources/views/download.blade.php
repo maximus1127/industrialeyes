@@ -45,9 +45,7 @@
    </nav>
      <div class="container">
      <!-- Message -->
-     @if(Session::has('message'))
-        <p >{{ Session::get('message') }}</p>
-     @endif
+
 
      <!-- Form -->
      <form method='get' action='{{route('export')}}' >
@@ -65,6 +63,22 @@
        <div class="form-group">
           <label for="exampleFormControlFile1">Click below to download a pass or fail roster</label>
           {{-- <input type="date" name="date" class="form-control" id="exampleFormControlFile1"> --}}
+          <br /><br />
+          <input type='submit' name='submit' value='Download' class="btn btn-primary">
+        </div>
+     </form>
+
+     <form method='get' action='{{route('adminBatchPrint')}}' >
+       @if ($message = Session::get('error'))
+       <div class="alert alert-danger alert-block">
+         <button type="button" class="close" data-dismiss="alert">×</button>
+               <strong>{{ $message }}</strong>
+       </div>
+       @endif
+       {{ csrf_field() }}
+       <div class="form-group">
+          <label for="exampleFormControlFile1">Click below to download a batch of student reports</label>
+          <input type="date" name="date" class="form-control" >
           <br /><br />
           <input type='submit' name='submit' value='Download' class="btn btn-primary">
         </div>

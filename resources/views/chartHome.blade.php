@@ -91,7 +91,7 @@
           </form>
         </div>
 
-
+<a href="{{route('batchPrint')}}" style="margin-left: 20px;"><button type="button" class="btn btn-info">Daily Batch</button></a>
      {{-- </div> --}}
      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2" style="margin-left: 20px;">
         Select District/School
@@ -99,6 +99,8 @@
       <button type="button"  onclick="bilateral()" id="bilateral-button"  style="margin-left: 20px;">
          Bilateral Distance
        </button>
+
+         Total Examined Today: <span id="total"></span>
 
  </div>
  <br />
@@ -593,7 +595,7 @@
 
                 </div>
                 <div class="row">
-                  <button type="button" class="btn btn-success" data-dismiss="modal" style="width: 10%;margin-left: 10%;">Save</button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal" style="width: 10%;margin-left: 10%;">Close</button>
                   <button type="button" class="btn btn-info" onclick="allPass()"  style="width: 10%;margin-left: 10%;">All Pass</button>
                 </div>
 
@@ -628,6 +630,14 @@ function showExam4(){
 function showExam5(){
     return win2=window.open('{{route('exam5')}}');
 }
+
+
+
+
+
+
+
+
 function fillIn(){
   var fails = ['20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/300', '20/400'];
 if (fails.includes(win2.student_responses[0])){
@@ -648,11 +658,58 @@ if (fails.includes(win2.student_responses[0])){
   $("#od_dist").val(win2.student_responses[0]);
   $("#os_dist").val(win2.student_responses[1]);
   $("#ou_dist").val(win2.student_responses[2]);
+
+  $.ajax({
+    url: "{{route('autosave')}}",
+    method: "GET",
+    data: {
+      ODdist: win2.student_responses[0],
+      OSdist: win2.student_responses[1],
+      OUdist: win2.student_responses[2],
+      studentID: $("#student_id").val(),
+    },
+    success: function(data){
+      var stAssign = $("li[data-identify='"+ $('#student_id').val() +"']");
+      stAssign.data('oddist', win2.student_responses[0]);
+      stAssign.data('osdist', win2.student_responses[1]);
+      stAssign.data('oudist', win2.student_responses[2]);
+      $("#total").html(data.total);
+    }
+  });
+
 }
+
+
+
+
+
+
+
 function fillIn2(){
   $("#od_near").val(win2.student_responses[0]);
   $("#os_near").val(win2.student_responses[1]);
   $("#ou_near").val(win2.student_responses[2]);
+
+  $.ajax({
+    url: "{{route('autosave2')}}",
+    method: "GET",
+    data: {
+      ODnear: win2.student_responses[0],
+      OSnear: win2.student_responses[1],
+      OUnear: win2.student_responses[2],
+      studentID: $("#student_id").val(),
+    },
+    success: function(data){
+      var stAssign = $("li[data-identify='"+ $('#student_id').val() +"']");
+      stAssign.data('odnear', win2.student_responses[0]);
+      stAssign.data('osnear', win2.student_responses[1]);
+      stAssign.data('ounear', win2.student_responses[2]);
+
+    }
+  });
+
+
+
 }
 function reload(){
   location.reload();
@@ -763,6 +820,17 @@ $(document).ready(function(){
     } else {
         $("#bilateral-button").addClass('btn btn-success');
     }
+
+
+  // $("li[data-identify='"+sessionStorage.getItem('autoSelect')+"']").trigger('click');
+  setTimeout(function(){
+    var kid = sessionStorage.getItem("autoSelect").toString();
+     $("li[data-identify='"+kid+"']").trigger('click');
+
+  }, 500);
+
+
+
 
 });
 
