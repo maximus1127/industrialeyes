@@ -201,7 +201,7 @@ class ChartController extends Controller
       $pdfMerger = PDFMerger::init();
       $i = 0;
 
-      $students = Student::whereDate('updated_at', Carbon::today('America/Los_Angeles'))->get();
+      $students = Student::whereDate('updated_at', Carbon::today())->get();
         foreach ($students as $student) {
           $pdf = PDF::loadView('printTables', compact('student'));
           $pdf->save('pdf/document'.$i.'.pdf');

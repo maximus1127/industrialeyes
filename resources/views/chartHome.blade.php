@@ -100,7 +100,7 @@
          Bilateral Distance
        </button>
 
-         Total Examined Today: <span id="total"></span>
+         Total Examined Today: <span id="total">{{$total}}</span>
 
  </div>
  <br />
@@ -712,6 +712,7 @@ function fillIn2(){
 
 }
 function reload(){
+  sessionStorage.setItem('autoSelect', '');
   location.reload();
 }
 function closeChild(){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -23,9 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+      $total = Student::whereDate('updated_at', Carbon::today())->count();
       $students = Student::all();
       $districts = $students->unique('district');
-        return view('chartHome')->with(compact('districts'));
+        return view('chartHome')->with(compact('districts', 'total'));
     }
 
     public function schoolSelect(){
