@@ -29,6 +29,7 @@
     }
     #patient1{
     font-family: 'Sloan';
+    letter-spacing: .8em;
     }
     .tumble400 {
 
@@ -48,7 +49,6 @@
 
     font-size: 1000%;
     /* line-height: 1000%; */
-    letter-spacing: .3em;
 
   }
 
@@ -58,7 +58,6 @@
     margin: 0;
     font-size: 500%;
     /* line-height: 500%; */
-    letter-spacing: .3em;
 
   }
 
@@ -67,7 +66,6 @@
     margin: 0;
     font-size: 400%;
     /* line-height: 400%; */
-    letter-spacing: .35em;
 
   }
 
@@ -76,7 +74,6 @@
     margin: 0;
     font-size: 350%;
     /* line-height: 350%; */
-    letter-spacing: .3em;
   }
 
   .tumble60 {
@@ -84,7 +81,6 @@
     margin: 0;
     font-size: 300%;
     /* line-height: 300%; */
-    letter-spacing: .3em;
 
 
   }
@@ -94,7 +90,6 @@
     margin: 0;
     font-size: 250%;
     /* line-height: 250%; */
-    letter-spacing: .25em;
 
 
   }
@@ -104,8 +99,7 @@
     margin: 0;
     font-size: 200%;
     /* line-height: 200%; */
-    letter-spacing: .2em;
-;
+
   }
 
   .tumble30 {
@@ -113,7 +107,6 @@
     margin: 0;
     font-size: 150%;
     /* line-height: 150%; */
-    letter-spacing: .15em;
 
   }
 
@@ -122,7 +115,6 @@
     margin: 0;
     font-size: 125%;
     /* line-height: 125%; */
-    letter-spacing: .125em;
 
 
   }
@@ -132,7 +124,6 @@
     margin: 0;
     font-size: 100%;
     /* line-height: 100%; */
-    letter-spacing: .1em;
 
   }
 

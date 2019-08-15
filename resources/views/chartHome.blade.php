@@ -91,7 +91,7 @@
           </form>
         </div>
 
-<a href="{{route('batchPrint')}}" style="margin-left: 20px;"><button type="button" class="btn btn-info">Daily Batch</button></a>
+<a href="{{route('batchPrint')}}" style="margin-left: 20px;" target="_blank"><button type="button" class="btn btn-info">Daily Batch</button></a>
      {{-- </div> --}}
      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2" style="margin-left: 20px;">
         Select District/School
@@ -207,10 +207,16 @@
                        <input type="text" class="form-control" name="dob" id="dob" placeholder="Date of Birth" />
                      </div>
                  </div>
-                 <div class="col-md-6 col-lg-4">
+                 <div class="col-md-2 col-lg-2">
                      <div class="form-group">
                        <!--<label for="gender">Gender</label>-->
                        <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
+                     </div>
+                 </div>
+                 <div class="col-md-2 col-lg-2">
+                     <div class="form-group">
+                       <!--<label for="gender">Gender</label>-->
+                       <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" />
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
@@ -778,7 +784,7 @@ function autoPopulateStudents(){
 
 function findName() {
   // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
+  var input, filter, ul, li, a, i, txtValue, numValue;
   input = document.getElementById('search');
   filter = input.value.toUpperCase();
   ul = document.getElementById("students");
@@ -788,7 +794,9 @@ function findName() {
   for (i = 0; i < li.length; i++) {
     // a = li[i].getElementsByTagName("a")[0];
     txtValue = $(li[i]).html();
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    numValue = $(li[i]).data('number');
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1 || numValue == filter) {
       li[i].style.display = "";
     } else {
       li[i].style.display = "none";

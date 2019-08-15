@@ -29,6 +29,7 @@
     }
     #patient1{
     font-family: 'Sloan';
+    letter-spacing: .8em;
     }
     .tumble400 {
 
@@ -45,7 +46,6 @@
   .tumble200 {
 
     font-size: 1000%;
-    letter-spacing: .3em;
 
   }
 
@@ -54,7 +54,6 @@
     padding: 20px 0;
     margin: 0;
     font-size: 500%;
-    letter-spacing: .3em;
 
   }
 
@@ -62,7 +61,6 @@
     padding: 20px 0;
     margin: 0;
     font-size: 400%;
-    letter-spacing: .35em;
 
   }
 
@@ -70,14 +68,12 @@
     padding: 20px 0;
     margin: 0;
     font-size: 350%;
-    letter-spacing: .3em;
   }
 
   .tumble60 {
     padding: 20px 20px;
     margin: 0;
     font-size: 300%;
-    letter-spacing: .3em;
 
 
   }
@@ -86,7 +82,6 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 250%;
-    letter-spacing: .25em;
 
 
   }
@@ -95,15 +90,13 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 200%;
-    letter-spacing: .2em;
-;
+
   }
 
   .tumble30 {
     padding: 20px 20px;
     margin: 0;
     font-size: 150%;
-    letter-spacing: .15em;
 
   }
 
@@ -111,7 +104,6 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 125%;
-    letter-spacing: .125em;
 
 
   }
@@ -120,7 +112,6 @@
     padding: 20px 20px;
     margin: 0;
     font-size: 100%;
-    letter-spacing: .1em;
 
   }
 
@@ -182,7 +173,7 @@ img {
     <script>
 
 
-    var letters = ["C", "D", "H", "K", "N", "O", "R", "S", "V", "Z"];
+    var letters = ["&nbspC", "&nbspD", "&nbspH", "&nbspK", "&nbspN", "&nbspO", "&nbspR", "&nbspS", "&nbspV", "&nbspZ"];
     var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9" , "5"];
     var ees = ["d","j","i","e", "d","j","i","e","i","j"];
     var pictures = ["k", "h", "f", "g", "b", "c", "k", "h", "f", "g", "b", "c"];

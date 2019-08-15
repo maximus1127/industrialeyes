@@ -144,7 +144,8 @@ public function exportIndex(){
             'l1k',
             'l2k',
             'l4k',
-            'l5k'
+            'l5k',
+            'grade'
         ];
 
     return Excel::download(new StudentsExport($headings), 'students.csv');

@@ -60,7 +60,7 @@ class SchoolsController extends Controller
                data-l2k = "'.$student->l2k.'"
                data-l4k = "'.$student->l4k.'"
                data-l5k = "'.$student->l5k.'"
-
+               data-grade = "'.$student->grade.'"
       onclick="loadStudent(this)">
         '.$student->fname." ".$student->lname.'
       </li>';

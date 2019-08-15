@@ -19,7 +19,7 @@ function loadStudent(e){
     $("#od_cyl").val($(e).data('odcyl'));
     $("#os_cyl").val($(e).data('oscyl'));
     $("#ou_color").val($(e).data('oucolor'));
-
+$("#grade").val($(e).data('grade'));
     $("#os_near").val($(e).data('osnear'));
     $("#ou_dist").val($(e).data('oudist'));
     $("#ou_near").val($(e).data('ounear'));

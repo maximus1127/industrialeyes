@@ -87,6 +87,7 @@ class ChartController extends Controller
       $student->ou_near = $request->ou_near;
       $student->notes = $request->notes;
       $student->complete = 1;
+      $student->grade = $request->grade;
       $student->nurse = $request->nurse;
       $student->r1k = $request->r1k;
       $student->r2k = $request->r2k;
@@ -121,6 +122,7 @@ class ChartController extends Controller
       $student->ou_near = $request->ou_near;
       $student->notes = $request->notes;
       $student->complete = 1;
+      $student->grade = $request->grade;
         $student->nurse = $request->nurse;
         $student->r1k = $request->r1k;
         $student->r2k = $request->r2k;
