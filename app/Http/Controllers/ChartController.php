@@ -74,7 +74,7 @@ class ChartController extends Controller
       $student->school = $request->school;
       $student->district = $request->district;
       $student->teacher = $request->teacher;
-      $student->student_number = $request->number;
+      $student->last_edited = now();
       $student->gender = $request->gender;
       $student->od_dist = $request->od_dist;
       $student->os_dist = $request->os_dist;
@@ -109,7 +109,6 @@ class ChartController extends Controller
       $student->school = $request->school;
       $student->district = $request->district;
       $student->teacher = $request->teacher;
-      $student->student_number = $request->number;
       $student->gender = $request->gender;
       $student->od_dist = $request->od_dist;
       $student->os_dist = $request->os_dist;
@@ -132,7 +131,7 @@ class ChartController extends Controller
         $student->l2k = $request->l2k;
         $student->l4k = $request->l4k;
         $student->l5k = $request->l5k;
-
+$student->last_edited = now();
       $student->save();
       return back();
 
@@ -147,9 +146,10 @@ class ChartController extends Controller
       $student->os_dist = $request->OSdist;
       $student->ou_dist = $request->OUdist;
       $student->complete = 1;
+      $student->last_edited = now();
       $student->save();
 
-      $total = Student::whereDate('updated_at', Carbon::today())->count();
+      $total = Student::whereDate('last_edited', Carbon::today())->count();
 
       return response()->json(['total'=>$total]);
 
@@ -161,6 +161,7 @@ class ChartController extends Controller
       $student->os_near = $request->OSnear;
       $student->ou_near = $request->OUnear;
       $student->complete = 1;
+      $student->last_edited = now();
       $student->save();
 
 
@@ -189,6 +190,7 @@ class ChartController extends Controller
       $student->l2k = "";
       $student->l4k = "";
       $student->l5k = "";
+      $student->last_edited = null;
       $student->save();
       return back();
     }
@@ -203,7 +205,7 @@ class ChartController extends Controller
       $pdfMerger = PDFMerger::init();
       $i = 0;
 
-      $students = Student::whereDate('updated_at', Carbon::today())->get();
+      $students = Student::whereDate('last_edited', Carbon::today())->get();
         foreach ($students as $student) {
           $pdf = PDF::loadView('printTables', compact('student'));
           $pdf->save('pdf/document'.$i.'.pdf');
@@ -225,7 +227,7 @@ class ChartController extends Controller
       $pdfMerger = PDFMerger::init();
       $i = 0;
 
-      $students = Student::whereDate('updated_at', $request->date)->get();
+      $students = Student::whereDate('last_edited', $request->date)->get();
       if($students->count() > 0){
         foreach ($students as $student) {
           $pdf = PDF::loadView('printTables', compact('student'));

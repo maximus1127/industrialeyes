@@ -23,6 +23,8 @@
                  border-top: 1px solid black;
                  cursor: pointer;
                  list-style-type: none;
+                 color: black !important;
+                 font-weight: bold;
              }
 
              #color-pass, #color-fail{
@@ -37,7 +39,7 @@
        <title>Industrial Eyes</title>
 
      </head>
-     <body onunload="closeChild();">
+     <body onunload="closeChild();" onload="autoFill()">
 @if(Auth::user()->is_admin == 1)
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
      <a class="navbar-brand" href="#">Industrial Eyes</a>
@@ -717,8 +719,19 @@ function fillIn2(){
 
 
 }
+
+function autoFill(){
+  if(sessionStorage.getItem('newStudent') == 1){
+    $("#district").val(sessionStorage.getItem('district'));
+    $("#school").val(sessionStorage.getItem('school'));
+    sessionStorage.removeItem('newStudent');
+  }
+}
+
+
 function reload(){
   sessionStorage.setItem('autoSelect', '');
+  sessionStorage.setItem('newStudent', 1);
   location.reload();
 }
 function closeChild(){

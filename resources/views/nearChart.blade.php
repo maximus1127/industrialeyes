@@ -179,7 +179,7 @@ img {
     var images = ['ishihara5.PNG', 'ishihara8.PNG', 'ishihara29.PNG', 'ishihara74.PNG', 'astigmatism.png'];
 
     var selection = letters;
-    var currentSize = 0;
+    var currentSize = 2;
     var loopCount = 5;
     var single = false;
     $("#patient1").addClass(sizes[currentSize]);
@@ -231,7 +231,7 @@ img {
           $("#letterSize").html("20/25");
         }
         if($("#patient1").hasClass('tumble30')){
-          $("#letterSize").html("20/30");
+          $("#letterSize").html("20/32");
         }
         if($("#patient1").hasClass('tumble40')){
           $("#letterSize").html("20/40");

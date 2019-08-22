@@ -12,4 +12,6 @@ class Student extends Model
             DB::table('students')->insert($data);
 
        }
+
+       public $timestamps = false;
 }

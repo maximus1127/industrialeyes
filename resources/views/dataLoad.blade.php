@@ -57,7 +57,7 @@
 
        <div class="form-group">
           <label for="exampleFormControlFile1">CSV Upload</label>
-          <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+          <input type="file" name="csv_import" class="form-control-file" id="exampleFormControlFile1">
           <br /><br />
           <label for="district">What district is this for?</label>
           <input type="text" name="district" class="form-control-file" id="district">

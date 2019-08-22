@@ -39,7 +39,7 @@
 <td style="width: 342px;"><strong>School:</strong> {{$student->school}}</td>
 </tr>
 <tr>
-<td style="width: 342px;"><strong>Date:</strong> {{Carbon\Carbon::parse($student->updated_at)->format('m/d/Y')}}</td>
+<td style="width: 342px;"><strong>Date:</strong> {{Carbon\Carbon::parse($student->last_edited)->format('m/d/Y')}}</td>
 <td style="width: 342px;"><strong>Teacher:</strong> {{$student->teacher}}</td>
 </tr>
 <tr>

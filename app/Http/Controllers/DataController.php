@@ -87,7 +87,7 @@ class DataController extends Controller{
                "district"=>$request->district,
                "school"=>ucfirst($importData[0]),
                "teacher"=>ucfirst($importData[7]),
-               "created_at" => now());
+               "last_edited" => now());
             Student::insertData($insertData);
 
           }
@@ -123,8 +123,7 @@ public function exportIndex(){
             'district',
             'school',
             'teacher',
-            'created_at',
-            'updated_at',
+            'last_edited',
             'complete',
             'od_dist',
             'od_near',
@@ -152,7 +151,7 @@ public function exportIndex(){
   }
   // public function exportData(Request $request){
   //   $date = Carbon::parse($request->date)->format('Y-m-d');
-  //   $data = Student::where('updated_at', 'like', '%'.$date.'%')->get();
+  //   $data = Student::where('last_edited', 'like', '%'.$date.'%')->get();
   //   return Excel::download($data, 'students.csv');
   // }
 
@@ -162,11 +161,11 @@ public function deleteDatabase(){
   return back();
 }
 
-public function exportRoster(){
+public function exportRoster(Request $request){
 
-$students = Student::whereDate('updated_at', Carbon::today())->get();
+$students = Student::whereDate('last_edited', $request->date)->get();
 $pdf = PDF::loadView('printRoster', compact('students'), [], ['orientation' => 'L']);
-return $pdf->download('roster'.Carbon::today().'.pdf');
+return $pdf->stream('roster'.Carbon::today().'.pdf');
 
 
 
