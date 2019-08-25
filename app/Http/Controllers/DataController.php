@@ -190,7 +190,7 @@ class DataController extends Controller
             'l2k',
             'l4k',
             'l5k',
-            'last_edited'
+            'last_edited',
         ];
 
         return Excel::download(new StudentsExport($headings), 'students.csv');
