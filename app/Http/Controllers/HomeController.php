@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $total = Student::whereDate('updated_at', Carbon::today())->count();
+      $total = Student::whereDate('last_edited', Carbon::today())->count();
       $students = Student::all();
       $districts = $students->unique('district');
         return view('chartHome')->with(compact('districts', 'total'));

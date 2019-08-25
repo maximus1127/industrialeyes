@@ -154,6 +154,16 @@ $student->last_edited = now();
       return response()->json(['total'=>$total]);
 
     }
+    public function noteSave(Request $request){
+      $student = Student::find($request->studentID);
+      $student->notes = $request->note;
+      $student->complete = 1;
+      $student->last_edited = now();
+      $student->save();
+
+      return;
+
+    }
 
     public function autosave2(Request $request){
       $student = Student::find($request->studentID);

@@ -24,6 +24,7 @@ Route::get('/print/{id}', 'ChartController@print')->name('print');
 Route::get('/delete/{id}', 'ChartController@delete')->name('delete');
 Route::get('/autosave', 'ChartController@autosave')->name('autosave');
 Route::get('/autosave2', 'ChartController@autosave2')->name('autosave2');
+Route::get('/noteSave', 'ChartController@noteSave')->name('noteSave');
 
 
 Route::post('/chart', 'ChartController@findStudents')->name('search');

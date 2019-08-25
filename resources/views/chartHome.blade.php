@@ -365,6 +365,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note21" value="Wears Glasses. "> Wears Glasses<br>
                   <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note1" value="Language Barrier. "> Language Barrier<br>
                   <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note2" value="Uncooperative. "> Uncooperative<br>
                   <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note3" value="Immature. "> Immature<br>
@@ -691,6 +692,41 @@ if (fails.includes(win2.student_responses[0])){
 
 
 
+function addNote(f){
+  var note = $(f).val();
+  var noteBox = $('#notes');
+if($(f).prop('checked')==1){
+  note = noteBox.val() + note;
+  noteBox.val(note);
+  $.ajax({
+    url: "{{route('noteSave')}}",
+    data: {
+      studentID: $("#student_id").val(),
+      note: note,
+    },
+    error: function(){
+      alert("Unable to save note");
+    }
+  });
+}else{
+  note = noteBox.val().replace($(f).val(), '');
+  noteBox.val(note);
+  $.ajax({
+    url: "{{route('noteSave')}}",
+    data: {
+      studentID: $("#student_id").val(),
+      note: note,
+    },
+    error: function(){
+      alert('Unable to save note');
+    }
+  });
+}
+
+}
+
+
+
 
 
 function fillIn2(){
@@ -845,11 +881,11 @@ $(document).ready(function(){
 
 
   // $("li[data-identify='"+sessionStorage.getItem('autoSelect')+"']").trigger('click');
-  setTimeout(function(){
-    var kid = sessionStorage.getItem("autoSelect").toString();
-     $("li[data-identify='"+kid+"']").trigger('click');
-
-  }, 500);
+  // setTimeout(function(){
+  //   var kid = sessionStorage.getItem("autoSelect").toString();
+  //    $("li[data-identify='"+kid+"']").trigger('click');
+  //
+  // }, 500);
 
 
 

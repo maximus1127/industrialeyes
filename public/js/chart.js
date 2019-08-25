@@ -75,18 +75,7 @@ $("#grade").val($(e).data('grade'));
 
 }
 
-function addNote(f){
-  var note = $(f).val();
-  var noteBox = $('#notes');
-if($(f).prop('checked')==1){
-  note = noteBox.val() + note;
-  noteBox.val(note);
-}else{
-  note = noteBox.val().replace($(f).val(), '');
-  noteBox.val(note);
-}
 
-}
 
 
 
