@@ -87,7 +87,7 @@ class DataController extends Controller
                         //$parsedData = preg_replace('/;+/', ';', $importData[0]);
                         $parsedData = ltrim($importData[0], ';');
                         $parsedData = explode(';', $parsedData);
-
+ 
                         $insertData = array(
                             "fname" => ucfirst($parsedData[0]),
                             "lname" => ucfirst($parsedData[1]),
