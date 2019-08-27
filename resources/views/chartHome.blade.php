@@ -85,7 +85,7 @@
        </form>
      </div>
         <div class="top_item">
-          <form method='get' action='{{route('exportRoster')}}' >
+          <form method='get' action='{{route('exportVisionRoster')}}' >
             {{ csrf_field() }}
 
                <input type='submit' name='submit' value='Download Roster' class="btn btn-primary" target="_blank">
