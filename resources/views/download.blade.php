@@ -51,17 +51,26 @@
      <form method='get' action='{{route('export')}}' >
        {{ csrf_field() }}
        <div class="form-group">
-          <label for="exampleFormControlFile1">Click below to download every student with a completed exam</label>
+          <label for="exampleFormControlFile1">Click below to download every student with a completed exam (vision and hearing)</label>
           {{-- <input type="date" name="date" class="form-control" id="exampleFormControlFile1"> --}}
           <br /><br />
           <input type='submit' name='submit' value='Export' class="btn btn-primary">
         </div>
      </form>
      <hr>
-     <form method='get' action='{{route('exportRoster')}}' >
+     <form method='get' action='{{route('exportVisionRoster')}}' >
        {{ csrf_field() }}
        <div class="form-group">
-          <label for="exampleFormControlFile1">Click below to download a pass or fail roster</label>
+          <label for="exampleFormControlFile1">Click below to download a fail roster of vision screenings.</label>
+          <input type="date" name="date" class="form-control" id="exampleFormControlFile1">
+          <br /><br />
+          <input type='submit' name='submit' value='Download' class="btn btn-primary">
+        </div>
+     </form>
+     <form method='get' action='{{route('exportHearingRoster')}}' >
+       {{ csrf_field() }}
+       <div class="form-group">
+          <label for="exampleFormControlFile1">Click below to download a fail roster of hearing screenings.</label>
           <input type="date" name="date" class="form-control" id="exampleFormControlFile1">
           <br /><br />
           <input type='submit' name='submit' value='Download' class="btn btn-primary">

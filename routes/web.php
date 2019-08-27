@@ -37,7 +37,8 @@ Route::post('/uploadFile', 'DataController@uploadFile');
 
 Route::get('/export', 'DataController@exportIndex')->name('export.index');
 Route::get('/export/date', 'DataController@exportData')->name('export');
-Route::get('/export/roster', 'DataController@exportRoster')->name('exportRoster');
+Route::get('/export/roster', 'DataController@exportVisionRoster')->name('exportVisionRoster');
+Route::get('/export/hearing-roster', 'DataController@exportHearingRoster')->name('exportHearingRoster');
 Route::get('/deleteDatabase', 'DataController@deleteDatabase')->name('deleteDatabase');
 Route::get('/batch-print', 'ChartController@batchPrint')->name('batchPrint');
 Route::get('/admin-batch-print', 'ChartController@adminBatchPrint')->name('adminBatchPrint');

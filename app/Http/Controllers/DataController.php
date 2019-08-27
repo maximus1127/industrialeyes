@@ -206,11 +206,21 @@ class DataController extends Controller
         return back();
     }
 
-    public function exportRoster(Request $request)
+    public function exportVisionRoster(Request $request)
     {
 
         $students = Student::whereDate('last_edited', $request->date)->get();
         $pdf = PDF::loadView('printRoster', compact('students'), [], ['orientation' => 'L']);
+        return $pdf->stream('roster' . Carbon::today() . '.pdf');
+
+
+    }
+
+    public function exportHearingRoster(Request $request)
+    {
+
+        $students = Student::whereDate('last_edited', $request->date)->get();
+        $pdf = PDF::loadView('printHearingRoster', compact('students'), [], ['orientation' => 'L']);
         return $pdf->stream('roster' . Carbon::today() . '.pdf');
 
 
