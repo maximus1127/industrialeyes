@@ -60,9 +60,7 @@
             <label for="exampleFormControlFile1">CSV Upload</label>
             <input type="file" name="csv_import" class="form-control-file" id="exampleFormControlFile1">
             <br/><br/>
-            <label for="district">What district is this for?</label>
-            <input type="text" name="district" class="form-control-file" id="district">
-            <br/><br/>
+          
             <input type='submit' name='submit' value='Import' class="btn btn-primary">
         </div>
     </form>
