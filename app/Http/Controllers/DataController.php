@@ -102,7 +102,7 @@ class DataController extends Controller
                             "od_dist" => empty($parsedData[10]) ? 'NULL' : $parsedData[10],
                             "od_near" => empty($parsedData[11]) ? 'NULL' : $parsedData[11],
                             "od_cyl" => empty($parsedData[12]) ? 'NULL' : $parsedData[12],
-                            "ou_color" => empty($parsedData[12]) ? 'NULL' : $parsedData[13],
+                            "ou_color" => empty($parsedData[13]) ? 'NULL' : $parsedData[13],
                             "os_dist" => empty($parsedData[14]) ? 'NULL' : $parsedData[14],
                             "os_near" => empty($parsedData[15]) ? 'NULL' : $parsedData[15],
                             "os_cyl" => empty($parsedData[16]) ? 'NULL' : $parsedData[16],
