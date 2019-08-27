@@ -101,6 +101,9 @@
       <button type="button"  onclick="bilateral()" id="bilateral-button"  style="margin-left: 20px;">
          Bilateral Distance
        </button>
+       <a href="" id="hearingURL"><button type="button" class="btn btn-success" style="margin-left: 20px;">
+          Hearing Exam (10)
+        </button></a>
 
          Total Examined Today: <span id="total">{{$total}}</span>
 
@@ -887,7 +890,7 @@ $(document).ready(function(){
   //
   // }, 500);
 
-
+  $("#hearingURL").attr('href', '/hearing-exam/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
 
 
 });

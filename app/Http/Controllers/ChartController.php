@@ -42,6 +42,49 @@ class ChartController extends Controller
     }
 
 
+    public function hearingIndex($district, $school){
+
+      $students = Student::where('district', $district)->
+                            where('school', $school)->get();
+
+      return view('hearingExam')->with(compact('students'));
+    }
+
+    public function submitHearingExam(Request $request){
+      $r1k = request('r1k');
+      $r2k = request('r2k');
+      $r4k = request('r4k');
+      $l1k = request('l1k');
+      $l2k = request('l2k');
+      $l4k = request('l4k');
+      $id = request('studentID');
+
+        for($i = 0 ; $i < count($id) ; $i++)
+         {
+           $student = Student::find($id[$i]);
+           $student->r1k = $r1k[$i];
+           $student->r2k = $r2k[$i];
+           $student->r4k = $r4k[$i];
+           $student->l1k = $l1k[$i];
+           $student->l2k = $l2k[$i];
+           $student->l4k = $l4k[$i];
+           $student->last_edited = now();
+           $student->complete = 1;
+           $student->save();
+
+         }
+         return back();
+
+    }
+
+
+
+
+
+
+
+
+
 
     public function exam(){
       $calibration = Calibration::find(1) ;
