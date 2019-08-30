@@ -201,8 +201,7 @@ class DataController extends Controller
 
     public function deleteDatabase()
     {
-        $students = Student::all();
-        $students->each->delete();
+        Student::truncate();
         return back();
     }
 

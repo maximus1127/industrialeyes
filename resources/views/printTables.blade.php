@@ -49,7 +49,7 @@
 </tbody>
 </table>
 <p>&nbsp;</p>
-<h1 style="text-align: center;">Vision Screening Summary</h1>
+<h1 style="text-align: center;">Vision and Hearing Screening Summary</h1>
 <p>&nbsp;</p>
 <table style="width: 303px; float: left;" border="1px">
 <tbody>
