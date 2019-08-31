@@ -265,7 +265,7 @@
                 <hr>
                 <div class="all-btns text-center">
 
-                  <button type="button" class="btn btn-success" onclick="showExam()">10'</button>
+                  <button type="button" class="btn btn-primary" onclick="showExam()">10'</button>
                   <button type="button" class="btn btn-success" onclick="showExam4()">6'</button>
                   <button type="button" class="btn btn-success" onclick="showExam5()">HOTV/LEA</button>
                   <button type="button" class="btn btn-success" onclick="showExam2()">Near</button>
