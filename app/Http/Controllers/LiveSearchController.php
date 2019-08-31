@@ -32,7 +32,7 @@ class LiveSearchController extends Controller
                             foreach($data as $row)
                                 {
                                     $output .= '<li class="student_list" data-fname = "'.$student->fname.'" data-lname = "'.$student->lname.'" data-identify = "'.$student->id.'"
-                                    data-dob = "'.Carbon\Carbon::parse($student->dob)->format('m/d/Y')}}.'" data-gender = "'.$student->gender.'" data-number = "'.$student->student_number.'"
+                                    data-dob = "'.$student->dob.'" data-gender = "'.$student->gender.'" data-number = "'.$student->student_number.'"
                                     data-school = "'.$student->school.'" data-teacher = "'.$student->teacher.'" data-district = "'.$student->district.'" onclick="loadStudent(this)">
                                       {{$student->fname.' '.$student->lname}}
                                     </li>'

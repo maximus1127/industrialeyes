@@ -207,8 +207,11 @@ class DataController extends Controller
 
     public function exportVisionRoster(Request $request)
     {
-
+      if($request->date){
         $students = Student::whereDate('last_edited', $request->date)->get();
+      } else {
+        $students = Student::whereDate('last_edited', Carbon::today())->get();
+      }
         $pdf = PDF::loadView('printRoster', compact('students'), [], ['orientation' => 'L']);
         return $pdf->stream('roster' . Carbon::today() . '.pdf');
 
@@ -218,7 +221,11 @@ class DataController extends Controller
     public function exportHearingRoster(Request $request)
     {
 
+      if($request->date){
         $students = Student::whereDate('last_edited', $request->date)->get();
+      } else {
+        $students = Student::whereDate('last_edited', Carbon::today())->get();
+      }
         $pdf = PDF::loadView('printHearingRoster', compact('students'), [], ['orientation' => 'L']);
         return $pdf->stream('roster' . Carbon::today() . '.pdf');
 
