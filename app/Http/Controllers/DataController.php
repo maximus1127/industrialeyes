@@ -38,7 +38,7 @@ class DataController extends Controller
             $valid_extension = array("csv");
 
             // 2MB in Bytes
-            $maxFileSize = 2097152;
+            $maxFileSize = 269097152;
 
             // Check file extension
             if (in_array(strtolower($extension), $valid_extension)) {
