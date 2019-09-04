@@ -58,7 +58,7 @@ class ChartController extends Controller
 
       $completed_students = Student::where('district', $district)->
                             where('school', $school)->
-                          
+                            where('complete', 1)->
                             where('r1k', '!=', '')->
                             where('r2k', '!=', '')->
                             where('r4k', '!=', '')->
