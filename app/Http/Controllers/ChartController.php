@@ -282,6 +282,7 @@ $student->last_edited = now();
       $student->l4k = "";
       $student->l5k = "";
       $student->last_edited = null;
+      $student->notes = "";
       $student->save();
       return back();
     }

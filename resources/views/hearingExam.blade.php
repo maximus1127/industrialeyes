@@ -16,6 +16,7 @@
          <style>
              html{
                  font-size: 13pt;
+                 zoom: .8;
 
              }
              li{

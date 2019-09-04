@@ -116,7 +116,7 @@ class DataController extends Controller
                             "l2k" => empty($importData[27]) ? NULL : $importData[27],
                             "l4k" => empty($importData[28]) ? NULL : $importData[28],
                             "l5k" => empty($importData[29]) ? NULL : $importData[29],
-                            "last_edited" => now()->format('Y-m-d H:i:s'),
+                            "last_edited" => NULL,
                         );
                         $studentData [] = $insertData;
 
