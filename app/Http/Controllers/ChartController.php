@@ -99,10 +99,10 @@ class ChartController extends Controller
            $student->l1k = $l1k[$i];
            $student->l2k = $l2k[$i];
            $student->l4k = $l4k[$i];
-           if(!$r5k[$i]){
+           if(!$l5k[$i]){
              continue;
            } else {
-             $student->r5k = $r5k[$i];
+             $student->l5k = $l5k[$i];
            }
            $student->last_edited = now();
            $student->complete = 1;
