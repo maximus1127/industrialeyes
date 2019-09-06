@@ -178,6 +178,7 @@
                      <div class="form-inline">
                      <div class = 'remove' onclick="remove(1)">X</div>
                      <div class = 'pass' onclick = 'pass(1)'>	&#10004;</div>
+                     <div class = 'pass' onclick = 'refer(1)'>R</div>
                      <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student1name" class="form-inline" onclick="addStudent(1)">
                      <strong>Booth 1</strong>
 
@@ -207,6 +208,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                      </div>
                        <div class="form-inline">
@@ -229,6 +231,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
                        <div class="form-inline">
@@ -251,6 +254,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
 
@@ -274,6 +278,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                      </div>
                        <div class="form-inline">
@@ -296,6 +301,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
                        <div class="form-inline">
@@ -318,6 +324,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
 
@@ -344,6 +351,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      <div class="form-inline" style = 'float: right;'>
@@ -366,6 +374,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
 
@@ -375,6 +384,7 @@
                      <div class="form-inline">
                      <div class = 'remove' onclick="remove(2)">X</div>
                      <div class = 'pass' onclick = 'pass(2)'>	&#10004;</div>
+                     <div class = 'pass' onclick = 'refer(2)'>R</div>
                      <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student2name" class="form-inline" onclick="addStudent(2)">
                      <strong>Booth 2</strong>
 
@@ -403,6 +413,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
 
                        <div class="form-inline">
@@ -425,6 +436,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
                        <div class="form-inline">
@@ -447,6 +459,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
 
@@ -470,6 +483,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                      </div>
                        <div class="form-inline">
@@ -492,6 +506,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
                        <div class="form-inline">
@@ -514,6 +529,7 @@
                          <option value = '85'>85</option>
                          <option value = '90'>90</option>
                          <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
                        </select>
                        </div>
 
@@ -542,6 +558,7 @@
                         <option value = '85'>85</option>
                         <option value = '90'>90</option>
                         <option value = '95'>95</option>
+                        <option value = 'NR'>NR</option>
                       </select>
                       </div>
                       <div class="form-inline" style = 'float: right;'>
@@ -564,6 +581,7 @@
                         <option value = '85'>85</option>
                         <option value = '90'>90</option>
                         <option value = '95'>95</option>
+                        <option value = 'NR'>NR</option>
                       </select>
                       </div>
 
@@ -576,6 +594,7 @@
                    <div class="form-inline">
                    <div class = 'remove' onclick="remove(3)">X</div>
                    <div class = 'pass' onclick = 'pass(3)'>	&#10004;</div>
+                   <div class = 'pass' onclick = 'refer(3)'>R</div>
                    <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student3name" class="form-inline" onclick="addStudent(3)">
                    <strong>Booth 3</strong>
 
@@ -604,6 +623,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
 
                      <div class="form-inline">
@@ -626,6 +646,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      <div class="form-inline">
@@ -648,6 +669,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
 
@@ -671,6 +693,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                    </div>
                      <div class="form-inline">
@@ -693,6 +716,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      <div class="form-inline">
@@ -715,6 +739,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      </div>
@@ -742,6 +767,7 @@
                         <option value = '85'>85</option>
                         <option value = '90'>90</option>
                         <option value = '95'>95</option>
+                        <option value = 'NR'>NR</option>
                       </select>
                       </div>
                       <div class="form-inline" style = 'float: right;'>
@@ -764,6 +790,7 @@
                         <option value = '85'>85</option>
                         <option value = '90'>90</option>
                         <option value = '95'>95</option>
+                        <option value = 'NR'>NR</option>
                       </select>
                       </div>
 
@@ -773,6 +800,7 @@
                    <div class="form-inline">
                    <div class = 'remove' onclick="remove(4)">X</div>
                    <div class = 'pass' onclick = 'pass(4)'>	&#10004;</div>
+                   <div class = 'pass' onclick = 'refer(4)'>R</div>
                    <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student4name" class="form-inline" onclick="addStudent(4)">
                    <strong>Booth 4</strong>
 
@@ -803,6 +831,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
 
                      <div class="form-inline">
@@ -825,6 +854,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      <div class="form-inline">
@@ -847,6 +877,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
 
@@ -870,6 +901,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                    </div>
                      <div class="form-inline">
@@ -892,6 +924,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      <div class="form-inline">
@@ -914,6 +947,7 @@
                        <option value = '85'>85</option>
                        <option value = '90'>90</option>
                        <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
                      </select>
                      </div>
                      </div>
@@ -940,6 +974,7 @@
                       <option value = '85'>85</option>
                       <option value = '90'>90</option>
                       <option value = '95'>95</option>
+                      <option value = 'NR'>NR</option>
                     </select>
                     </div>
                     <div class="form-inline" style = 'float: right;'>
@@ -962,6 +997,7 @@
                       <option value = '85'>85</option>
                       <option value = '90'>90</option>
                       <option value = '95'>95</option>
+                      <option value = 'NR'>NR</option>
                     </select>
                     </div>
 
@@ -974,6 +1010,7 @@
                  <div class="form-inline">
                  <div class = 'remove' onclick="remove(5)">X</div>
                  <div class = 'pass' onclick = 'pass(5)'>	&#10004;</div>
+                 <div class = 'pass' onclick = 'refer(5)'>R</div>
                  <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student5name" class="form-inline" onclick="addStudent(5)">
                  <strong>Booth 5</strong>
 
@@ -1002,6 +1039,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
 
                    <div class="form-inline">
@@ -1024,6 +1062,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
                    <div class="form-inline">
@@ -1046,6 +1085,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
 
@@ -1069,6 +1109,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                  </div>
                    <div class="form-inline">
@@ -1091,6 +1132,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
                    <div class="form-inline">
@@ -1113,6 +1155,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
                    </div>
@@ -1140,6 +1183,7 @@
                     <option value = '85'>85</option>
                     <option value = '90'>90</option>
                     <option value = '95'>95</option>
+                    <option value = 'NR'>NR</option>
                   </select>
                   </div>
                   <div class="form-inline" style = 'float: right;'>
@@ -1162,6 +1206,7 @@
                     <option value = '85'>85</option>
                     <option value = '90'>90</option>
                     <option value = '95'>95</option>
+                    <option value = 'NR'>NR</option>
                   </select>
                   </div>
 
@@ -1171,6 +1216,7 @@
                  <div class="form-inline">
                  <div class = 'remove' onclick="remove(6)">X</div>
                  <div class = 'pass' onclick = 'pass(6)'>	&#10004;</div>
+                 <div class = 'pass' onclick = 'refer(6)'>R</div>
                  <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student6name" class="form-inline" onclick="addStudent(6)">
                  <strong>Booth 6</strong>
 
@@ -1199,6 +1245,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
 
                    <div class="form-inline">
@@ -1221,6 +1268,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
                    <div class="form-inline">
@@ -1243,6 +1291,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
 
@@ -1266,6 +1315,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                  </div>
                    <div class="form-inline">
@@ -1288,6 +1338,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
                    <div class="form-inline">
@@ -1310,6 +1361,7 @@
                      <option value = '85'>85</option>
                      <option value = '90'>90</option>
                      <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
                    </select>
                    </div>
                    </div>
@@ -1336,6 +1388,7 @@
                     <option value = '85'>85</option>
                     <option value = '90'>90</option>
                     <option value = '95'>95</option>
+                    <option value = 'NR'>NR</option>
                   </select>
                   </div>
                   <div class="form-inline" style = 'float: right;'>
@@ -1358,6 +1411,7 @@
                     <option value = '85'>85</option>
                     <option value = '90'>90</option>
                     <option value = '95'>95</option>
+                    <option value = 'NR'>NR</option>
                   </select>
                   </div>
 
@@ -1370,6 +1424,7 @@
                <div class="form-inline">
                <div class = 'remove' onclick="remove(7)">X</div>
                <div class = 'pass' onclick = 'pass(7)'>	&#10004;</div>
+               <div class = 'pass' onclick = 'refer(7)'>R</div>
                <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student7name" class="form-inline" onclick="addStudent(7)">
                <strong>Booth 7</strong>
 
@@ -1398,6 +1453,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
 
                  <div class="form-inline">
@@ -1420,6 +1476,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
                  <div class="form-inline">
@@ -1442,6 +1499,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
 
@@ -1465,6 +1523,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                </div>
                  <div class="form-inline">
@@ -1487,6 +1546,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
                  <div class="form-inline">
@@ -1509,6 +1569,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
                  </div>
@@ -1536,6 +1597,7 @@
                   <option value = '85'>85</option>
                   <option value = '90'>90</option>
                   <option value = '95'>95</option>
+                  <option value = 'NR'>NR</option>
                 </select>
                 </div>
                 <div class="form-inline" style = 'float: right;'>
@@ -1558,6 +1620,7 @@
                   <option value = '85'>85</option>
                   <option value = '90'>90</option>
                   <option value = '95'>95</option>
+                  <option value = 'NR'>NR</option>
                 </select>
                 </div>
 
@@ -1567,6 +1630,7 @@
                <div class="form-inline">
                <div class = 'remove' onclick="remove(8)">X</div>
                <div class = 'pass' onclick = 'pass(8)'>	&#10004;</div>
+               <div class = 'pass' onclick = 'refer(8)'>R</div>
                <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student8name" class="form-inline" onclick="addStudent(8)">
                <strong>Booth 8</strong>
 
@@ -1595,6 +1659,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
 
                  <div class="form-inline">
@@ -1617,6 +1682,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
                  <div class="form-inline">
@@ -1639,6 +1705,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
 
@@ -1662,6 +1729,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                </div>
                  <div class="form-inline">
@@ -1684,6 +1752,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
                  <div class="form-inline">
@@ -1706,6 +1775,7 @@
                    <option value = '85'>85</option>
                    <option value = '90'>90</option>
                    <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
                  </select>
                  </div>
                  </div>
@@ -1732,6 +1802,7 @@
                   <option value = '85'>85</option>
                   <option value = '90'>90</option>
                   <option value = '95'>95</option>
+                  <option value = 'NR'>NR</option>
                 </select>
                 </div>
                 <div class="form-inline" style = 'float: right;'>
@@ -1754,6 +1825,7 @@
                   <option value = '85'>85</option>
                   <option value = '90'>90</option>
                   <option value = '95'>95</option>
+                  <option value = 'NR'>NR</option>
                 </select>
                 </div>
 
@@ -1766,6 +1838,7 @@
              <div class="form-inline">
              <div class = 'remove' onclick="remove(9)">X</div>
              <div class = 'pass' onclick = 'pass(9)'>	&#10004;</div>
+             <div class = 'pass' onclick = 'refer(9)'>R</div>
              <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer; cursor: pointer;" id="student9name" class="form-inline" onclick="addStudent(9)">
              <strong>Booth 9</strong>
 
@@ -1794,6 +1867,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
 
                <div class="form-inline">
@@ -1816,6 +1890,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
                <div class="form-inline">
@@ -1838,6 +1913,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
 
@@ -1861,6 +1937,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
              </div>
                <div class="form-inline">
@@ -1883,6 +1960,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
                <div class="form-inline">
@@ -1905,6 +1983,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
                </div>
@@ -1931,6 +2010,7 @@
                 <option value = '85'>85</option>
                 <option value = '90'>90</option>
                 <option value = '95'>95</option>
+                <option value = 'NR'>NR</option>
               </select>
               </div>
               <div class="form-inline" style = 'float: right;'>
@@ -1953,6 +2033,7 @@
                 <option value = '85'>85</option>
                 <option value = '90'>90</option>
                 <option value = '95'>95</option>
+                <option value = 'NR'>NR</option>
               </select>
               </div>
 
@@ -1962,6 +2043,7 @@
              <div class="form-inline">
              <div class = 'remove' onclick="remove(10)">X</div>
              <div class = 'pass' onclick = 'pass(10)'>	&#10004;</div>
+             <div class = 'pass' onclick = 'refer(10)'>R</div>
              <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student10name" class="form-inline" onclick="addStudent(10)">
              <strong>Booth 10</strong>
 
@@ -1990,6 +2072,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
 
 
@@ -2013,6 +2096,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
                <div class="form-inline">
@@ -2035,6 +2119,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
 
@@ -2058,6 +2143,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
              </div>
                <div class="form-inline">
@@ -2080,6 +2166,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
                <div class="form-inline">
@@ -2102,6 +2189,7 @@
                  <option value = '85'>85</option>
                  <option value = '90'>90</option>
                  <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
                </select>
                </div>
                </div>
@@ -2128,6 +2216,7 @@
                 <option value = '85'>85</option>
                 <option value = '90'>90</option>
                 <option value = '95'>95</option>
+                <option value = 'NR'>NR</option>
               </select>
               </div>
               <div class="form-inline" style = 'float: right;'>
@@ -2150,6 +2239,7 @@
                 <option value = '85'>85</option>
                 <option value = '90'>90</option>
                 <option value = '95'>95</option>
+                <option value = 'NR'>NR</option>
               </select>
               </div>
 
@@ -2199,6 +2289,11 @@ function remove(e){
 
 function pass(e){
   var h = $("#studentLine"+e).find('.hearing-dropdown').val("25");
+
+}
+
+function refer(e){
+  var h = $("#studentLine"+e).find('.hearing-dropdown').val("NR");
 
 }
 

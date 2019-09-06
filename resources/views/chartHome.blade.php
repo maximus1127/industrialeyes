@@ -429,6 +429,7 @@
                           <option value = '85'>85</option>
                           <option value = '90'>90</option>
                           <option value = '95'>95</option>
+                          <option value = 'NR'>NR</option>
                         </select>
                         </div>
                           <div class="form-group">
@@ -451,6 +452,7 @@
                             <option value = '85'>85</option>
                             <option value = '90'>90</option>
                             <option value = '95'>95</option>
+                            <option value = 'NR'>NR</option>
                           </select>
                           </div>
                           <div class="form-group">
@@ -474,6 +476,7 @@
                             <option value = '85'>85</option>
                             <option value = '90'>90</option>
                             <option value = '95'>95</option>
+                            <option value = 'NR'>NR</option>
                           </select>
                           </div>
                           <div class="form-group">
@@ -497,6 +500,7 @@
                             <option value = '85'>85</option>
                             <option value = '90'>90</option>
                             <option value = '95'>95</option>
+                            <option value = 'NR'>NR</option>
                           </select>
                           </div>
 
@@ -527,6 +531,7 @@
                           <option value = '85'>85</option>
                           <option value = '90'>90</option>
                           <option value = '95'>95</option>
+                          <option value = 'NR'>NR</option>
                         </select>
                         </div>
                           <div class="form-group">
@@ -550,6 +555,7 @@
                             <option value = '85'>85</option>
                             <option value = '90'>90</option>
                             <option value = '95'>95</option>
+                            <option value = 'NR'>NR</option>
                           </select>
                           </div>
                           <div class="form-group">
@@ -573,6 +579,7 @@
                             <option value = '85'>85</option>
                             <option value = '90'>90</option>
                             <option value = '95'>95</option>
+                            <option value = 'NR'>NR</option>
                           </select>
                           </div>
                           <div class="form-group">
@@ -596,6 +603,7 @@
                             <option value = '85'>85</option>
                             <option value = '90'>90</option>
                             <option value = '95'>95</option>
+                            <option value = 'NR'>NR</option>
                           </select>
                           </div>
 
