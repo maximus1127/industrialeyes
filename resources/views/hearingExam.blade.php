@@ -2285,6 +2285,7 @@
 function remove(e){
   $('#appended'+e).remove();
   $('#student'+e+'id').val('');
+  $("#studentLine"+e).find('.hearing-dropdown').val("");
 }
 
 function pass(e){
