@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Illuminate\Support\Facades\Input;
 
-class StudentsExport implements FromQuery, WithHeadings
+class StudentsAutoExport implements FromQuery, WithHeadings
 {
   use Exportable;
 
