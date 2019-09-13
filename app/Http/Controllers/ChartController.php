@@ -150,7 +150,7 @@ class ChartController extends Controller
       if($student){
       $student->fname = $request->fname;
       $student->lname = $request->lname;
-      $student->dob = $request->dob;
+      $student->dob = Carbon::parse($request->dob);
       $student->student_number = $request->number;
       $student->school = $request->school;
       $student->district = $request->district;
@@ -185,7 +185,7 @@ class ChartController extends Controller
       $student = new Student();
       $student->fname = $request->fname;
       $student->lname = $request->lname;
-      $student->dob = $request->dob;
+      $student->dob = Carbon::parse($request->dob);
       $student->student_number = $request->number;
       $student->school = $request->school;
       $student->district = $request->district;

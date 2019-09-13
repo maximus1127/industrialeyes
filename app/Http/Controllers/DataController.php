@@ -9,8 +9,10 @@ use App\Student;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use App\Exports\StudentsExport;
+use App\Exports\StudentsAutoExport;
 use PDF;
 use DB;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class DataController extends Controller
 {
@@ -231,5 +233,94 @@ class DataController extends Controller
 
 
     }
+
+
+    public $path="";
+
+    protected function generateMailCSV($school){
+                $headings = [
+            'id',
+            'fname',
+            'lname',
+            'student_number',
+            'dob',
+            'gender',
+            'district',
+            'school',
+            'teacher',
+            'grade',
+            'complete',
+            'od_dist',
+            'od_near',
+            'od_cyl',
+            'ou_color',
+            'os_dist',
+            'os_near',
+            'os_cyl',
+            'ou_dist',
+            'ou_near',
+            'notes',
+            'nurse',
+            'r1k',
+            'r2k',
+            'r4k',
+            'r5k',
+            'l1k',
+            'l2k',
+            'l4k',
+            'l5k',
+            'last_edited',
+        ];
+
+        $filename = 'testing_'.Carbon::today()->format('m-d').'_school_'.$school.'.csv';
+
+        Excel::store(new StudentsAutoExport($headings, $school), $filename, 'results');
+
+        $this->path = storage_path($filename);
+
+    }
+
+
+    public function mailCSV(Request $request){
+
+           $this->generateMailCSV($request->school);
+           $mail = new PHPMailer(TRUE);
+
+
+
+               $mail->setFrom('linesixmaniac@gmail.com', 'IndustrialEyes');
+               $mail->addAddress('maxbourque1127@yahoo.com');
+               $mail->Subject = 'Test Results';
+               $mail->Body = 'Here are the auto-mailed results from a testing station today.';
+               $mail->addAttachment($this->path);
+               $mail->isSMTP();
+               $mail->Host = 'smtp.gmail.com';
+               $mail->SMTPAuth = TRUE;
+               $mail->SMTPSecure = 'tls';
+               $mail->Username = 'linesixmaniac@gmail.com';
+               $mail->Password = 'Mfe202020';
+               $mail->Port = 587;
+                $mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
+
+               /* Enable SMTP debug output. */
+//               $mail->SMTPDebug = 4;
+
+               $mail->send();
+
+
+        return redirect('/');
+    }
+
+
+
+
+
+
 
 }

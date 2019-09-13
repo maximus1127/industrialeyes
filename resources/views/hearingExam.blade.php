@@ -2310,7 +2310,7 @@ function allPass(){
 }
 
 function back(){
-  window.history.back();
+  window.location.href = '/';
 }
 
 
