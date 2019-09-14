@@ -94,8 +94,8 @@ class DataController extends Controller
                             "student_number" => empty($importData[3]) ? 'NULL' : $importData[3],
                             "dob" => empty($importData[4]) ? NULL : $importData[4],
                             "gender" => empty($importData[5]) ? NULL : $importData[5],
-                            "district" => empty($importData[6]) ? NULL : ucfirst($importData[6]),
-                            "school" => empty($importData[7]) ? NULL : $importData[7],
+                            "district" => empty($importData[6]) ? NULL : ucwords($importData[6]),
+                            "school" => empty($importData[7]) ? NULL : ucwords($importData[7]),
                             "teacher" => empty($importData[8]) ? NULL : ucfirst($importData[8]),
                             "grade" => empty($importData[9]) ? NULL : $importData[9],
                             "complete" => empty($importData[10]) ? NULL : $importData[10],
@@ -289,7 +289,7 @@ class DataController extends Controller
 
 
                $mail->setFrom('linesixmaniac@gmail.com', 'IndustrialEyes');
-               $mail->addAddress('maxbourque1127@yahoo.com');
+               $mail->addAddress('alex@industrialhearing.net');
                $mail->Subject = 'Test Results';
                $mail->Body = 'Here are the auto-mailed results from a testing station today.';
                $mail->addAttachment($this->path);

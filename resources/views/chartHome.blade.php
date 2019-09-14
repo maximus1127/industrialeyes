@@ -150,7 +150,7 @@
                                      </select>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="location.reload()" data-dismiss="modal">Filter</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Filter</button>
                         {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                       </div>
                     </div>
@@ -894,7 +894,7 @@ $(document).ready(function(){
   if(sessionStorage.getItem('district') || sessionStorage.getItem('school')){
     autoPopulateStudents();
     $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
-
+  $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school'));
 
 }
     if(!sessionStorage.getItem('bilateral')){

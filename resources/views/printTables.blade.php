@@ -17,6 +17,13 @@
            border: 1px solid gray;
          }
 
+         img {
+     display: block;
+     margin-left: 215px;
+     height: 50px;
+   }
+
+
 
          </style>
 
@@ -25,6 +32,14 @@
 
      </head>
      <body style="width: 80%; margin: auto;">
+
+
+
+
+       <div>
+              <img src="{{asset('/images/industriallogo.PNG')}}" id="logo"/>
+       </div>
+
        <div style="float: left; position: relative;">
 
 
@@ -49,12 +64,37 @@
 </tbody>
 </table>
 <p>&nbsp;</p>
-<h1 style="text-align: center;">Vision and Hearing Screening Summary</h1>
+<h1 style="text-align: center;">Hearing and Vision Summary</h1>
 <p>&nbsp;</p>
 <table style="width: 303px; float: left;" border="1px">
 <tbody>
 <tr>
-<td style="width: 150px; border: none;"><strong>Distance:</strong></td>
+<td style="width: 150px; border: none;"><strong>Distance:</strong>
+  @php
+    $score = array('20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/400');
+    $score2 = array('20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/400');
+    $grade = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12');
+    $grade2 = array('-1', '0', 'tk', 'k', 'TK', 'K', 'Tk');
+
+
+  if(in_array($student->grade, $grade)){
+    if(in_array($student->od_dist, $score) || in_array($student->os_dist, $score) || in_array($student->ou_dist, $score)){
+        echo "Failed";
+    } else {
+      echo "Passed";
+    }
+  }
+    elseif(in_array($student->grade, $grade2)){
+      if(in_array($student->od_dist, $score2) || in_array($student->os_dist, $score2) || in_array($student->ou_dist, $score2)){
+      echo "Failed";
+    } else {
+      echo "Passed";
+    }
+  }
+
+
+  @endphp
+</td>
 <td style="width: 150px; border: none;">&nbsp;</td>
 </tr>
 <tr>
@@ -74,7 +114,25 @@
 <table style="width: 303px; float: left; margin-top: 25px;" border="1px">
 <tbody>
 <tr>
-<td style="width: 150px; border: none;"><strong>Near:</strong></td>
+<td style="width: 150px; border: none;"><strong>Near:</strong>
+@php
+
+  if(in_array($student->grade, $grade)){
+    if(in_array($student->od_near, $score) || in_array($student->os_near, $score) || in_array($student->ou_near, $score)){
+        echo "Failed";
+    } else {
+      echo "Passed";
+    }
+  }
+    elseif(in_array($student->grade, $grade2)){
+      if(in_array($student->od_near, $score2) || in_array($student->os_near, $score2) || in_array($student->ou_near, $score2)){
+      echo "Failed";
+    } else {
+      echo "Passed";
+    }
+  }
+  @endphp
+</td>
 <td style="width: 150px; border: none;">&nbsp;</td>
 </tr>
 <tr>
@@ -104,7 +162,8 @@
 </tbody>
 </table>
 <table style="width: 303px; float: left; margin-top: 25px;" border="1px">
-	<tbody>
+
+
     <tr>
       <td>Right Ear </td>
       <td>Frequency </td>
@@ -132,9 +191,44 @@
 		</tr>
 
 	</tbody>
+
 </table>
+
+    @php
+    $hearinggrade = array('40', '45', '50', '55', '60', '65', '70', '75', '80', '85', '90', '95', 'NR');
+    $chances = 0;
+    if(in_array($student->r1k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->r2k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->r4k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->r5k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->l1k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->l2k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->l4k, $hearinggrade)){
+      $chances++;
+    }
+    if(in_array($student->l5k, $hearinggrade)){
+      $chances++;
+    }
+    if($chances > 1){
+      echo "FAILED";
+    } else {
+      echo "PASSED";
+    }
+  @endphp
 </div>
-<div style="float: left; position: relative; margin-top: -430px; margin-left: 350px;">
+<div style="float: left; position: relative; margin-top: -450px; margin-left: 350px;">
 
 {{-- <p style="padding-left: 30px;">&nbsp;</p> --}}
 <table style="height: 295px; margin-left: auto; margin-right: auto; margin-top: -35px;" border="3px" width="290">
