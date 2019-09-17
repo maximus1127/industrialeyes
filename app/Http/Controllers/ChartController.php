@@ -143,8 +143,9 @@ class ChartController extends Controller
             $calibration = Calibration::find(1) ;
       return view('hotvChart')->with(compact('calibration'));
     }
-    public function submit(Request $request){
 
+
+    public function submit(Request $request){
 
       $student = Student::find($request->student_id);
       if($student){
@@ -217,6 +218,32 @@ $student->last_edited = now();
       return back();
 
     }
+
+    }
+
+
+    public function newHearingStudent(Request $request){
+
+      $student = new Student();
+      $student->fname = $request->fname;
+      $student->lname = $request->lname;
+      $student->dob = Carbon::parse($request->dob);
+      $student->student_number = $request->number;
+      $student->school = $request->school;
+      $student->district = $request->district;
+      $student->teacher = $request->teacher;
+      $student->gender = $request->gender;
+      $student->grade = $request->grade;
+      $student->nurse = $request->nurse;
+      $student->last_edited = now();
+
+      if($student->save()){
+            return response()->json(['student' => $student->fresh()]);
+      }
+
+
+
+
 
     }
 

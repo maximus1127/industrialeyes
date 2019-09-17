@@ -27,6 +27,7 @@ Route::get('/autosave2', 'ChartController@autosave2')->name('autosave2');
 Route::get('/noteSave', 'ChartController@noteSave')->name('noteSave');
 Route::get('/hearing-exam/{district}/{school}', 'ChartController@hearingIndex')->name('hearingExam');
 Route::post('/submit-hearing-exam', 'ChartController@submitHearingExam')->name('submitHearingExam');
+Route::post('/new-hearing-student', 'ChartController@newHearingStudent')->name('newHearingStudent');
 
 
 Route::post('/chart', 'ChartController@findStudents')->name('search');

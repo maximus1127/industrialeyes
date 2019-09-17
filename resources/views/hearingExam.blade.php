@@ -144,7 +144,7 @@
 
              <div class="searh-box"><input  type="text" onkeyup="findName()" id="search" name="search" placeholder="Search" class="form-control"/></div>
 
-             <div class="students-list" style="max-height: 500px;">
+             <div class="students-list " style="max-height: 500px;">
                     <ul id="students">
 
 
@@ -155,6 +155,71 @@
                             @endforeach
 
                      </ul>
+
+             </div>
+             <br />
+             <br />
+ <h4>New Student</h4>
+             <div class="row">
+
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="fname">First Name</label>-->
+                     <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name"/>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="lname">Last Name</label>-->
+                     <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name"/>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="dob">Date of Birth</label>-->
+                     <input type="text" class="form-control" name="dob" id="dob" placeholder="Date of Birth" />
+                   </div>
+               </div>
+               <div class="col-md-2 col-lg-2">
+                   <div class="form-group">
+                     <!--<label for="gender">Gender</label>-->
+                     <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
+                   </div>
+               </div>
+               <div class="col-md-2 col-lg-2">
+                   <div class="form-group">
+                     <!--<label for="gender">Gender</label>-->
+                     <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" />
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="number">Student Number</label>-->
+                     <input type="text" class="form-control" name="number" id="number" placeholder="Student Number" />
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="district">District</label>-->
+                     <input type="text" class="form-control" name="district" id="district" placeholder="District" />
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="school">School</label>-->
+                     <input type="text" class="form-control" name="school" id="school" placeholder="School" />
+               </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+                   <div class="form-group">
+                     <!--<label for="teacher">Teacher</label>-->
+                     <input type="text" class="form-control" name="teacher" id="teacher" placeholder="Teacher" />
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-4">
+
+                   <button class="btn btn-sm btn-success" onclick='newStudent()'>Add</button>
+               </div>
 
              </div>
 
@@ -2278,9 +2343,17 @@
           <script src="{{asset('/js/jquery.js')}}"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
        <script src="{{asset('/js/bootstrap.min.js')}}"></script>
+          <script src="{{asset('/js/cleave.min.js')}}"></script>
 
 
 <script>
+
+
+    var cleave = new Cleave('#dob', {
+    date: true,
+    delimiter: '/',
+    datePattern: ['m', 'd', 'Y']
+});
 
 function remove(e){
   $('#appended'+e).remove();
@@ -2435,6 +2508,42 @@ $(document).keydown(function(event){
 $(document).keyup(function(){
     booth = "";
 });
+
+
+$(document).ready(function(){
+  $('#district').val(sessionStorage.getItem('district'));
+  $('#school').val(sessionStorage.getItem('school'));
+});
+
+function newStudent(){
+  $.ajax({
+    url: '{{route('newHearingStudent')}}',
+    method: 'POST',
+    data:{
+      fname: $("#fname").val(),
+      lname: $("#lname").val(),
+      dob: $("#dob").val(),
+      gender: $("#gender").val(),
+      grade: $("#grade").val(),
+      district: $("#district").val(),
+      school: $("#school").val(),
+      teacher: $("#teacher").val(),
+      nurse: $("#nurse").val(),
+      number: $("#number").val(),
+    },
+    success: function(data){
+      $('#students').prepend(
+      `<li class="student_list" data-fname = "${data.student.fname}" data-lname = "${data.student.lname}" data-identify = "${data.student.id}"  data-number = "${data.student.student_number}"  onclick="addTestee(this)">
+        ${data.student.fname} ${data.student.lname}
+      </li>`
+    )
+        alert('Student Successfully Saved');
+    },
+    error: function(){
+      alert("Unable to save student");
+    }
+  });
+}
 
 
 

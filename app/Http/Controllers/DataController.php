@@ -297,8 +297,8 @@ class DataController extends Controller
                $mail->Host = 'smtp.gmail.com';
                $mail->SMTPAuth = TRUE;
                $mail->SMTPSecure = 'tls';
-               $mail->Username = 'linesixmaniac@gmail.com';
-               $mail->Password = 'Mfe202020';
+               $mail->Username = 'industrialhearing3@gmail.com';
+               $mail->Password = 'Western_1';
                $mail->Port = 587;
                 $mail->SMTPOptions = array(
                     'ssl' => array(
