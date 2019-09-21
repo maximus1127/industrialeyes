@@ -16,7 +16,7 @@
          <style>
              html{
                  font-size: 13pt;
-                 zoom: .8;
+                 zoom: .75;
 
              }
              li{
@@ -67,6 +67,12 @@
                padding-bottom: 15px;
                text-align: center;
                cursor: pointer;
+             }
+
+           button {
+               border: none;
+               padding: 0;
+               background: none;
              }
 
          </style>
@@ -244,6 +250,8 @@
                      <div class = 'remove' onclick="remove(1)">X</div>
                      <div class = 'pass' onclick = 'pass(1)'>	&#10004;</div>
                      <div class = 'pass' onclick = 'refer(1)'>R</div>
+                     <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(1)">N</button>
+
                      <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student1name" class="form-inline" onclick="addStudent(1)">
                      <strong>Booth 1</strong>
 
@@ -450,6 +458,7 @@
                      <div class = 'remove' onclick="remove(2)">X</div>
                      <div class = 'pass' onclick = 'pass(2)'>	&#10004;</div>
                      <div class = 'pass' onclick = 'refer(2)'>R</div>
+                     <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(2)">N</button>
                      <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student2name" class="form-inline" onclick="addStudent(2)">
                      <strong>Booth 2</strong>
 
@@ -660,6 +669,7 @@
                    <div class = 'remove' onclick="remove(3)">X</div>
                    <div class = 'pass' onclick = 'pass(3)'>	&#10004;</div>
                    <div class = 'pass' onclick = 'refer(3)'>R</div>
+                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(3)">N</button>
                    <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student3name" class="form-inline" onclick="addStudent(3)">
                    <strong>Booth 3</strong>
 
@@ -866,6 +876,7 @@
                    <div class = 'remove' onclick="remove(4)">X</div>
                    <div class = 'pass' onclick = 'pass(4)'>	&#10004;</div>
                    <div class = 'pass' onclick = 'refer(4)'>R</div>
+                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(4)">N</button>
                    <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student4name" class="form-inline" onclick="addStudent(4)">
                    <strong>Booth 4</strong>
 
@@ -1076,6 +1087,7 @@
                  <div class = 'remove' onclick="remove(5)">X</div>
                  <div class = 'pass' onclick = 'pass(5)'>	&#10004;</div>
                  <div class = 'pass' onclick = 'refer(5)'>R</div>
+                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(5)">N</button>
                  <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student5name" class="form-inline" onclick="addStudent(5)">
                  <strong>Booth 5</strong>
 
@@ -1282,6 +1294,7 @@
                  <div class = 'remove' onclick="remove(6)">X</div>
                  <div class = 'pass' onclick = 'pass(6)'>	&#10004;</div>
                  <div class = 'pass' onclick = 'refer(6)'>R</div>
+                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(6)">N</button>
                  <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student6name" class="form-inline" onclick="addStudent(6)">
                  <strong>Booth 6</strong>
 
@@ -1490,6 +1503,7 @@
                <div class = 'remove' onclick="remove(7)">X</div>
                <div class = 'pass' onclick = 'pass(7)'>	&#10004;</div>
                <div class = 'pass' onclick = 'refer(7)'>R</div>
+               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(7)">N</button>
                <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student7name" class="form-inline" onclick="addStudent(7)">
                <strong>Booth 7</strong>
 
@@ -1696,6 +1710,7 @@
                <div class = 'remove' onclick="remove(8)">X</div>
                <div class = 'pass' onclick = 'pass(8)'>	&#10004;</div>
                <div class = 'pass' onclick = 'refer(8)'>R</div>
+               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(8)">N</button>
                <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student8name" class="form-inline" onclick="addStudent(8)">
                <strong>Booth 8</strong>
 
@@ -1904,6 +1919,7 @@
              <div class = 'remove' onclick="remove(9)">X</div>
              <div class = 'pass' onclick = 'pass(9)'>	&#10004;</div>
              <div class = 'pass' onclick = 'refer(9)'>R</div>
+             <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(9)">N</button>
              <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer; cursor: pointer;" id="student9name" class="form-inline" onclick="addStudent(9)">
              <strong>Booth 9</strong>
 
@@ -2109,6 +2125,7 @@
              <div class = 'remove' onclick="remove(10)">X</div>
              <div class = 'pass' onclick = 'pass(10)'>	&#10004;</div>
              <div class = 'pass' onclick = 'refer(10)'>R</div>
+             <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(10)">N</button>
              <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student10name" class="form-inline" onclick="addStudent(10)">
              <strong>Booth 10</strong>
 
@@ -2336,6 +2353,38 @@
 
 
 </form>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">Select Notes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="student_id_notes" value="" />
+        <input type="hidden" name="notes" id="notes" value="">
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note9" value="Hearing: Unable to test. "> Unable to test<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note1" value="Hearing: Language Barrier. "> Language Barrier<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note2" value="Hearing: Uncooperative. "> Uncooperative<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note3" value="Hearing: Immature. "> Immature<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note4" value="Hearing: Cold / Congested. "> Cold / Congested<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note5" value="Hearing: Recent or present earaches. "> Recent or present earaches<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note6" value="Hearing: Reports history of ear problems. "> Reports history of ear problems<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note7" value="Hearing: Reports ringing or head noises. "> Reports ringing or head noises<br>
+        <input type="checkbox" class="hearing-checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note8" value="Hearing: Known problem / Under medical care. "> Known problem / Under medical care<br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
        </div><!--.container ends-->
 
 
@@ -2354,6 +2403,49 @@
     delimiter: '/',
     datePattern: ['m', 'd', 'Y']
 });
+
+
+
+function studentNote(e){
+  $("#student_id_notes").val('');
+  $("#student_id_notes").val($('#student'+e+'id').val());
+  $('#exampleModal3').find('.hearing-checkbox').prop('checked', false);
+  console.log($('#student_id_notes').val());
+
+}
+
+function addNote(f){
+  var note = $(f).val();
+  var noteBox = $('#notes');
+if($(f).prop('checked')==1){
+  note = noteBox.val() + note;
+  noteBox.val(note);
+  $.ajax({
+    url: "{{route('hearingNoteSave')}}",
+    data: {
+      studentID: $("#student_id_notes").val(),
+      note: note,
+    },
+    error: function(){
+      alert("Unable to save note");
+    }
+  });
+}else{
+  note = noteBox.val().replace($(f).val(), '');
+  noteBox.val(note);
+  $.ajax({
+    url: "{{route('hearingNoteSave')}}",
+    data: {
+      studentID: $("#student_id_notes").val(),
+      note: note,
+    },
+    error: function(){
+      alert('Unable to save note');
+    }
+  });
+}
+
+}
 
 function remove(e){
   $('#appended'+e).remove();
@@ -2386,9 +2478,89 @@ function back(){
   window.location.href = '/';
 }
 
-
+var fail1 = 0;
+var fail2 = 0;
+var fail3 = 0;
+var fail4 = 0;
+var fail5 = 0;
+var fail6 = 0;
+var fail7 = 0;
+var fail8 = 0;
+var fail9 = 0;
+var fail10 = 0;
+var concat;
 function passFilter(e, cell){
-  if($(e).val() != '25'){
+  if($(e).val() == '30' || $(e).val() == '35'){
+    switch(cell) {
+ case 1:
+   fail1 ++;
+   if (fail1 > 1){
+     $("#studentLine"+cell).css('background-color', '#ff6060');
+     $('#extraFreq'+cell).css('visibility', 'visible');
+   }
+   break;
+ case 2:
+   fail2 ++;
+   if (fail2 > 1){
+     $("#studentLine"+cell).css('background-color', '#ff6060');
+     $('#extraFreq'+cell).css('visibility', 'visible');
+   }
+   break;
+   case 3:
+     fail3 ++;
+     if (fail3 > 1){
+       $("#studentLine"+cell).css('background-color', '#ff6060');
+       $('#extraFreq'+cell).css('visibility', 'visible');
+     }
+     break;
+   case 4:
+     fail4 ++;
+     if (fail4 > 1){
+       $("#studentLine"+cell).css('background-color', '#ff6060');
+       $('#extraFreq'+cell).css('visibility', 'visible');
+     }
+     case 5:
+       fail5 ++;
+       if (fail5 > 1){
+         $("#studentLine"+cell).css('background-color', '#ff6060');
+         $('#extraFreq'+cell).css('visibility', 'visible');
+       }
+       break;
+     case 6:
+       fail6 ++;
+       if (fail6 > 1){
+         $("#studentLine"+cell).css('background-color', '#ff6060');
+         $('#extraFreq'+cell).css('visibility', 'visible');
+       }
+       case 7:
+         fail7 ++;
+         if (fail7 > 1){
+           $("#studentLine"+cell).css('background-color', '#ff6060');
+           $('#extraFreq'+cell).css('visibility', 'visible');
+         }
+         break;
+       case 8:
+         fail8 ++;
+         if (fail8 > 1){
+           $("#studentLine"+cell).css('background-color', '#ff6060');
+           $('#extraFreq'+cell).css('visibility', 'visible');
+         }
+         case 9:
+           fail9 ++;
+           if (fail9 > 1){
+             $("#studentLine"+cell).css('background-color', '#ff6060');
+             $('#extraFreq'+cell).css('visibility', 'visible');
+           }
+           break;
+         case 10:
+           fail10 ++;
+           if (fail10 > 1){
+             $("#studentLine"+cell).css('background-color', '#ff6060');
+             $('#extraFreq'+cell).css('visibility', 'visible');
+           }
+         }
+
+  } else if($(e).val() >= 40){
     $("#studentLine"+cell).css('background-color', '#ff6060');
     $('#extraFreq'+cell).css('visibility', 'visible');
   }

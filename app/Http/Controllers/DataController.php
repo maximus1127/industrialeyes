@@ -12,6 +12,8 @@ use App\Exports\StudentsExport;
 use App\Exports\StudentsAutoExport;
 use PDF;
 use DB;
+use LynX39\LaraPdfMerger\Facades\PdfMerger;
+use Illuminate\Filesystem\Filesystem;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class DataController extends Controller
@@ -219,6 +221,110 @@ class DataController extends Controller
 
 
     }
+
+
+
+    public function exportVisionBatches(Request $request){
+      $score = array('20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/400');
+      $score2 = array('20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/400');
+      $grade = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12');
+      $grade2 = array('-1', '0', 'tk', 'k', 'TK', 'K', 'Tk');
+
+      $pdfMerger = PDFMerger::init();
+      $i = 0;
+
+      $students = Student::where('district', $request->district)
+                          ->where('school', $request->school)->get();
+      $filtered_students = collect();
+
+      foreach($students as $student){
+          if(in_array($student->grade, $grade)){
+            if(in_array($student->od_dist, $score) || in_array($student->os_dist, $score) || in_array($student->ou_dist, $score)){
+                $filtered_students->push($student);
+            }
+          }
+            elseif(in_array($student->grade, $grade2)){
+              if(in_array($student->od_dist, $score2) || in_array($student->os_dist, $score2) || in_array($student->ou_dist, $score2)){
+              $filtered_students->push($student);
+            }
+          }
+      }
+
+      $pdf = PDF::loadView('printRoster', compact('filtered_students'), [], ['orientation' => 'L']);
+      $pdf->save('pdf/roster.pdf');
+      $pdfMerger->addPDF('pdf/roster.pdf');
+        foreach ($filtered_students as $student) {
+          $pdf = PDF::loadView('studentVisionFail', compact('student'));
+          $pdf->save('pdf/document'.$i.'.pdf');
+          $pdfMerger->addPDF('pdf/document'.$i.'.pdf');
+          $i++;
+        }
+
+      $pdfMerger->merge();
+      $pdfMerger->save("file_name.pdf", "browser");
+
+      $file = new Filesystem;
+      $file->cleanDirectory('pdf');
+
+    }
+
+    public function exportHearingBatches(Request $request){
+
+
+      $pdfMerger = PDFMerger::init();
+      $i = 0;
+
+      $students = Student::where('district', $request->district)
+                          ->where('school', $request->school)->get();
+      $filtered_students = collect();
+      $grade = array('40', '45', '50', '55', '60', '65', '70', '75', '80', '85', '90', '95', 'NR');
+      foreach($students as $student){
+        $scores = array('r1k' => strval($student->r1k), 'r2k' => strval($student->r2k), 'r4k' => strval($student->r4k), 'r5k' => strval($student->r5k), 'l1k' => strval($student->l1k), 'l2k' => strval($student->l2k), 'l4k' => strval($student->l4k), 'l5k' => strval($student->l5k));
+        $filter = array_count_values($scores);
+        if(in_array($student->r1k, $grade) || in_array($student->r2k, $grade) || in_array($student->r4k, $grade) || in_array($student->r5k, $grade) || in_array($student->l1k, $grade) || in_array($student->l2k, $grade) || in_array($student->l4k, $grade) || in_array($student->l5k, $grade)){
+          $filtered_students->push($student);
+        }
+        if(array_key_exists("30", $filter) && $filter['30'] > 1){
+          $filtered_students->push($student);
+        }
+
+      }
+
+
+      $pdf = PDF::loadView('printHearingRoster', compact('filtered_students'), [], ['orientation' => 'L']);
+      $pdf->save('pdf/roster.pdf');
+      $pdfMerger->addPDF('pdf/roster.pdf');
+        foreach ($filtered_students as $student) {
+          $pdf = PDF::loadView('studentHearingFail', compact('student'));
+          $pdf->save('pdf/document'.$i.'.pdf');
+          $pdfMerger->addPDF('pdf/document'.$i.'.pdf');
+          $i++;
+        }
+
+      $pdfMerger->merge();
+      $pdfMerger->save("file_name.pdf", "browser");
+
+      $file = new Filesystem;
+      $file->cleanDirectory('pdf');
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function exportHearingRoster(Request $request)
     {

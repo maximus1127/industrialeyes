@@ -24,11 +24,8 @@
       <th align = "left">Hearing</th>
 
     </tr>
-    @foreach($students as $student)
-      @php
-        $grade = array('40', '45', '50', '55', '60', '65', '70', '75', '80', '85', '90', '95', 'NR');
-      @endphp
-      @if(in_array($student->r1k, $grade) || in_array($student->r2k, $grade) || in_array($student->r4k, $grade) || in_array($student->r5k, $grade) || in_array($student->l1k, $grade) || in_array($student->l2k, $grade) || in_array($student->l4k, $grade) || in_array($student->l5k, $grade))
+    @foreach($filtered_students as $student)
+
     <tr>
       <td>{{$student->fname.' '.$student->lname}}</td>
       <td>{{$student->student_number}}</td>
@@ -38,7 +35,8 @@
       <td>Failed</td>
 
     </tr>
-        @endif
+
+
 @endforeach
   </table>
 

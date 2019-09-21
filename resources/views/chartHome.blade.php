@@ -84,16 +84,9 @@
            @csrf
        </form>
      </div>
-        <div class="top_item">
-          <form method='get' action='{{route('exportVisionRoster')}}' >
-            {{ csrf_field() }}
 
-               <input type='submit' name='submit' value='Download Vision Roster' class="btn btn-primary" target="_blank">
-
-          </form>
-        </div>
-
-<a href="{{route('exportHearingRoster')}}" style="margin-left: 20px;" target="_blank"><button type="button" class="btn btn-info">Download Hearing Roster</button></a>
+<a href="" style="margin-left: 20px;" target="_blank" id="hearingBatch"><button type="button" class="btn btn-info">Download Hearing Batches</button></a>
+<a href="" style="margin-left: 20px;" target="_blank" id="visionBatch"><button type="button" class="btn btn-info">Download Vision Batches</button></a>
      {{-- </div> --}}
      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2" style="margin-left: 20px;">
         Select District/School
@@ -833,6 +826,8 @@ function populateStudents(){
       sessionStorage.setItem("school", $('#search_school').val());
       sessionStorage.setItem("district", $('#search_district').val());
       $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school'));
+      $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
+      $("#hearingBatch").attr('href', '/export-hearing-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
    }
  });
 }
@@ -912,8 +907,8 @@ $(document).ready(function(){
   // }, 500);
 
   $("#hearingURL").attr('href', '/hearing-exam/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
-
-
+  $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
+  $("#hearingBatch").attr('href', '/export-hearing-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
 });
 
 function bilateral(){

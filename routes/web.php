@@ -28,6 +28,7 @@ Route::get('/noteSave', 'ChartController@noteSave')->name('noteSave');
 Route::get('/hearing-exam/{district}/{school}', 'ChartController@hearingIndex')->name('hearingExam');
 Route::post('/submit-hearing-exam', 'ChartController@submitHearingExam')->name('submitHearingExam');
 Route::post('/new-hearing-student', 'ChartController@newHearingStudent')->name('newHearingStudent');
+Route::get('/add-hearing-note', 'ChartController@hearingNoteSave')->name('hearingNoteSave');
 
 
 Route::post('/chart', 'ChartController@findStudents')->name('search');
@@ -38,11 +39,14 @@ Route::post('/uploadFile', 'DataController@uploadFile');
 
 Route::get('/export', 'DataController@exportIndex')->name('export.index');
 Route::get('/export/date', 'DataController@exportData')->name('export');
-Route::get('/export/roster', 'DataController@exportVisionRoster')->name('exportVisionRoster');
+// Route::get('/export/roster', 'DataController@exportVisionRoster')->name('exportVisionRoster');
 Route::get('/export/hearing-roster', 'DataController@exportHearingRoster')->name('exportHearingRoster');
 Route::get('/deleteDatabase', 'DataController@deleteDatabase')->name('deleteDatabase');
 Route::get('/batch-print', 'ChartController@batchPrint')->name('batchPrint');
 Route::get('/admin-batch-print', 'ChartController@adminBatchPrint')->name('adminBatchPrint');
+Route::get('/admin-batch-print', 'ChartController@adminBatchPrint')->name('adminBatchPrint');
+Route::get('/export-vision-batches/{district}/{school}', 'DataController@exportVisionBatches')->name('exportVisionBatches');
+Route::get('/export-hearing-batches/{district}/{school}', 'DataController@exportHearingBatches')->name('exportHearingBatches');
 
 Auth::routes();
 
