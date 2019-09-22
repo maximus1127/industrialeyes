@@ -280,10 +280,10 @@
                         <label for="od_dist">OD Distance</label>
                         <input type="text" class="form-control" name="od_dist" id="od_dist">
                       </div>
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                           <label for="od_near">OD Near</label>
                           <input type="text" class="form-control" name="od_near" id="od_near">
-                      </div>
+                      </div> --}}
                       <div class="form-group">
                           <label for="od_cyl">OD Astigmatism</label>
                           <input type="text" class="form-control" name="od_cyl" id="od_cyl">
@@ -326,10 +326,10 @@
                             <label for="os_dist">OS Distance</label>
                             <input type="text" class="form-control" name="os_dist" id="os_dist">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="os_near">OS Near</label>
                                 <input type="text" class="form-control" name="os_near" id="os_near">
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="os_cyl">OS Astigmatism</label>
                                 <input type="text" class="form-control" name="os_cyl" id="os_cyl">
@@ -699,6 +699,9 @@ if (fails.includes(win2.student_responses[0])){
       stAssign.data('osdist', win2.student_responses[1]);
       stAssign.data('oudist', win2.student_responses[2]);
       $("#total").html(data.total);
+    },
+    error: function(){
+      alert("Unable to save vision");
     }
   });
 
@@ -746,25 +749,32 @@ if($(f).prop('checked')==1){
 
 
 function fillIn2(){
-  $("#od_near").val(win2.student_responses[0]);
-  $("#os_near").val(win2.student_responses[1]);
-  $("#ou_near").val(win2.student_responses[2]);
+  var fails = ['20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/300', '20/400'];
+if (fails.includes(win2.student_responses[0])){
+    $(".ou-background").css('background', '#d84b4b');
+  } else {
+    $(".ou-background").css('background', '#11b21c');
+  }
+
+  $("#ou_near").val(win2.student_responses[0]);
+
 
   $.ajax({
     url: "{{route('autosave2')}}",
     method: "GET",
     data: {
-      ODnear: win2.student_responses[0],
-      OSnear: win2.student_responses[1],
-      OUnear: win2.student_responses[2],
+
+      OUnear: win2.student_responses[0],
       studentID: $("#student_id").val(),
     },
     success: function(data){
       var stAssign = $("li[data-identify='"+ $('#student_id').val() +"']");
-      stAssign.data('odnear', win2.student_responses[0]);
-      stAssign.data('osnear', win2.student_responses[1]);
-      stAssign.data('ounear', win2.student_responses[2]);
+      stAssign.data('ounear', win2.student_responses[0]);
 
+
+    },
+    error: function(){
+      alert('Unable to save vision');
     }
   });
 

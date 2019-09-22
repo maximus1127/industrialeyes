@@ -239,12 +239,12 @@ class DataController extends Controller
 
       foreach($students as $student){
           if(in_array($student->grade, $grade)){
-            if(in_array($student->od_dist, $score) || in_array($student->os_dist, $score) || in_array($student->ou_dist, $score)){
+            if(in_array($student->od_dist, $score) || in_array($student->os_dist, $score) || in_array($student->ou_dist, $score) ||  in_array($student->ou_near, $score)){
                 $filtered_students->push($student);
             }
           }
             elseif(in_array($student->grade, $grade2)){
-              if(in_array($student->od_dist, $score2) || in_array($student->os_dist, $score2) || in_array($student->ou_dist, $score2)){
+              if(in_array($student->od_dist, $score2) || in_array($student->os_dist, $score2) || in_array($student->ou_dist, $score2)  || in_array($student->ou_near, $score2)){
               $filtered_students->push($student);
             }
           }

@@ -160,8 +160,8 @@ class ChartController extends Controller
       $student->gender = $request->gender;
       $student->od_dist = $request->od_dist;
       $student->os_dist = $request->os_dist;
-      $student->od_near = $request->od_near;
-      $student->os_near = $request->os_near;
+      $student->od_near = NULL;
+      $student->os_near = NULL;
       $student->ou_color = $request->ou_color;
       $student->od_cyl = $request->od_cyl;
       $student->os_cyl = $request->os_cyl;
@@ -194,8 +194,8 @@ class ChartController extends Controller
       $student->gender = $request->gender;
       $student->od_dist = $request->od_dist;
       $student->os_dist = $request->os_dist;
-      $student->od_near = $request->od_near;
-      $student->os_near = $request->os_near;
+      $student->od_near = NULL;
+      $student->os_near = NULL;
       $student->ou_color = $request->ou_color;
       $student->od_cyl = $request->od_cyl;
       $student->os_cyl = $request->os_cyl;
@@ -284,8 +284,8 @@ $student->last_edited = now();
 
     public function autosave2(Request $request){
       $student = Student::find($request->studentID);
-      $student->od_near = $request->ODnear;
-      $student->os_near = $request->OSnear;
+      // $student->od_near = $request->ODnear;
+      // $student->os_near = $request->OSnear;
       $student->ou_near = $request->OUnear;
       $student->complete = 1;
       $student->last_edited = now();

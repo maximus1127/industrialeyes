@@ -6,7 +6,7 @@
 
 </style>
 <body>
-  <p>School District Health Services/Servicios de Salud</p>
+  <p>{{$student->district}} Health Services/Servicios de Salud</p>
   <h2>Report of Hearing Screening/Reporte del Examen Auditivo</h2>
   <table style="width: 100%; table-layout: fixed;">
     <tbody>

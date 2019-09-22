@@ -57,6 +57,12 @@ $("#grade").val($(e).data('grade'));
     } else {
       $(".ou-background").css('background', '#11b21c');
     }
+  
+    if (fails.includes($(e).data('ounear'))){
+      $(".ou-background").css('background', '#d84b4b');
+    } else {
+      $(".ou-background").css('background', '#11b21c');
+    }
     if($(e).data('oucolor')== 'Pass'){
       $("#color-pass").prop('checked', true);
       $('#color-fail').prop('checked', false);

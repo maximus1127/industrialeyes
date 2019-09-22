@@ -161,7 +161,7 @@ img {
       </div>
 
       <p id="currentExam">
-
+        Both Eyes
       </p>
       <p id="letterSize"></p>
         <p id="page">2ft</p>
@@ -331,12 +331,12 @@ img {
       if (event.which == 32 ){
         student_responses.push($("#letterSize").html());
         opener.fillIn2();
-        if (student_responses.length == 1){
-            $("#currentExam").html('Left Eye Near');
-        } else if (student_responses.length == 2){
-            $("#currentExam").html('Both Eyes Near');
-        }
-        else if(student_responses.length == 3)
+        // if (student_responses.length == 1){
+        //     $("#currentExam").html('Left Eye Near');
+        // } else if (student_responses.length == 2){
+        //     $("#currentExam").html('Both Eyes Near');
+        // }
+        // else if(student_responses.length == 3)
         window.close();
 
       };
@@ -392,7 +392,7 @@ function setNear(){
 
     $(document).ready(function(){
 
-      $("#currentExam").html('Right Eye Near');
+      // $("#currentExam").html('Right Eye Near');
       setNear();
 
     });

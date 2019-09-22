@@ -7,7 +7,7 @@
 </style>
 <body>
 
-<p>School District Health Services/Servicios de Salud</p>
+<p>{{$student->district}} Health Services/Servicios de Salud</p>
 <h3>Report of Vision Screening/Reporte del Examen de la Vista</h3>
 <table style="width: 100%; table-layout: fixed;">
 <tbody>
