@@ -26,9 +26,9 @@
   </table>
   <p>Dear Parent/Guardian / Estimado Padre/Guardian:</p>
   <p><span style="font-weight: 400;">During recent screening, concerns about your student&rsquo;s hearing were identified. Screening was carried out in accordance with the provisions of the California Education Code, Section 49452.</span>
-  <br /><em><span style="font-weight: 400;">Durante la recientes evaluacions del examen auditivo, se identific&oacute; una inquietud en cuanto al sentido auditivo de su hijo/a. Las evaluaciones hechas en la escuela se llevaron a cabo de acuerdo con las provisiones del C&oacute;digo Educacional de California, Secci&oacute;n 49452.</span></em></p>
+  <br /><span style="font-weight: 400;">Durante la recientes evaluacions del examen auditivo, se identific&oacute; una inquietud en cuanto al sentido auditivo de su hijo/a. Las evaluaciones hechas en la escuela se llevaron a cabo de acuerdo con las provisiones del C&oacute;digo Educacional de California, Secci&oacute;n 49452.</span></p>
   <p>Below are the results of the school vision screening.
-  <br /><em>A continuaci&oacute;n ver&aacute; los resultados de los recientes ex&aacute;menes m&eacute;dicos (realizados en la escuela)</em></p>
+  <br />A continuaci&oacute;n ver&aacute; los resultados de los recientes ex&aacute;menes m&eacute;dicos (realizados en la escuela)</p>
   <table style="width: 100%; margin-top: 25px;" border="1">
   <tbody>
   <tr>
@@ -58,9 +58,9 @@
   </tr>
   </tbody>
   </table>
-  <p><br />Comments/<em>Comentarios</em>:&nbsp; &nbsp; <strong>{{$student->notes}}</strong></p>
+  <p><br />Comments/Comentarios:&nbsp; &nbsp; <strong>{{$student->notes}}</strong></p>
   <p><strong>We strongly urge you to take your student to the medical provider of your choice for appropriate action.&nbsp;</strong>Have your examiner complete the bottom portion of this form and return the entire form to the school.
-  <br /><strong><em>Le recomendamos que lleve a su hijo/a con el proveedor m&eacute;dico de su elecci&oacute;n para una acci&oacute;n apropiada.&nbsp;</em></strong><em><span style="font-weight: 400;">P&iacute;dale a su proveedor m&eacute;dico que llene la parte inferior de esta forma, despu&eacute;s regrese </span></em><strong><em>la forma completa </em></strong><em><span style="font-weight: 400;">a la escuela.</span></em></p>
+  <br /><strong>Le recomendamos que lleve a su hijo/a con el proveedor m&eacute;dico de su elecci&oacute;n para una acci&oacute;n apropiada.&nbsp;</strong><span style="font-weight: 400;">P&iacute;dale a su proveedor m&eacute;dico que llene la parte inferior de esta forma, despu&eacute;s regrese </span><strong>la forma completa </strong><span style="font-weight: 400;">a la escuela.</span></p>
 <table style="width: 100%; table-layout: fixed;">
   <tbody>
   <tr>
