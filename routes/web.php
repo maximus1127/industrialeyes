@@ -29,13 +29,15 @@ Route::get('/hearing-exam/{district}/{school}', 'ChartController@hearingIndex')-
 Route::post('/submit-hearing-exam', 'ChartController@submitHearingExam')->name('submitHearingExam');
 Route::post('/new-hearing-student', 'ChartController@newHearingStudent')->name('newHearingStudent');
 Route::get('/add-hearing-note', 'ChartController@hearingNoteSave')->name('hearingNoteSave');
-
+Route::get('/save-color', 'ChartController@saveColor')->name('saveColor');
 
 Route::post('/chart', 'ChartController@findStudents')->name('search');
 
 Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
 Route::get('/upload', 'DataController@index')->name('upload');
 Route::post('/uploadFile', 'DataController@uploadFile');
+Route::get('/combine-data', 'DataCombineController@index')->name('combine-data-index');
+Route::post('/combine-data', 'DataCombineController@combineCSV');
 
 Route::get('/export', 'DataController@exportIndex')->name('export.index');
 Route::get('/export/date', 'DataController@exportData')->name('export');
@@ -55,5 +57,6 @@ Route::get('/insert', 'CalibrationController@insert');
 Route::get('/schoolSelect', 'HomeController@schoolSelect')->name('schoolSelect');
 Route::get('/get_schools', 'SchoolsController@search')->name('get_schools');
 Route::get('/get_students', 'SchoolsController@searchStudents')->name('get_students');
-
+Route::get('/student-count', 'ChartController@studentCount')->name('studentCount');
+Route::get('/hearing-student-count', 'ChartController@hearingStudentCount')->name('hearingStudentCount');
 Route::get('/mailcsv/{school}', 'DataController@mailCSV');

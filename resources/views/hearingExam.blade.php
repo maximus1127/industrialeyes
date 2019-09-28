@@ -81,7 +81,7 @@
        <title>Industrial Eyes</title>
 
      </head>
-     <body>
+     <body onload="hearingStudentCount()">
 @if(Auth::user()->is_admin == 1)
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
      <a class="navbar-brand" href="#">Industrial Eyes</a>
@@ -131,7 +131,7 @@
          Back
        </button>
 
-      Students Examined: {{$completed_students->count()}}
+       Total Examined Today: <span id="total"></span>
 
 
 
@@ -171,13 +171,13 @@
                <div class="col-md-6 col-lg-4">
                    <div class="form-group">
                      <!--<label for="fname">First Name</label>-->
-                     <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name"/>
+                     <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required/>
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
                    <div class="form-group">
                      <!--<label for="lname">Last Name</label>-->
-                     <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name"/>
+                     <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required/>
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
@@ -195,13 +195,13 @@
                <div class="col-md-2 col-lg-2">
                    <div class="form-group">
                      <!--<label for="gender">Gender</label>-->
-                     <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" />
+                     <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" required/>
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
                    <div class="form-group">
                      <!--<label for="number">Student Number</label>-->
-                     <input type="text" class="form-control" name="number" id="number" placeholder="Student Number" />
+                     <input type="text" class="form-control" name="number" id="number" placeholder="Student Number" required/>
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
@@ -453,23 +453,23 @@
 
                    </div>
                      </div>
-                     <div class="hearing_line" id="studentLine2" style="margin-left: 40px;">
+                     <div class="hearing_line" id="studentLine6" style="margin-left: 40px;">
                      <div class="form-inline">
-                     <div class = 'remove' onclick="remove(2)">X</div>
-                     <div class = 'pass' onclick = 'pass(2)'>	&#10004;</div>
-                     <div class = 'pass' onclick = 'refer(2)'>R</div>
-                     <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(2)">N</button>
-                     <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student2name" class="form-inline" onclick="addStudent(2)">
-                     <strong>Booth 2</strong>
+                     <div class = 'remove' onclick="remove(6)">X</div>
+                     <div class = 'pass' onclick = 'pass(6)'>	&#10004;</div>
+                     <div class = 'pass' onclick = 'refer(6)'>R</div>
+                     <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(6)">N</button>
+                     <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student6name" class="form-inline" onclick="addStudent(6)">
+                     <strong>Booth 6</strong>
 
                    </div>
                      </div>
 
-                      <input type='hidden' name='studentID[]' value= '' id="student2id"/>
+                      <input type='hidden' name='studentID[]' value= '' id="student6id"/>
                       <div class="form-inline">
                        <div class="form-inline">
                        <label for="r1k">R1k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r1k[]" id="r1k">
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r1k[]" id="r1k">
                          <option value="">
                          </option>
                          <option value = '25'>25</option>
@@ -492,7 +492,7 @@
 
                        <div class="form-inline">
                        <label for="r2k">R2k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r2k[]" id="r2k">
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r2k[]" id="r2k">
                          <option value="">
                          </option>
                          <option value = '25'>25</option>
@@ -515,7 +515,7 @@
                        </div>
                        <div class="form-inline">
                        <label for="r4k">R4k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r4k[]" id="r4k">
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r4k[]" id="r4k">
                          <option value="">
                          </option>
                          <option value = '25'>25</option>
@@ -539,7 +539,7 @@
 
                        <div class="form-inline" style="padding-left: 20px;">
                        <label for="l1k">L1k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="l1k[]" id="l1k">
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l1k[]" id="l1k">
                          <option value="">
                          </option>
                          <option value = '25'>25</option>
@@ -562,7 +562,7 @@
                      </div>
                        <div class="form-inline">
                        <label for="l2k">L2k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="l2k[]" id="l2k">
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l2k[]" id="l2k">
                          <option value="">
                          </option>
                          <option value = '25'>25</option>
@@ -585,7 +585,7 @@
                        </div>
                        <div class="form-inline">
                        <label for="l4k">L4k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="l4k[]" id="l4k">
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l4k[]" id="l4k">
                          <option value="">
                          </option>
                          <option value = '25'>25</option>
@@ -610,7 +610,7 @@
                        </div>
 
                      </div>
-                     <div id="extraFreq2" style="visibility: hidden;">
+                     <div id="extraFreq6" style="visibility: hidden;">
 
                        <div class="form-inline" style="float: left;">
                       <label for="r5k">R5k</label>
@@ -664,23 +664,23 @@
                    </div>
                    <div class="row">
 
-                   <div class="hearing_line pull-left" id="studentLine3">
+                   <div class="hearing_line pull-left" id="studentLine2">
                    <div class="form-inline">
-                   <div class = 'remove' onclick="remove(3)">X</div>
-                   <div class = 'pass' onclick = 'pass(3)'>	&#10004;</div>
-                   <div class = 'pass' onclick = 'refer(3)'>R</div>
-                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(3)">N</button>
-                   <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student3name" class="form-inline" onclick="addStudent(3)">
-                   <strong>Booth 3</strong>
+                   <div class = 'remove' onclick="remove(2)">X</div>
+                   <div class = 'pass' onclick = 'pass(2)'>	&#10004;</div>
+                   <div class = 'pass' onclick = 'refer(2)'>R</div>
+                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(2)">N</button>
+                   <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student2name" class="form-inline" onclick="addStudent(2)">
+                   <strong>Booth 2</strong>
 
                  </div>
                    </div>
 
-                    <input type='hidden' name='studentID[]' value= '' id="student3id"/>
+                    <input type='hidden' name='studentID[]' value= '' id="student2id"/>
                     <div class="form-inline">
                      <div class="form-inline">
                      <label for="r1k">R1k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r1k[]" id="r1k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r1k[]" id="r1k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -703,7 +703,7 @@
 
                      <div class="form-inline">
                      <label for="r2k">R2k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r2k[]" id="r2k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r2k[]" id="r2k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -726,7 +726,7 @@
                      </div>
                      <div class="form-inline">
                      <label for="r4k">R4k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r4k[]" id="r4k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r4k[]" id="r4k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -750,7 +750,7 @@
 
                      <div class="form-inline" style="padding-left: 20px;">
                      <label for="l1k">L1k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="l1k[]" id="l1k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="l1k[]" id="l1k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -773,7 +773,7 @@
                    </div>
                      <div class="form-inline">
                      <label for="l2k">L2k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="l2k[]" id="l2k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="l2k[]" id="l2k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -796,7 +796,7 @@
                      </div>
                      <div class="form-inline">
                      <label for="l4k">L4k</label>
-                     <select type="text" class="form-control hearing-dropdown"onchange="passFilter(this, 3)" name="l4k[]" id="l4k">
+                     <select type="text" class="form-control hearing-dropdown"onchange="passFilter(this, 2)" name="l4k[]" id="l4k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -820,7 +820,7 @@
                      </div>
 
                      </div>
-                     <div id="extraFreq3" style="visibility: hidden;">
+                     <div id="extraFreq2" style="visibility: hidden;">
 
                        <div class="form-inline" style="float: left;">
                       <label for="r5k">R5k</label>
@@ -871,25 +871,25 @@
 
                     </div>
                    </div>
-                   <div class="hearing_line" id="studentLine4" style="margin-left: 40px;">
+                   <div class="hearing_line" id="studentLine7" style="margin-left: 40px;">
                    <div class="form-inline">
-                   <div class = 'remove' onclick="remove(4)">X</div>
-                   <div class = 'pass' onclick = 'pass(4)'>	&#10004;</div>
-                   <div class = 'pass' onclick = 'refer(4)'>R</div>
-                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(4)">N</button>
-                   <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student4name" class="form-inline" onclick="addStudent(4)">
-                   <strong>Booth 4</strong>
+                   <div class = 'remove' onclick="remove(7)">X</div>
+                   <div class = 'pass' onclick = 'pass(7)'>	&#10004;</div>
+                   <div class = 'pass' onclick = 'refer(7)'>R</div>
+                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(7)">N</button>
+                   <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student7name" class="form-inline" onclick="addStudent(7)">
+                   <strong>Booth 7</strong>
 
                  </div>
                    </div>
 
-                    <input type='hidden' name='studentID[]' value= '' id="student4id"/>
+                    <input type='hidden' name='studentID[]' value= '' id="student7id"/>
                     <div class="form-inline">
 
 
                      <div class="form-inline">
                      <label for="r1k">R1k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r1k[]" id="r1k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r1k[]" id="r1k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -912,7 +912,7 @@
 
                      <div class="form-inline">
                      <label for="r2k">R2k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r2k[]" id="r2k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r2k[]" id="r2k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -935,7 +935,7 @@
                      </div>
                      <div class="form-inline">
                      <label for="r4k">R4k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r4k[]" id="r4k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r4k[]" id="r4k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -959,7 +959,7 @@
 
                      <div class="form-inline" style="padding-left: 20px;">
                      <label for="l1k">L1k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l1k[]" id="l1k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l1k[]" id="l1k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -982,7 +982,7 @@
                    </div>
                      <div class="form-inline">
                      <label for="l2k">L2k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l2k[]" id="l2k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l2k[]" id="l2k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -1005,7 +1005,7 @@
                      </div>
                      <div class="form-inline">
                      <label for="l4k">L4k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l4k[]" id="l4k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l4k[]" id="l4k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -1028,7 +1028,7 @@
                      </div>
                      </div>
                    </div>
-                   <div id="extraFreq4" style="visibility: hidden;">
+                   <div id="extraFreq7" style="visibility: hidden;">
 
                      <div class="form-inline" style="float: left;">
                     <label for="r5k">R5k</label>
@@ -1082,23 +1082,23 @@
                  </div>
                  <div class="row">
 
-                 <div class="hearing_line pull-left" id="studentLine5">
+                 <div class="hearing_line pull-left" id="studentLine3">
                  <div class="form-inline">
-                 <div class = 'remove' onclick="remove(5)">X</div>
-                 <div class = 'pass' onclick = 'pass(5)'>	&#10004;</div>
-                 <div class = 'pass' onclick = 'refer(5)'>R</div>
-                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(5)">N</button>
-                 <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student5name" class="form-inline" onclick="addStudent(5)">
-                 <strong>Booth 5</strong>
+                 <div class = 'remove' onclick="remove(3)">X</div>
+                 <div class = 'pass' onclick = 'pass(3)'>	&#10004;</div>
+                 <div class = 'pass' onclick = 'refer(3)'>R</div>
+                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(3)">N</button>
+                 <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student3name" class="form-inline" onclick="addStudent(3)">
+                 <strong>Booth 3</strong>
 
                </div>
                  </div>
 
-                  <input type='hidden' name='studentID[]' value= '' id="student5id"/>
+                  <input type='hidden' name='studentID[]' value= '' id="student3id"/>
                    <div class="form-inline">
                      <div class="form-inline">
                    <label for="r1k">R1k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r1k[]" id="r1k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r1k[]" id="r1k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1121,7 +1121,7 @@
 
                    <div class="form-inline">
                    <label for="r2k">R2k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r2k[]" id="r2k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r2k[]" id="r2k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1144,7 +1144,7 @@
                    </div>
                    <div class="form-inline">
                    <label for="r4k">R4k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r4k[]" id="r4k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r4k[]" id="r4k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1168,7 +1168,7 @@
 
                    <div class="form-inline" style="padding-left: 20px;">
                    <label for="l1k">L1k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l1k[]" id="l1k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="l1k[]" id="l1k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1191,7 +1191,7 @@
                  </div>
                    <div class="form-inline">
                    <label for="l2k">L2k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l2k[]" id="l2k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="l2k[]" id="l2k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1214,7 +1214,7 @@
                    </div>
                    <div class="form-inline">
                    <label for="l4k">L4k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l4k[]" id="l4k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="l4k[]" id="l4k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1238,7 +1238,7 @@
                    </div>
 
                  </div>
-                 <div id="extraFreq5" style="visibility: hidden;">
+                 <div id="extraFreq3" style="visibility: hidden;">
 
                    <div class="form-inline" style="float: left;">
                   <label for="r5k">R5k</label>
@@ -1289,23 +1289,23 @@
 
                 </div>
                  </div>
-                 <div class="hearing_line" id="studentLine6" style="margin-left: 40px;">
+                 <div class="hearing_line" id="studentLine8" style="margin-left: 40px;">
                  <div class="form-inline">
-                 <div class = 'remove' onclick="remove(6)">X</div>
-                 <div class = 'pass' onclick = 'pass(6)'>	&#10004;</div>
-                 <div class = 'pass' onclick = 'refer(6)'>R</div>
-                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(6)">N</button>
-                 <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student6name" class="form-inline" onclick="addStudent(6)">
-                 <strong>Booth 6</strong>
+                 <div class = 'remove' onclick="remove(8)">X</div>
+                 <div class = 'pass' onclick = 'pass(8)'>	&#10004;</div>
+                 <div class = 'pass' onclick = 'refer(8)'>R</div>
+                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(8)">N</button>
+                 <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student8name" class="form-inline" onclick="addStudent(8)">
+                 <strong>Booth 8</strong>
 
                </div>
                  </div>
 
-                  <input type='hidden' name='studentID[]' value= '' id="student6id"/>
+                  <input type='hidden' name='studentID[]' value= '' id="student8id"/>
                   <div class="form-inline">
                    <div class="form-inline">
                    <label for="r1k">R1k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r1k[]" id="r1k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r1k[]" id="r1k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1328,7 +1328,7 @@
 
                    <div class="form-inline">
                    <label for="r2k">R2k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r2k[]" id="r2k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r2k[]" id="r2k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1351,7 +1351,7 @@
                    </div>
                    <div class="form-inline">
                    <label for="r4k">R4k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r4k[]" id="r4k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r4k[]" id="r4k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1375,7 +1375,7 @@
 
                    <div class="form-inline" style="padding-left: 20px;">
                    <label for="l1k">L1k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l1k[]" id="l1k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l1k[]" id="l1k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1398,7 +1398,7 @@
                  </div>
                    <div class="form-inline">
                    <label for="l2k">L2k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l2k[]" id="l2k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l2k[]" id="l2k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1421,7 +1421,7 @@
                    </div>
                    <div class="form-inline">
                    <label for="l4k">L4k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l4k[]" id="l4k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l4k[]" id="l4k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1444,7 +1444,7 @@
                    </div>
                    </div>
                  </div>
-                 <div id="extraFreq6" style="visibility: hidden;">
+                 <div id="extraFreq8" style="visibility: hidden;">
 
                    <div class="form-inline" style="float: left;">
                   <label for="r5k">R5k</label>
@@ -1498,23 +1498,23 @@
                </div>
                <div class="row">
 
-               <div class="hearing_line pull-left" id="studentLine7">
+               <div class="hearing_line pull-left" id="studentLine4">
                <div class="form-inline">
-               <div class = 'remove' onclick="remove(7)">X</div>
-               <div class = 'pass' onclick = 'pass(7)'>	&#10004;</div>
-               <div class = 'pass' onclick = 'refer(7)'>R</div>
-               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(7)">N</button>
-               <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student7name" class="form-inline" onclick="addStudent(7)">
-               <strong>Booth 7</strong>
+               <div class = 'remove' onclick="remove(4)">X</div>
+               <div class = 'pass' onclick = 'pass(4)'>	&#10004;</div>
+               <div class = 'pass' onclick = 'refer(4)'>R</div>
+               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(4)">N</button>
+               <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student4name" class="form-inline" onclick="addStudent(4)">
+               <strong>Booth 4</strong>
 
              </div>
                </div>
 
-                <input type='hidden' name='studentID[]' value= ''  id="student7id"/>
+                <input type='hidden' name='studentID[]' value= ''  id="student4id"/>
                 <div class="form-inline">
                  <div class="form-inline">
                  <label for="r1k">R1k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r1k[]" id="r1k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r1k[]" id="r1k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1537,7 +1537,7 @@
 
                  <div class="form-inline">
                  <label for="r2k">R2k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r2k[]" id="r2k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r2k[]" id="r2k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1560,7 +1560,7 @@
                  </div>
                  <div class="form-inline">
                  <label for="r4k">R4k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r4k[]" id="r4k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r4k[]" id="r4k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1584,7 +1584,7 @@
 
                  <div class="form-inline" style="padding-left: 20px;">
                  <label for="l1k">L1k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l1k[]" id="l1k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l1k[]" id="l1k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1607,7 +1607,7 @@
                </div>
                  <div class="form-inline">
                  <label for="l2k">L2k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l2k[]" id="l2k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l2k[]" id="l2k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1630,7 +1630,7 @@
                  </div>
                  <div class="form-inline">
                  <label for="l4k">L4k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l4k[]" id="l4k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l4k[]" id="l4k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1654,7 +1654,7 @@
                  </div>
 
                </div>
-               <div id="extraFreq7" style="visibility: hidden;">
+               <div id="extraFreq4" style="visibility: hidden;">
 
                  <div class="form-inline" style="float: left;">
                 <label for="r5k">R5k</label>
@@ -1705,23 +1705,23 @@
 
               </div>
                </div>
-               <div class="hearing_line" id="studentLine8" style="margin-left: 40px;">
+               <div class="hearing_line" id="studentLine9" style="margin-left: 40px;">
                <div class="form-inline">
-               <div class = 'remove' onclick="remove(8)">X</div>
-               <div class = 'pass' onclick = 'pass(8)'>	&#10004;</div>
-               <div class = 'pass' onclick = 'refer(8)'>R</div>
-               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(8)">N</button>
-               <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student8name" class="form-inline" onclick="addStudent(8)">
-               <strong>Booth 8</strong>
+               <div class = 'remove' onclick="remove(9)">X</div>
+               <div class = 'pass' onclick = 'pass(9)'>	&#10004;</div>
+               <div class = 'pass' onclick = 'refer(9)'>R</div>
+               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(9)">N</button>
+               <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student9name" class="form-inline" onclick="addStudent(9)">
+               <strong>Booth 9</strong>
 
              </div>
                </div>
 
-                <input type='hidden' name='studentID[]' value= '' id="student8id"/>
+                <input type='hidden' name='studentID[]' value= '' id="student9id"/>
                 <div class="form-inline">
                  <div class="form-inline">
                  <label for="r1k">R1k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r1k[]" id="r1k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r1k[]" id="r1k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1744,7 +1744,7 @@
 
                  <div class="form-inline">
                  <label for="r2k">R2k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r2k[]" id="r2k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r2k[]" id="r2k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1767,7 +1767,7 @@
                  </div>
                  <div class="form-inline">
                  <label for="r4k">R4k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r4k[]" id="r4k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9" name="r4k[]" id="r4k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1791,7 +1791,7 @@
 
                  <div class="form-inline" style="padding-left: 20px;">
                  <label for="l1k">L1k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l1k[]" id="l1k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l1k[]" id="l1k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1814,7 +1814,7 @@
                </div>
                  <div class="form-inline">
                  <label for="l2k">L2k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l2k[]" id="l2k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l2k[]" id="l2k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1837,7 +1837,7 @@
                  </div>
                  <div class="form-inline">
                  <label for="l4k">L4k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l4k[]" id="l4k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l4k[]" id="l4k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1860,7 +1860,7 @@
                  </div>
                  </div>
                </div>
-               <div id="extraFreq8" style="visibility: hidden;">
+               <div id="extraFreq9" style="visibility: hidden;">
 
                  <div class="form-inline" style="float: left;">
                 <label for="r5k">R5k</label>
@@ -1914,23 +1914,23 @@
              </div>
              <div class="row">
 
-             <div class="hearing_line pull-left" id="studentLine9">
+             <div class="hearing_line pull-left" id="studentLine5">
              <div class="form-inline">
-             <div class = 'remove' onclick="remove(9)">X</div>
-             <div class = 'pass' onclick = 'pass(9)'>	&#10004;</div>
-             <div class = 'pass' onclick = 'refer(9)'>R</div>
-             <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(9)">N</button>
-             <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer; cursor: pointer;" id="student9name" class="form-inline" onclick="addStudent(9)">
-             <strong>Booth 9</strong>
+             <div class = 'remove' onclick="remove(5)">X</div>
+             <div class = 'pass' onclick = 'pass(5)'>	&#10004;</div>
+             <div class = 'pass' onclick = 'refer(5)'>R</div>
+             <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(5)">N</button>
+             <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer; cursor: pointer;" id="student5name" class="form-inline" onclick="addStudent(5)">
+             <strong>Booth 5</strong>
 
            </div>
              </div>
 
-              <input type='hidden' name='studentID[]' value= '' id="student9id" />
+              <input type='hidden' name='studentID[]' value= '' id="student5id" />
               <div class="form-inline">
                <div class="form-inline">
                <label for="r1k">R1k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r1k[]" id="r1k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r1k[]" id="r1k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -1953,7 +1953,7 @@
 
                <div class="form-inline">
                <label for="r2k">R2k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r2k[]" id="r2k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r2k[]" id="r2k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -1976,7 +1976,7 @@
                </div>
                <div class="form-inline">
                <label for="r4k">R4k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r4k[]" id="r4k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r4k[]" id="r4k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2000,7 +2000,7 @@
 
                <div class="form-inline" style="padding-left: 20px;">
                <label for="l1k">L1k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l1k[]" id="l1k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l1k[]" id="l1k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2023,7 +2023,7 @@
              </div>
                <div class="form-inline">
                <label for="l2k">L2k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l2k[]" id="l2k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l2k[]" id="l2k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2046,7 +2046,7 @@
                </div>
                <div class="form-inline">
                <label for="l4k">L4k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l4k[]" id="l4k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l4k[]" id="l4k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2069,7 +2069,7 @@
                </div>
                </div>
              </div>
-             <div id="extraFreq9" style="visibility: hidden;">
+             <div id="extraFreq5" style="visibility: hidden;">
 
                <div class="form-inline" style="float: left;">
               <label for="r5k">R5k</label>
@@ -2717,7 +2717,19 @@ function newStudent(){
   });
 }
 
-
+function hearingStudentCount(){
+  $.ajax({
+    method: "GET",
+    url: "{{route('hearingStudentCount')}}",
+    data:{
+      school: sessionStorage.getItem('school'),
+      district: sessionStorage.getItem('district')
+    },
+    success: function(data){
+      $("#total").html(data.total);
+    }
+  });
+}
 
 
 </script>

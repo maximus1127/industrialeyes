@@ -32,7 +32,7 @@ class SchoolsController extends Controller
     $d = $request->get('district');
     $s = $request->get('school');
 
-    $students = Student::where('district', '=', $d)->where('school', '=', $s)->get();
+    $students = Student::orderBy('lname', 'asc')->where('district', '=', $d)->where('school', '=', $s)->get();
 
 
 

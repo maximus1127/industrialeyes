@@ -52,12 +52,10 @@ Left/<em>Izquierdo:</em><strong>{{$student->os_dist}}&nbsp;</strong>
 Visual Acuity/<em>Aqudeza Visual </em><em>(</em><em>near</em><em>/cerca):</em>
 </td>
 <td>
-Right/<em>Derecho:</em>
+Both/<em>Ambos:</em>
 </td>
-<td>{{$student->od_near}}</td>
-<td>
-Left/<em>Izquierdo:&nbsp;</em>{{$student->os_near}}
-</td>
+<td><strong>{{$student->ou_near}}</strong></td>
+
 </tr>
 </tbody>
 </table>

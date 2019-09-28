@@ -118,14 +118,14 @@
 @php
 
   if(in_array($student->grade, $grade)){
-    if(in_array($student->od_near, $score) || in_array($student->os_near, $score) || in_array($student->ou_near, $score)){
+    if(in_array($student->ou_near, $score)){
         echo "Failed";
     } else {
       echo "Passed";
     }
   }
     elseif(in_array($student->grade, $grade2)){
-      if(in_array($student->od_near, $score2) || in_array($student->os_near, $score2) || in_array($student->ou_near, $score2)){
+      if( in_array($student->ou_near, $score2)){
       echo "Failed";
     } else {
       echo "Passed";
@@ -135,14 +135,7 @@
 </td>
 <td style="width: 150px; border: none;">&nbsp;</td>
 </tr>
-<tr>
-<td style="width: 150px;"><strong>Right Eye</strong></td>
-<td style="width: 150px;">{{$student->od_near}}</td>
-</tr>
-<tr>
-<td style="width: 150px;"><strong>Left Eye</strong></td>
-<td style="width: 150px;">{{$student->os_near}}</td>
-</tr>
+
 <tr>
 <td style="width: 150px;"><strong>Both Eyes</strong></td>
 <td style="width: 150px;">{{$student->ou_near}}</td>

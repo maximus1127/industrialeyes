@@ -121,6 +121,10 @@ class DataController extends Controller
                             "l4k" => empty($importData[28]) ? NULL : $importData[28],
                             "l5k" => empty($importData[29]) ? NULL : $importData[29],
                             "last_edited" => NULL,
+                            "hearing_complete" => NULL,
+                            "hearing_nurse" => NULL,
+                            'vision_pass' => NULL,
+                            'hearing_pass' => NULL
                         );
                         $studentData [] = $insertData;
 
@@ -193,6 +197,10 @@ class DataController extends Controller
             'l4k',
             'l5k',
             'last_edited',
+            'hearing_complete',
+            'hearing_nurse',
+            'vision_pass',
+            'hearing_pass'
         ];
 
         return Excel::download(new StudentsExport($headings), 'students.csv');
@@ -225,10 +233,7 @@ class DataController extends Controller
 
 
     public function exportVisionBatches(Request $request){
-      $score = array('20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/400');
-      $score2 = array('20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/400');
-      $grade = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12');
-      $grade2 = array('-1', '0', 'tk', 'k', 'TK', 'K', 'Tk');
+
 
       $pdfMerger = PDFMerger::init();
       $i = 0;
@@ -238,15 +243,8 @@ class DataController extends Controller
       $filtered_students = collect();
 
       foreach($students as $student){
-          if(in_array($student->grade, $grade)){
-            if(in_array($student->od_dist, $score) || in_array($student->os_dist, $score) || in_array($student->ou_dist, $score) ||  in_array($student->ou_near, $score)){
+          if($student->passOrFail($student) == "Fail"){
                 $filtered_students->push($student);
-            }
-          }
-            elseif(in_array($student->grade, $grade2)){
-              if(in_array($student->od_dist, $score2) || in_array($student->os_dist, $score2) || in_array($student->ou_dist, $score2)  || in_array($student->ou_near, $score2)){
-              $filtered_students->push($student);
-            }
           }
       }
 
@@ -269,28 +267,16 @@ class DataController extends Controller
     }
 
     public function exportHearingBatches(Request $request){
-
-
       $pdfMerger = PDFMerger::init();
       $i = 0;
-
       $students = Student::where('district', $request->district)
                           ->where('school', $request->school)->get();
       $filtered_students = collect();
-      $grade = array('40', '45', '50', '55', '60', '65', '70', '75', '80', '85', '90', '95', 'NR');
       foreach($students as $student){
-        $scores = array('r1k' => strval($student->r1k), 'r2k' => strval($student->r2k), 'r4k' => strval($student->r4k), 'r5k' => strval($student->r5k), 'l1k' => strval($student->l1k), 'l2k' => strval($student->l2k), 'l4k' => strval($student->l4k), 'l5k' => strval($student->l5k));
-        $filter = array_count_values($scores);
-        if(in_array($student->r1k, $grade) || in_array($student->r2k, $grade) || in_array($student->r4k, $grade) || in_array($student->r5k, $grade) || in_array($student->l1k, $grade) || in_array($student->l2k, $grade) || in_array($student->l4k, $grade) || in_array($student->l5k, $grade)){
+        if($student->hearingPassOrFail($student) == "Fail"){
           $filtered_students->push($student);
         }
-        if(array_key_exists("30", $filter) && $filter['30'] > 1){
-          $filtered_students->push($student);
-        }
-
       }
-
-
       $pdf = PDF::loadView('printHearingRoster', compact('filtered_students'), [], ['orientation' => 'L']);
       $pdf->save('pdf/roster.pdf');
       $pdfMerger->addPDF('pdf/roster.pdf');
@@ -300,13 +286,10 @@ class DataController extends Controller
           $pdfMerger->addPDF('pdf/document'.$i.'.pdf');
           $i++;
         }
-
       $pdfMerger->merge();
       $pdfMerger->save("file_name.pdf", "browser");
-
       $file = new Filesystem;
       $file->cleanDirectory('pdf');
-
     }
 
 
@@ -376,6 +359,10 @@ class DataController extends Controller
             'l4k',
             'l5k',
             'last_edited',
+            'hearing_complete',
+            'hearing_nurse',
+            'vision_pass',
+            'hearing_pass'
         ];
 
         $filename = 'testing_'.Carbon::today()->format('m-d').'_school_'.$school.'.csv';
@@ -396,7 +383,8 @@ class DataController extends Controller
 
                $mail->setFrom('linesixmaniac@gmail.com', 'IndustrialEyes');
                $mail->addAddress('alex@industrialhearing.net');
-               $mail->Subject = 'Test Results';
+               // $mail->addAddress('maxbourque1127@yahoo.com');
+               $mail->Subject = 'Test Results for '.$request->school;
                $mail->Body = 'Here are the auto-mailed results from a testing station today.';
                $mail->addAttachment($this->path);
                $mail->isSMTP();
@@ -420,7 +408,7 @@ class DataController extends Controller
                $mail->send();
 
 
-        return redirect('/');
+        return redirect('/')->with('success', 'CSV delivered successfully.');
     }
 
 

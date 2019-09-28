@@ -45,29 +45,13 @@ class ChartController extends Controller
     public function hearingIndex($district, $school){
 
       $students = Student::where('district', $district)->
-                            where('school', $school)->
-                            where('r1k', null)->
-                            where('r2k', null)->
-                            where('r4k', null)->
-                            where('r5k', null)->
-                            where('l1k', null)->
-                            where('l2k', null)->
-                            where('l4k', null)->
-                            where('l5k', null)
+                            where('school', $school)
                             ->get();
 
       $completed_students = Student::where('district', $district)->
                             where('school', $school)->
-                            where('complete', 1)->
-                            where('r1k', '!=', '')->
-                            where('r2k', '!=', '')->
-                            where('r4k', '!=', '')->
-
-                            where('l1k', '!=', '')->
-                            where('l2k', '!=', '')->
-                            where('l4k', '!=', '')
-
-                            ->get();
+                            where('hearing_complete', '1')
+                            ->count();
 
       return view('hearingExam')->with(compact('students', 'completed_students'));
     }
@@ -105,7 +89,8 @@ class ChartController extends Controller
              $student->l5k = $l5k[$i];
            }
            $student->last_edited = now();
-           $student->complete = 1;
+           $student->hearing_complete = "1";
+           $student->hearing_pass = $student->hearingPassOrFail($student);
            $student->save();
          } else {
            continue;
@@ -179,6 +164,8 @@ class ChartController extends Controller
       $student->l2k = $request->l2k;
       $student->l4k = $request->l4k;
       $student->l5k = $request->l5k;
+      $student->hearing_pass = $student->hearingPassOrFail($student);
+      $student->vision_pass = $student->passOrFail($student);
 
       $student->save();
       return back();
@@ -213,6 +200,8 @@ class ChartController extends Controller
         $student->l2k = $request->l2k;
         $student->l4k = $request->l4k;
         $student->l5k = $request->l5k;
+        $student->hearing_pass = $student->hearingPassOrFail($student);
+        $student->vision_pass = $student->passOrFail($student);
 $student->last_edited = now();
       $student->save();
       return back();
@@ -254,14 +243,33 @@ $student->last_edited = now();
       $student->os_dist = $request->OSdist;
       $student->ou_dist = $request->OUdist;
       $student->complete = 1;
+      $student->vision_pass = $student->passOrFail($student);
       $student->last_edited = now();
       $student->save();
 
-      $total = Student::whereDate('last_edited', Carbon::today())->count();
+      $total = Student::where('district', $request->district)
+                        ->where('school', $request->school)
+                        ->where('complete', 1)->count();
 
       return response()->json(['total'=>$total]);
 
     }
+
+    public function studentCount(Request $request){
+      $total = Student::where('district', $request->district)
+                        ->where('school', $request->school)
+                        ->where('complete', "1")->count();
+
+      return response()->json(['total'=>$total]);
+    }
+    public function hearingStudentCount(Request $request){
+      $total = Student::where('district', $request->district)
+                        ->where('school', $request->school)
+                        ->where('hearing_complete', "1")->count();
+
+      return response()->json(['total'=>$total]);
+    }
+
     public function noteSave(Request $request){
       $student = Student::find($request->studentID);
       $student->notes = $request->note;
@@ -272,10 +280,21 @@ $student->last_edited = now();
       return;
 
     }
+
+    public function saveColor(Request $request){
+      $student = Student::find($request->studentID);
+      $student->ou_color = $request->color;
+      $student->complete = 1;
+      $student->last_edited = now();
+      $student->save();
+
+      return;
+
+    }
     public function hearingNoteSave(Request $request){
       $student = Student::find($request->studentID);
       $student->notes = $request->note;
-      $student->complete = 1;
+      $student->hearing_complete = "1";
       $student->last_edited = now();
       $student->save();
 
@@ -288,6 +307,7 @@ $student->last_edited = now();
       // $student->os_near = $request->OSnear;
       $student->ou_near = $request->OUnear;
       $student->complete = 1;
+      $student->vision_pass = $student->passOrFail($student);
       $student->last_edited = now();
       $student->save();
 
@@ -297,28 +317,30 @@ $student->last_edited = now();
 
     public function delete($id){
       $student = Student::find($id);
-      $student->od_dist = "";
-      $student->os_dist = "";
-      $student->od_near = "";
-      $student->os_near = "";
-      $student->ou_color = "";
-
-      $student->od_cyl = "";
-      $student->os_cyl = "";
-      $student->ou_dist = "";
-      $student->ou_near = "";
-
+      $student->od_dist = NULL;
+      $student->os_dist = NULL;
+      $student->od_near = NULL;
+      $student->os_near = NULL;
+      $student->ou_color = NULL;
+      $student->od_cyl = NULL;
+      $student->os_cyl = NULL;
+      $student->ou_dist = NULL;
+      $student->ou_near = NULL;
+      $student->hearing_complete = NULL;
+      $student->hearing_nurse = NULL;
       $student->complete = 0;
-      $student->r1k = "";
-      $student->r2k = "";
-      $student->r4k = "";
-      $student->r5k = "";
-      $student->l1k = "";
-      $student->l2k = "";
-      $student->l4k = "";
-      $student->l5k = "";
+      $student->r1k = NULL;
+      $student->r2k = NULL;
+      $student->r4k = NULL;
+      $student->r5k = NULL;
+      $student->l1k = NULL;
+      $student->l2k = NULL;
+      $student->l4k = NULL;
+      $student->l5k = NULL;
       $student->last_edited = null;
-      $student->notes = "";
+      $student->notes = NULL;
+      $student->vision_pass = NULL;
+      $student->hearing_pass = NULL;
       $student->save();
       return back();
     }

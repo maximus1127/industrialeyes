@@ -9,11 +9,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('/css/bootstrap-grid.min.css')}}" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
     <link href="{{asset('/css/form-styling.css')}}" rel="stylesheet" type="text/css">
     {{-- <link href="form-styling.css" rel="stylesheet" type="text/css"> --}}
 
          <style>
+
+         .ui-widget-overlay{
+           background-color: black;
+           opacity: .6;
+         }
              html{
                  font-size: 13pt;
 
@@ -39,7 +46,13 @@
        <title>Industrial Eyes</title>
 
      </head>
-     <body onunload="closeChild();" onload="autoFill()">
+     <body onunload="closeChild();" onload="autoFill(); studentCount();">
+       <div id="dialog" title="Autosave Error" style="display: none">
+  <p>Unable to save vision. Enter the acuities and press submit to save exam data.</p>
+</div>
+<div id="dialog2" title="Selection Error" style="display: none">
+<p>Please select a student before starting an exam.</p>
+</div>
 @if(Auth::user()->is_admin == 1)
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
      <a class="navbar-brand" href="#">Industrial Eyes</a>
@@ -57,6 +70,9 @@
          <li class="nav-item">
            <a class="nav-link" href="{{route('export.index')}}">Download Data</a>
          </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{{route('combine-data-index')}}">Combine Data</a>
+         </li>
 
          <li>
 
@@ -67,6 +83,12 @@
 
    </nav>
  @endif
+ @if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+</div>
+@endif
  <div id="top-bar" >
      {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
          {{ Auth::user()->name }} <span class="caret"></span>
@@ -98,7 +120,7 @@
           Hearing Exam (10)
         </button></a>
 
-         Total Examined Today: <span id="total">{{$total}}</span>
+         Total Examined Today: <span id="total"></span>
 
  </div>
  <br />
@@ -190,13 +212,13 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="fname">First Name</label>-->
-                       <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name"/>
+                       <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required/>
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="lname">Last Name</label>-->
-                       <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name"/>
+                       <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required/>
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
@@ -214,13 +236,13 @@
                  <div class="col-md-2 col-lg-2">
                      <div class="form-group">
                        <!--<label for="gender">Gender</label>-->
-                       <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" />
+                       <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade"  required/>
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="number">Student Number</label>-->
-                       <input type="text" class="form-control" name="number" id="number" placeholder="Student Number" />
+                       <input type="text" class="form-control" name="number" id="number" placeholder="Student Number"  required/>
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
@@ -618,7 +640,7 @@
           </div>
 </form>
 
-    <a href="" id="mailcsv"><button class="btn btn-sm btn-info">Auto CSV</button></a>
+    <a href="" id="mailcsv"><button class="btn btn-sm btn-info">Data Transfer</button></a>
 
 
        </div><!--.container ends-->
@@ -628,6 +650,7 @@
        <script src="{{asset('/js/jquery.js')}}"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
        <script src="{{asset('/js/bootstrap.min.js')}}"></script>
+         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
        <script src="{{asset("/js/chart.js")}}"></script>
        <script src="{{asset('/js/cleave.min.js')}}"></script>
 
@@ -641,19 +664,49 @@
 
 
 function showExam(){
+  if($("#fname").val()!= ""){
     return win2=window.open('{{route('exam')}}');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
 }
 function showExam2(){
+  if($("#fname").val()!= ""){
     return win2=window.open('{{route('exam2')}}');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
 }
 function showExam3(){
+  if($("#fname").val()!= ""){
     return win2=window.open('{{route('exam3')}}');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
 }
 function showExam4(){
+  if($("#fname").val()!= ""){
     return win2=window.open('{{route('exam4')}}');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
 }
 function showExam5(){
+  if($("#fname").val()!= ""){
     return win2=window.open('{{route('exam5')}}');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
 }
 
 
@@ -691,6 +744,8 @@ if (fails.includes(win2.student_responses[0])){
       ODdist: win2.student_responses[0],
       OSdist: win2.student_responses[1],
       OUdist: win2.student_responses[2],
+      district: sessionStorage.getItem('district'),
+      school: sessionStorage.getItem('school'),
       studentID: $("#student_id").val(),
     },
     success: function(data){
@@ -701,7 +756,9 @@ if (fails.includes(win2.student_responses[0])){
       $("#total").html(data.total);
     },
     error: function(){
-      alert("Unable to save vision");
+      $( "#dialog" ).dialog({
+        modal: true,
+      });
     }
   });
 
@@ -743,9 +800,25 @@ if($(f).prop('checked')==1){
 }
 
 }
+$(document).on('change', '[name="ou_color"]' , function(){
+  	var val = $('[name="ou_color"]:checked').val();
 
+    $.ajax({
+      url: '{{route('saveColor')}}',
+      method: 'GET',
+      data: {
+        studentID: $("#student_id").val(),
+        color: val
+      },
+      error: function(){
+        $( "#dialog" ).dialog({
+          modal: true,
+        });
+      }
 
+    });
 
+});
 
 
 function fillIn2(){
@@ -774,12 +847,11 @@ if (fails.includes(win2.student_responses[0])){
 
     },
     error: function(){
-      alert('Unable to save vision');
+      $( "#dialog" ).dialog({
+        modal: true,
+      });
     }
   });
-
-
-
 }
 
 function autoFill(){
@@ -836,6 +908,7 @@ function populateStudents(){
       sessionStorage.setItem("school", $('#search_school').val());
       sessionStorage.setItem("district", $('#search_district').val());
       $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school'));
+      $("#hearingURL").attr('href', '/hearing-exam/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#hearingBatch").attr('href', '/export-hearing-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
    }
@@ -932,6 +1005,22 @@ function bilateral(){
       $("#bilateral-button").addClass('btn btn-danger');
   }
 }
+
+function studentCount(){
+  $.ajax({
+    method: "GET",
+    url: "{{route('studentCount')}}",
+    data:{
+      school: sessionStorage.getItem('school'),
+      district: sessionStorage.getItem('district')
+    },
+    success: function(data){
+      $("#total").html(data.total);
+    }
+  });
+}
+
+
 
 
 
