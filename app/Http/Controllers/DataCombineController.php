@@ -7,6 +7,7 @@ use Mpdf\Tag\P;
 use Session;
 use Rap2hpoutre\FastExcel\Facades\FastExcel;
 use App\Combine;
+use App\Student;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use App\Exports\StudentsExport;
@@ -30,18 +31,19 @@ class DataCombineController extends Controller
     for($i = 0; $i < sizeof($csv); $i++){
       $file = fopen($csv[$i],"r");
           $c = 0;
-          while (($data = fgetcsv($file, 0, ';')) !== FALSE) {
+          while (($data = fgetcsv($file, 0, ',')) !== FALSE) {
             if($c == 0){
               $c++;
               continue;
             } else {
-              $student = Combine::where('fname', $data[1])->
+              $student = Student::where('fname', $data[1])->
                                   where('lname', $data[2])->
                                   where('student_number', $data[3])->first();
-              // if ($student->complete == NULL && $data[10] != NULL){
-              //     $student->complete = $data[10];
-              // }
+
               if($student){
+                  if ($student->complete == NULL && $data[10] != NULL){
+                   $student->complete = $data[10];
+               }
               if ($student->od_dist == NULL && $data[11] != NULL){
                   $student->od_dist = $data[11];
               }
@@ -116,10 +118,41 @@ class DataCombineController extends Controller
               }
               $student->save();
             } else {
-              $student = new Combine();
+              $student = new Student();
               $student->fname = $data[1];
               $student->lname = $data[2];
               $student->student_number = $data[3];
+              $student->dob = $data[4];
+                  $student->gender = $data[5];
+              $student->district = $data[6];
+              $student->school = $data[7];
+              $student->teacher = $data[8];
+                  $student->grade = $data[9];
+              $student->complete = $data[10];
+              $student->od_dist = $data[11];
+              $student->od_near = $data[12];
+                  $student->od_cyl = $data[13];
+              $student->ou_color = $data[14];
+              $student->os_dist = $data[15];
+              $student->os_near = $data[16];
+                  $student->os_cyl = $data[17];
+              $student->ou_dist = $data[18];
+              $student->ou_near = $data[19];
+              $student->notes = $data[20];
+                  $student->nurse = $data[21];
+              $student->r1k = $data[22];
+              $student->r2k = $data[23];
+              $student->r4k = $data[24];
+                  $student->r5k = $data[25];
+              $student->l1k = $data[26];
+              $student->l2k = $data[27];
+              $student->l4k = $data[28];
+                  $student->l5k = $data[29];
+              $student->last_edited = $data[30];
+              $student->hearing_complete = $data[31];
+              $student->hearing_nurse = $data[32];
+                  $student->vision_pass = $data[33];
+              $student->hearing_pass = $data[34];
               $student->save();
             }
           }
@@ -127,6 +160,7 @@ class DataCombineController extends Controller
 
           fclose($file);
     }
+      return back();
 
 }
 

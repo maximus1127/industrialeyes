@@ -2459,7 +2459,7 @@ function pass(e){
 }
 
 function refer(e){
-  var h = $("#studentLine"+e).find('.hearing-dropdown').val("NR");
+  var h = $("#studentLine"+e).find('.hearing-dropdown').val("40");
 
 }
 

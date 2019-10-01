@@ -30,6 +30,8 @@ Route::post('/submit-hearing-exam', 'ChartController@submitHearingExam')->name('
 Route::post('/new-hearing-student', 'ChartController@newHearingStudent')->name('newHearingStudent');
 Route::get('/add-hearing-note', 'ChartController@hearingNoteSave')->name('hearingNoteSave');
 Route::get('/save-color', 'ChartController@saveColor')->name('saveColor');
+Route::get('/delete-student', 'ChartController@deleteStudent')->name('deleteStudent');
+Route::get('/delete-school', 'DataController@deleteSchool')->name('deleteSchool');
 
 Route::post('/chart', 'ChartController@findStudents')->name('search');
 
@@ -40,7 +42,7 @@ Route::get('/combine-data', 'DataCombineController@index')->name('combine-data-i
 Route::post('/combine-data', 'DataCombineController@combineCSV');
 
 Route::get('/export', 'DataController@exportIndex')->name('export.index');
-Route::get('/export/date', 'DataController@exportData')->name('export');
+Route::get('/export/date', 'DataController@exportData')->name('export');//repurposed to be the district delete function
 Route::get('/export/roster', 'DataController@exportVisionRoster')->name('exportVisionRoster');
 Route::get('/export/hearing-roster', 'DataController@exportHearingRoster')->name('exportHearingRoster');
 Route::get('/deleteDatabase', 'DataController@deleteDatabase')->name('deleteDatabase');

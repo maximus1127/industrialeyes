@@ -160,10 +160,13 @@ class DataController extends Controller
 
     public function exportIndex()
     {
-        return view('download');
+      $students = Student::all();
+      $districts = $students->unique('district');
+        $schools = $students->unique('school');
+        return view('download')->with(compact('districts', 'schools'));
     }
 
-    public function exportData(Request $request)
+    public function exportPreDeletedData()
     {
         $headings = [
             'id',
@@ -205,11 +208,18 @@ class DataController extends Controller
 
         return Excel::download(new StudentsExport($headings), 'students.csv');
     }
-    // public function exportData(Request $request){
-    //   $date = Carbon::parse($request->date)->format('Y-m-d');
-    //   $data = Student::where('last_edited', 'like', '%'.$date.'%')->get();
-    //   return Excel::download($data, 'students.csv');
-    // }
+    public function exportData(Request $request){
+      $students = Student::where('district', $request->search_district)->get();
+      foreach($students as $student){
+        $student->delete();
+      }
+    }
+    public function deleteSchool(Request $request){
+      $students = Student::where('school', $request->search_school)->get();
+      foreach($students as $student){
+        $student->delete();
+      }
+    }
 
     public function deleteDatabase()
     {

@@ -397,4 +397,9 @@ $student->last_edited = now();
     }
 
 
+    public function deleteStudent(Request $request){
+      $student = Student::find($request->studentID)->delete();
+    }
+
+
 }

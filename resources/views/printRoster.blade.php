@@ -33,7 +33,7 @@
         <td>{{$student->district}}</td>
         <td>{{$student->school}}</td>
         <td>{{Carbon\Carbon::parse($student->last_edited)->format('m-d-Y')}}</td>
-        <td>{{$student->passOrFail($student)}}</td>
+        <td>{{$student->vision_pass}}</td>
         <td>{{$student->ou_color}}</td>
         <td>{{$student->nurse}}</td>
       </tr>

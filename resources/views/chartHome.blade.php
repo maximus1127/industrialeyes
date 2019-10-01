@@ -40,6 +40,12 @@
                width: 20px;
              }
 
+             .delete-student img {
+               width: 10px;
+               height: 10px;
+
+             }
+
          </style>
 
 
@@ -194,10 +200,11 @@
             </div>
            <div class="main-form-content col-md-8 d-inline-block align-top">
                 <div class="add-student">
-                    <h3>Add New Student</h3>
+                  <button onclick="deleteStudent()" class="btn btn-info new-student"><img src="/images/delete-icon.png" style="width: 20px;"></button>
                     <button onclick="reload()" class="btn btn-info new-student"><img src="/images/add-student-icon.png"></button>
                     <div class="clearfix"></div>
                 </div>
+
 
                 {{-- <h3>Student Data</h3> --}}
                 <hr>
@@ -1021,6 +1028,20 @@ function studentCount(){
   });
 }
 
+function deleteStudent(){
+  var r = confirm("Are you sure you want to delete this student?");
+  if(r == true){
+  $.ajax({
+    url: "{{route('deleteStudent')}}",
+    data: {
+      studentID: $("#student_id").val(),
+    },
+    success: function(){
+      location.reload();
+    }
+  });
+}
+}
 
 
 

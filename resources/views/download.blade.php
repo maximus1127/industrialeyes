@@ -51,47 +51,41 @@
      <form method='get' action='{{route('export')}}' >
        {{ csrf_field() }}
        <div class="form-group">
-          <label for="exampleFormControlFile1">Click below to download every student with a completed exam (vision and hearing)</label>
-          {{-- <input type="date" name="date" class="form-control" id="exampleFormControlFile1"> --}}
-          <br /><br />
-          <input type='submit' name='submit' value='Export' class="btn btn-primary">
+          <label for="search_district">Delete a single district</label>
+          <select  id="search_district" name="search_district"  class="form-control" style="height: 40px;"/>
+             <option>
+               Select District....
+             </option>
+              @foreach($districts as $district)
+               <option value="{{$district->district}}">
+                   {{$district->district}}
+               </option>
+              @endforeach
+
+          </select>
+          <input type='submit' name='submit' value='Go' class="btn btn-primary">
         </div>
      </form>
      <hr>
-     <form method='get' action='{{route('exportVisionRoster')}}' >
+     <form method='get' action='{{route('deleteSchool')}}' >
        {{ csrf_field() }}
        <div class="form-group">
-          <label for="exampleFormControlFile1">Click below to download a fail roster of vision screenings.</label>
-          <input type="date" name="date" class="form-control" id="exampleFormControlFile1">
-          <br /><br />
-          <input type='submit' name='submit' value='Download' class="btn btn-primary">
-        </div>
-     </form>
-     <form method='get' action='{{route('exportHearingRoster')}}' >
-       {{ csrf_field() }}
-       <div class="form-group">
-          <label for="exampleFormControlFile1">Click below to download a fail roster of hearing screenings.</label>
-          <input type="date" name="date" class="form-control" id="exampleFormControlFile1">
-          <br /><br />
-          <input type='submit' name='submit' value='Download' class="btn btn-primary">
+          <label for="search_school">Delete a single school</label>
+          <select  id="search_school" name="search_school"  class="form-control" style="height: 40px;"/>
+             <option>
+               Select School....
+             </option>
+              @foreach($schools as $school)
+               <option value="{{$school->school}}">
+                   {{$school->school}}
+               </option>
+              @endforeach
+
+          </select>
+          <input type='submit' name='submit' value='Go' class="btn btn-primary">
         </div>
      </form>
 
-     <form method='get' action='{{route('adminBatchPrint')}}' >
-       @if ($message = Session::get('error'))
-       <div class="alert alert-danger alert-block">
-         <button type="button" class="close" data-dismiss="alert">×</button>
-               <strong>{{ $message }}</strong>
-       </div>
-       @endif
-       {{ csrf_field() }}
-       <div class="form-group">
-          <label for="exampleFormControlFile1">Click below to download a batch of student reports</label>
-          <input type="date" name="date" class="form-control" >
-          <br /><br />
-          <input type='submit' name='submit' value='Download' class="btn btn-primary">
-        </div>
-     </form>
      <hr />
      <form method='get' action='{{route('deleteDatabase')}}' >
        {{ csrf_field() }}
