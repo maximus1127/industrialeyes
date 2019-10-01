@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!--  meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -171,13 +171,13 @@
                <div class="col-md-6 col-lg-4">
                    <div class="form-group">
                      <!--<label for="fname">First Name</label>-->
-                     <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required/>
+                     <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" />
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
                    <div class="form-group">
                      <!--<label for="lname">Last Name</label>-->
-                     <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" required/>
+                     <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name" />
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
@@ -195,13 +195,13 @@
                <div class="col-md-2 col-lg-2">
                    <div class="form-group">
                      <!--<label for="gender">Gender</label>-->
-                     <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" required/>
+                     <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade" />
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
                    <div class="form-group">
                      <!--<label for="number">Student Number</label>-->
-                     <input type="text" class="form-control" name="number" id="number" placeholder="Student Number" required/>
+                     <input type="text" class="form-control" name="number" id="number" placeholder="Student Number" />
                    </div>
                </div>
                <div class="col-md-6 col-lg-4">
@@ -2688,6 +2688,7 @@ $(document).ready(function(){
 });
 
 function newStudent(){
+  if($("#number").val() != ""){
   $.ajax({
     url: '{{route('newHearingStudent')}}',
     method: 'POST',
@@ -2715,6 +2716,9 @@ function newStudent(){
       alert("Unable to save student");
     }
   });
+} else {
+  alert("You must enter a student ID number");
+}
 }
 
 function hearingStudentCount(){

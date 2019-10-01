@@ -91,8 +91,8 @@ class DataController extends Controller
                         //$parsedData = preg_replace('/;+/', ';', $importData[0]);
 
                         $insertData = array(
-                            "fname" => ucfirst($importData[1]),
-                            "lname" => ucfirst($importData[2]),
+                            "fname" => ucfirst(trim($importData[1])),
+                            "lname" => ucfirst(trim($importData[2])),
                             "student_number" => empty($importData[3]) ? 'NULL' : $importData[3],
                             "dob" => empty($importData[4]) ? NULL : $importData[4],
                             "gender" => empty($importData[5]) ? NULL : $importData[5],
@@ -248,7 +248,7 @@ class DataController extends Controller
           }
       }
 
-      $pdf = PDF::loadView('printRoster', compact('filtered_students'), [], ['orientation' => 'L']);
+      $pdf = PDF::loadView('printRoster', compact('students'), [], ['orientation' => 'L']);
       $pdf->save('pdf/roster.pdf');
       $pdfMerger->addPDF('pdf/roster.pdf');
         foreach ($filtered_students as $student) {
@@ -277,7 +277,7 @@ class DataController extends Controller
           $filtered_students->push($student);
         }
       }
-      $pdf = PDF::loadView('printHearingRoster', compact('filtered_students'), [], ['orientation' => 'L']);
+      $pdf = PDF::loadView('printHearingRoster', compact('students'), [], ['orientation' => 'L']);
       $pdf->save('pdf/roster.pdf');
       $pdfMerger->addPDF('pdf/roster.pdf');
         foreach ($filtered_students as $student) {

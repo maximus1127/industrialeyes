@@ -24,15 +24,15 @@
       <th align = "left">Hearing</th>
 
     </tr>
-    @foreach($filtered_students as $student)
+    @foreach($students as $student)
 
     <tr>
       <td>{{$student->fname.' '.$student->lname}}</td>
       <td>{{$student->student_number}}</td>
       <td>{{$student->district}}</td>
       <td>{{$student->school}}</td>
-      <td>{{$student->last_edited}}</td>
-      <td>Failed</td>
+      <td>{{Carbon\Carbon::parse($student->last_edited)->format('m-d-Y')}}</td>
+      <td>{{$student->hearingPassOrFail($student)}}</td>
 
     </tr>
 

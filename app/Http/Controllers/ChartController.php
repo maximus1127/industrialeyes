@@ -229,11 +229,6 @@ $student->last_edited = now();
       if($student->save()){
             return response()->json(['student' => $student->fresh()]);
       }
-
-
-
-
-
     }
 
 

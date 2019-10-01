@@ -907,6 +907,7 @@ function populateStudents(){
       $('#students').html(childs.student_data);
       sessionStorage.setItem("school", $('#search_school').val());
       sessionStorage.setItem("district", $('#search_district').val());
+          $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
       $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school'));
       $("#hearingURL").attr('href', '/hearing-exam/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));

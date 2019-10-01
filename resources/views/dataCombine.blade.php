@@ -57,15 +57,29 @@
 
 
         <div class="form-group">
-            <label for="exampleFormControlFile1">CSV Upload</label>
+          <button type="button" class="btn btn-success" id="add">Add Another</button><br /><br />
+            <label >CSV Upload</label>
             <input type="file" name="csv_import[]" class="form-control-file" id="exampleFormControlFile1">
             <br/><br/>
-            <label for="exampleFormControlFile2">CSV Upload</label>
-            <input type="file" name="csv_import[]" class="form-control-file" id="exampleFormControlFile2">
-            <br/><br/>
 
+            <div id="moreCSV">
+
+            </div>
             <input type='submit' name='submit' value='Import' class="btn btn-primary">
         </div>
     </form>
+
+ <script src="{{asset('/js/jquery.js')}}"></script>
+    <script>
+        $("#add").click(function(){
+            $("#moreCSV").append(`
+              <label >CSV Upload</label>
+              <input type="file" name="csv_import[]" class="form-control-file" id="exampleFormControlFile2">
+              <br/><br/>`
+            )
+        });
+
+
+    </script>
 </body>
 </html>
