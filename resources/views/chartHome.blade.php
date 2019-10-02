@@ -1030,7 +1030,7 @@ function studentCount(){
 
 function deleteStudent(){
   var r = confirm("Are you sure you want to delete this student?");
-  if(r == true){
+  if(r == true && $("#fname").val() !=""){
   $.ajax({
     url: "{{route('deleteStudent')}}",
     data: {

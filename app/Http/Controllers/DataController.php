@@ -93,7 +93,7 @@ class DataController extends Controller
                         $insertData = array(
                             "fname" => ucfirst(trim($importData[1])),
                             "lname" => ucfirst(trim($importData[2])),
-                            "student_number" => empty($importData[3]) ? 'NULL' : $importData[3],
+                            "student_number" => empty($importData[3]) ? NULL : $importData[3],
                             "dob" => empty($importData[4]) ? NULL : $importData[4],
                             "gender" => empty($importData[5]) ? NULL : $importData[5],
                             "district" => empty($importData[6]) ? NULL : ucwords($importData[6]),
@@ -128,12 +128,12 @@ class DataController extends Controller
                         );
                         $studentData [] = $insertData;
 
-                        if ($key != 0 && $key % 29 == 0) {
+                        if ($key != 0 && $key %  33 == 0) {
                             $totalStudentData [] = $studentData;
                             $studentData = [];
                         }
 
-                        if ($key == $totalCount && $key % 29 != 0) {
+                        if ($key == $totalCount && $key % 33 != 0) {
                             $totalStudentData [] = $studentData;
                         }
                     }
