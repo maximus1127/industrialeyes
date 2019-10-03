@@ -13,6 +13,7 @@
 
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
     <link href="{{asset('/css/form-styling.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{asset('/css/selectize.css')}}" crossorigin="anonymous">
     {{-- <link href="form-styling.css" rel="stylesheet" type="text/css"> --}}
 
          <style>
@@ -79,10 +80,8 @@
          <li class="nav-item">
            <a class="nav-link" href="{{route('combine-data-index')}}">Combine Data</a>
          </li>
-
-         <li>
-
-
+         <li class="nav-item">
+           <a class="nav-link" href="{{route('manage-staff')}}">Manage Staff</a>
          </li>
        </ul>
      </div>
@@ -255,13 +254,13 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="district">District</label>-->
-                       <input type="text" class="form-control" name="district" id="district" placeholder="District" />
+                       <input type="text" class="form-control" name="district" id="district" placeholder="District" required />
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="school">School</label>-->
-                       <input type="text" class="form-control" name="school" id="school" placeholder="School" />
+                       <input type="text" class="form-control" name="school" id="school" placeholder="School" required />
                  </div>
                  </div>
                  <div class="col-md-6 col-lg-4">
@@ -273,7 +272,16 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="teacher">Teacher</label>-->
-                       <input type="text" id="nurse" name="nurse" class="form-control" placeholder="Nurse Name"/>
+                       {{-- <input type="text" id="nurse" name="nurse" class="form-control" placeholder="Nurse Name"/> --}}
+                       <select id="nurse" name="nurse" class="demo-default" onchange="setNurse()">
+                         <option value="">Select a nurse... </option>
+                         @foreach($staffs as $staff)
+                           <option value="{{$staff->name}}">
+                             {{$staff->name}}
+                           </option>
+
+                         @endforeach
+                       </select>
                      </div>
                  </div>
                </div><!--/ .row ends-->
@@ -660,6 +668,8 @@
          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
        <script src="{{asset("/js/chart.js")}}"></script>
        <script src="{{asset('/js/cleave.min.js')}}"></script>
+       <script src="{{asset('/js/selectize.js')}}"></script>
+
 
 <script>
 
@@ -668,6 +678,16 @@
     delimiter: '/',
     datePattern: ['m', 'd', 'Y']
 });
+
+$('#nurse').selectize({
+    create: true,
+    sortField: 'text'
+});
+
+
+function setNurse(){
+  sessionStorage.setItem('nurse', $("#nurse").val());
+}
 
 
 function showExam(){
@@ -987,6 +1007,11 @@ $(document).ready(function(){
       $("#bilateral-button").addClass('btn btn-danger');
     } else {
         $("#bilateral-button").addClass('btn btn-success');
+    }
+
+    if(sessionStorage.getItem('nurse')){
+      document.getElementById("nurse-selectized").value = sessionStorage.getItem('nurse');
+      document.getElementById("nurse-selectized").innerHTML = sessionStorage.getItem('nurse');
     }
 
 

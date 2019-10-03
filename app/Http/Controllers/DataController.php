@@ -96,8 +96,8 @@ class DataController extends Controller
                             "student_number" => empty($importData[3]) ? NULL : $importData[3],
                             "dob" => empty($importData[4]) ? NULL : $importData[4],
                             "gender" => empty($importData[5]) ? NULL : $importData[5],
-                            "district" => empty($importData[6]) ? NULL : ucwords($importData[6]),
-                            "school" => empty($importData[7]) ? NULL : ucwords($importData[7]),
+                            "district" => empty($importData[6]) ? NULL : ucwords(trim($importData[6])),
+                            "school" => empty($importData[7]) ? NULL : ucwords(trim($importData[7])),
                             "teacher" => empty($importData[8]) ? NULL : ucfirst($importData[8]),
                             "grade" => empty($importData[9]) ? NULL : $importData[9],
                             "complete" => empty($importData[10]) ? NULL : $importData[10],
@@ -128,12 +128,12 @@ class DataController extends Controller
                         );
                         $studentData [] = $insertData;
 
-                        if ($key != 0 && $key %  33 == 0) {
+                        if ($key != 0 && $key %  29 == 0) {
                             $totalStudentData [] = $studentData;
                             $studentData = [];
                         }
 
-                        if ($key == $totalCount && $key % 33 != 0) {
+                        if ($key == $totalCount && $key % 29 != 0) {
                             $totalStudentData [] = $studentData;
                         }
                     }

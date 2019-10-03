@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Staff;
 use Carbon\Carbon;
 class HomeController extends Controller
 {
@@ -27,7 +28,8 @@ class HomeController extends Controller
 
       $students = Student::all();
       $districts = $students->unique('district');
-        return view('chartHome')->with(compact('districts'));
+      $staffs = Staff::where('department', 'vision')->get();
+        return view('chartHome')->with(compact('districts', 'staffs'));
     }
 
     public function schoolSelect(){

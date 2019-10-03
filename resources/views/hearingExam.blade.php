@@ -261,7 +261,78 @@
 
                       <input type='hidden' name='studentID[]' value= '' id="student1id"/>
                       <div class="form-inline">
-                       <div class="form-inline">
+
+                                               <div class="form-inline" >
+                                               <label for="l1k">L1k</label>
+                                               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="l1k[]" id="l1k">
+                                                 <option value="">
+                                                 </option>
+                                                 <option value = '25'>25</option>
+                                                 <option value = '30'>30</option>
+                                                 <option value = '35'>35</option>
+                                                 <option value = '40'>40</option>
+                                                 <option value = '45'>45</option>
+                                                 <option value = '50'>50</option>
+                                                 <option value = '55'>55</option>
+                                                 <option value = '60'>60</option>
+                                                 <option value = '65'>65</option>
+                                                 <option value = '70'>70</option>
+                                                 <option value = '75'>75</option>
+                                                 <option value = '80'>80</option>
+                                                 <option value = '85'>85</option>
+                                                 <option value = '90'>90</option>
+                                                 <option value = '95'>95</option>
+                                                 <option value = 'NR'>NR</option>
+                                               </select>
+                                             </div>
+                                               <div class="form-inline">
+                                               <label for="l2k">L2k</label>
+                                               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="l2k[]" id="l2k">
+                                                 <option value="">
+                                                 </option>
+                                                 <option value = '25'>25</option>
+                                                 <option value = '30'>30</option>
+                                                 <option value = '35'>35</option>
+                                                 <option value = '40'>40</option>
+                                                 <option value = '45'>45</option>
+                                                 <option value = '50'>50</option>
+                                                 <option value = '55'>55</option>
+                                                 <option value = '60'>60</option>
+                                                 <option value = '65'>65</option>
+                                                 <option value = '70'>70</option>
+                                                 <option value = '75'>75</option>
+                                                 <option value = '80'>80</option>
+                                                 <option value = '85'>85</option>
+                                                 <option value = '90'>90</option>
+                                                 <option value = '95'>95</option>
+                                                 <option value = 'NR'>NR</option>
+                                               </select>
+                                               </div>
+                                               <div class="form-inline">
+                                               <label for="l4k">L4k</label>
+                                               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="l4k[]" id="l4k">
+                                                 <option value="">
+                                                 </option>
+                                                 <option value = '25'>25</option>
+                                                 <option value = '30'>30</option>
+                                                 <option value = '35'>35</option>
+                                                 <option value = '40'>40</option>
+                                                 <option value = '45'>45</option>
+                                                 <option value = '50'>50</option>
+                                                 <option value = '55'>55</option>
+                                                 <option value = '60'>60</option>
+                                                 <option value = '65'>65</option>
+                                                 <option value = '70'>70</option>
+                                                 <option value = '75'>75</option>
+                                                 <option value = '80'>80</option>
+                                                 <option value = '85'>85</option>
+                                                 <option value = '90'>90</option>
+                                                 <option value = '95'>95</option>
+                                                 <option value = 'NR'>NR</option>
+                                               </select>
+                                               </div>
+
+                       <div class="form-inline" style="padding-left: 20px;">
                        <label for="r1k">R1k</label>
                        <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="r1k[]" id="r1k">
                          <option value="">
@@ -331,80 +402,33 @@
                        </select>
                        </div>
 
-                       <div class="form-inline" style="padding-left: 20px;">
-                       <label for="l1k">L1k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="l1k[]" id="l1k">
-                         <option value="">
-                         </option>
-                         <option value = '25'>25</option>
-                         <option value = '30'>30</option>
-                         <option value = '35'>35</option>
-                         <option value = '40'>40</option>
-                         <option value = '45'>45</option>
-                         <option value = '50'>50</option>
-                         <option value = '55'>55</option>
-                         <option value = '60'>60</option>
-                         <option value = '65'>65</option>
-                         <option value = '70'>70</option>
-                         <option value = '75'>75</option>
-                         <option value = '80'>80</option>
-                         <option value = '85'>85</option>
-                         <option value = '90'>90</option>
-                         <option value = '95'>95</option>
-                         <option value = 'NR'>NR</option>
-                       </select>
-                     </div>
-                       <div class="form-inline">
-                       <label for="l2k">L2k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="l2k[]" id="l2k">
-                         <option value="">
-                         </option>
-                         <option value = '25'>25</option>
-                         <option value = '30'>30</option>
-                         <option value = '35'>35</option>
-                         <option value = '40'>40</option>
-                         <option value = '45'>45</option>
-                         <option value = '50'>50</option>
-                         <option value = '55'>55</option>
-                         <option value = '60'>60</option>
-                         <option value = '65'>65</option>
-                         <option value = '70'>70</option>
-                         <option value = '75'>75</option>
-                         <option value = '80'>80</option>
-                         <option value = '85'>85</option>
-                         <option value = '90'>90</option>
-                         <option value = '95'>95</option>
-                         <option value = 'NR'>NR</option>
-                       </select>
-                       </div>
-                       <div class="form-inline">
-                       <label for="l4k">L4k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 1)" name="l4k[]" id="l4k">
-                         <option value="">
-                         </option>
-                         <option value = '25'>25</option>
-                         <option value = '30'>30</option>
-                         <option value = '35'>35</option>
-                         <option value = '40'>40</option>
-                         <option value = '45'>45</option>
-                         <option value = '50'>50</option>
-                         <option value = '55'>55</option>
-                         <option value = '60'>60</option>
-                         <option value = '65'>65</option>
-                         <option value = '70'>70</option>
-                         <option value = '75'>75</option>
-                         <option value = '80'>80</option>
-                         <option value = '85'>85</option>
-                         <option value = '90'>90</option>
-                         <option value = '95'>95</option>
-                         <option value = 'NR'>NR</option>
-                       </select>
-                       </div>
 
   </div>
                     <div id="extraFreq1" style="visibility: hidden;">
-
-                      <div class="form-inline" style="float: left;">
+                      <div class="form-inline" style = 'float: left;'>
+                      <label for="l5k">L5k</label>
+                      <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
+                        <option value="">
+                        </option>
+                        <option value = '25'>25</option>
+                        <option value = '30'>30</option>
+                        <option value = '35'>35</option>
+                        <option value = '40'>40</option>
+                        <option value = '45'>45</option>
+                        <option value = '50'>50</option>
+                        <option value = '55'>55</option>
+                        <option value = '60'>60</option>
+                        <option value = '65'>65</option>
+                        <option value = '70'>70</option>
+                        <option value = '75'>75</option>
+                        <option value = '80'>80</option>
+                        <option value = '85'>85</option>
+                        <option value = '90'>90</option>
+                        <option value = '95'>95</option>
+                        <option value = 'NR'>NR</option>
+                      </select>
+                      </div>
+                      <div class="form-inline" style="float: right;">
                      <label for="r5k">R5k</label>
                      <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
                        <option value="">
@@ -427,29 +451,7 @@
                        <option value = 'NR'>NR</option>
                      </select>
                      </div>
-                     <div class="form-inline" style = 'float: right;'>
-                     <label for="l5k">L5k</label>
-                     <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
-                       <option value="">
-                       </option>
-                       <option value = '25'>25</option>
-                       <option value = '30'>30</option>
-                       <option value = '35'>35</option>
-                       <option value = '40'>40</option>
-                       <option value = '45'>45</option>
-                       <option value = '50'>50</option>
-                       <option value = '55'>55</option>
-                       <option value = '60'>60</option>
-                       <option value = '65'>65</option>
-                       <option value = '70'>70</option>
-                       <option value = '75'>75</option>
-                       <option value = '80'>80</option>
-                       <option value = '85'>85</option>
-                       <option value = '90'>90</option>
-                       <option value = '95'>95</option>
-                       <option value = 'NR'>NR</option>
-                     </select>
-                     </div>
+
 
                    </div>
                      </div>
@@ -467,7 +469,77 @@
 
                       <input type='hidden' name='studentID[]' value= '' id="student6id"/>
                       <div class="form-inline">
+
+                       <div class="form-inline" >
+                       <label for="l1k">L1k</label>
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l1k[]" id="l1k">
+                         <option value="">
+                         </option>
+                         <option value = '25'>25</option>
+                         <option value = '30'>30</option>
+                         <option value = '35'>35</option>
+                         <option value = '40'>40</option>
+                         <option value = '45'>45</option>
+                         <option value = '50'>50</option>
+                         <option value = '55'>55</option>
+                         <option value = '60'>60</option>
+                         <option value = '65'>65</option>
+                         <option value = '70'>70</option>
+                         <option value = '75'>75</option>
+                         <option value = '80'>80</option>
+                         <option value = '85'>85</option>
+                         <option value = '90'>90</option>
+                         <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
+                       </select>
+                     </div>
                        <div class="form-inline">
+                       <label for="l2k">L2k</label>
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l2k[]" id="l2k">
+                         <option value="">
+                         </option>
+                         <option value = '25'>25</option>
+                         <option value = '30'>30</option>
+                         <option value = '35'>35</option>
+                         <option value = '40'>40</option>
+                         <option value = '45'>45</option>
+                         <option value = '50'>50</option>
+                         <option value = '55'>55</option>
+                         <option value = '60'>60</option>
+                         <option value = '65'>65</option>
+                         <option value = '70'>70</option>
+                         <option value = '75'>75</option>
+                         <option value = '80'>80</option>
+                         <option value = '85'>85</option>
+                         <option value = '90'>90</option>
+                         <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
+                       </select>
+                       </div>
+                       <div class="form-inline">
+                       <label for="l4k">L4k</label>
+                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l4k[]" id="l4k">
+                         <option value="">
+                         </option>
+                         <option value = '25'>25</option>
+                         <option value = '30'>30</option>
+                         <option value = '35'>35</option>
+                         <option value = '40'>40</option>
+                         <option value = '45'>45</option>
+                         <option value = '50'>50</option>
+                         <option value = '55'>55</option>
+                         <option value = '60'>60</option>
+                         <option value = '65'>65</option>
+                         <option value = '70'>70</option>
+                         <option value = '75'>75</option>
+                         <option value = '80'>80</option>
+                         <option value = '85'>85</option>
+                         <option value = '90'>90</option>
+                         <option value = '95'>95</option>
+                         <option value = 'NR'>NR</option>
+                       </select>
+                       </div>
+                       <div class="form-inline" style="padding-left: 20px;">
                        <label for="r1k">R1k</label>
                        <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="r1k[]" id="r1k">
                          <option value="">
@@ -537,105 +609,14 @@
                        </select>
                        </div>
 
-                       <div class="form-inline" style="padding-left: 20px;">
-                       <label for="l1k">L1k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l1k[]" id="l1k">
-                         <option value="">
-                         </option>
-                         <option value = '25'>25</option>
-                         <option value = '30'>30</option>
-                         <option value = '35'>35</option>
-                         <option value = '40'>40</option>
-                         <option value = '45'>45</option>
-                         <option value = '50'>50</option>
-                         <option value = '55'>55</option>
-                         <option value = '60'>60</option>
-                         <option value = '65'>65</option>
-                         <option value = '70'>70</option>
-                         <option value = '75'>75</option>
-                         <option value = '80'>80</option>
-                         <option value = '85'>85</option>
-                         <option value = '90'>90</option>
-                         <option value = '95'>95</option>
-                         <option value = 'NR'>NR</option>
-                       </select>
-                     </div>
-                       <div class="form-inline">
-                       <label for="l2k">L2k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l2k[]" id="l2k">
-                         <option value="">
-                         </option>
-                         <option value = '25'>25</option>
-                         <option value = '30'>30</option>
-                         <option value = '35'>35</option>
-                         <option value = '40'>40</option>
-                         <option value = '45'>45</option>
-                         <option value = '50'>50</option>
-                         <option value = '55'>55</option>
-                         <option value = '60'>60</option>
-                         <option value = '65'>65</option>
-                         <option value = '70'>70</option>
-                         <option value = '75'>75</option>
-                         <option value = '80'>80</option>
-                         <option value = '85'>85</option>
-                         <option value = '90'>90</option>
-                         <option value = '95'>95</option>
-                         <option value = 'NR'>NR</option>
-                       </select>
-                       </div>
-                       <div class="form-inline">
-                       <label for="l4k">L4k</label>
-                       <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 6)" name="l4k[]" id="l4k">
-                         <option value="">
-                         </option>
-                         <option value = '25'>25</option>
-                         <option value = '30'>30</option>
-                         <option value = '35'>35</option>
-                         <option value = '40'>40</option>
-                         <option value = '45'>45</option>
-                         <option value = '50'>50</option>
-                         <option value = '55'>55</option>
-                         <option value = '60'>60</option>
-                         <option value = '65'>65</option>
-                         <option value = '70'>70</option>
-                         <option value = '75'>75</option>
-                         <option value = '80'>80</option>
-                         <option value = '85'>85</option>
-                         <option value = '90'>90</option>
-                         <option value = '95'>95</option>
-                         <option value = 'NR'>NR</option>
-                       </select>
-                       </div>
 
                        </div>
 
                      </div>
                      <div id="extraFreq6" style="visibility: hidden;">
 
-                       <div class="form-inline" style="float: left;">
-                      <label for="r5k">R5k</label>
-                      <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                        <option value="">
-                        </option>
-                        <option value = '25'>25</option>
-                        <option value = '30'>30</option>
-                        <option value = '35'>35</option>
-                        <option value = '40'>40</option>
-                        <option value = '45'>45</option>
-                        <option value = '50'>50</option>
-                        <option value = '55'>55</option>
-                        <option value = '60'>60</option>
-                        <option value = '65'>65</option>
-                        <option value = '70'>70</option>
-                        <option value = '75'>75</option>
-                        <option value = '80'>80</option>
-                        <option value = '85'>85</option>
-                        <option value = '90'>90</option>
-                        <option value = '95'>95</option>
-                        <option value = 'NR'>NR</option>
-                      </select>
-                      </div>
-                      <div class="form-inline" style = 'float: right;'>
+
+                      <div class="form-inline" style = 'float: left;'>
                       <label for="l5k">L5k</label>
                       <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
                         <option value="">
@@ -658,6 +639,29 @@
                         <option value = 'NR'>NR</option>
                       </select>
                       </div>
+                      <div class="form-inline" style="float: right;">
+                     <label for="r5k">R5k</label>
+                     <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+                       <option value="">
+                       </option>
+                       <option value = '25'>25</option>
+                       <option value = '30'>30</option>
+                       <option value = '35'>35</option>
+                       <option value = '40'>40</option>
+                       <option value = '45'>45</option>
+                       <option value = '50'>50</option>
+                       <option value = '55'>55</option>
+                       <option value = '60'>60</option>
+                       <option value = '65'>65</option>
+                       <option value = '70'>70</option>
+                       <option value = '75'>75</option>
+                       <option value = '80'>80</option>
+                       <option value = '85'>85</option>
+                       <option value = '90'>90</option>
+                       <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
+                     </select>
+                     </div>
 
                     </div>
                    </div>
@@ -679,76 +683,9 @@
                     <input type='hidden' name='studentID[]' value= '' id="student2id"/>
                     <div class="form-inline">
                      <div class="form-inline">
-                     <label for="r1k">R1k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r1k[]" id="r1k">
-                       <option value="">
-                       </option>
-                       <option value = '25'>25</option>
-                       <option value = '30'>30</option>
-                       <option value = '35'>35</option>
-                       <option value = '40'>40</option>
-                       <option value = '45'>45</option>
-                       <option value = '50'>50</option>
-                       <option value = '55'>55</option>
-                       <option value = '60'>60</option>
-                       <option value = '65'>65</option>
-                       <option value = '70'>70</option>
-                       <option value = '75'>75</option>
-                       <option value = '80'>80</option>
-                       <option value = '85'>85</option>
-                       <option value = '90'>90</option>
-                       <option value = '95'>95</option>
-                       <option value = 'NR'>NR</option>
-                     </select>
+
 
                      <div class="form-inline">
-                     <label for="r2k">R2k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r2k[]" id="r2k">
-                       <option value="">
-                       </option>
-                       <option value = '25'>25</option>
-                       <option value = '30'>30</option>
-                       <option value = '35'>35</option>
-                       <option value = '40'>40</option>
-                       <option value = '45'>45</option>
-                       <option value = '50'>50</option>
-                       <option value = '55'>55</option>
-                       <option value = '60'>60</option>
-                       <option value = '65'>65</option>
-                       <option value = '70'>70</option>
-                       <option value = '75'>75</option>
-                       <option value = '80'>80</option>
-                       <option value = '85'>85</option>
-                       <option value = '90'>90</option>
-                       <option value = '95'>95</option>
-                       <option value = 'NR'>NR</option>
-                     </select>
-                     </div>
-                     <div class="form-inline">
-                     <label for="r4k">R4k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r4k[]" id="r4k">
-                       <option value="">
-                       </option>
-                       <option value = '25'>25</option>
-                       <option value = '30'>30</option>
-                       <option value = '35'>35</option>
-                       <option value = '40'>40</option>
-                       <option value = '45'>45</option>
-                       <option value = '50'>50</option>
-                       <option value = '55'>55</option>
-                       <option value = '60'>60</option>
-                       <option value = '65'>65</option>
-                       <option value = '70'>70</option>
-                       <option value = '75'>75</option>
-                       <option value = '80'>80</option>
-                       <option value = '85'>85</option>
-                       <option value = '90'>90</option>
-                       <option value = '95'>95</option>
-                       <option value = 'NR'>NR</option>
-                     </select>
-                     </div>
-
-                     <div class="form-inline" style="padding-left: 20px;">
                      <label for="l1k">L1k</label>
                      <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="l1k[]" id="l1k">
                        <option value="">
@@ -817,79 +754,11 @@
                        <option value = 'NR'>NR</option>
                      </select>
                      </div>
-                     </div>
-
-                     </div>
-                     <div id="extraFreq2" style="visibility: hidden;">
-
-                       <div class="form-inline" style="float: left;">
-                      <label for="r5k">R5k</label>
-                      <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                        <option value="">
-                        </option>
-                        <option value = '25'>25</option>
-                        <option value = '30'>30</option>
-                        <option value = '35'>35</option>
-                        <option value = '40'>40</option>
-                        <option value = '45'>45</option>
-                        <option value = '50'>50</option>
-                        <option value = '55'>55</option>
-                        <option value = '60'>60</option>
-                        <option value = '65'>65</option>
-                        <option value = '70'>70</option>
-                        <option value = '75'>75</option>
-                        <option value = '80'>80</option>
-                        <option value = '85'>85</option>
-                        <option value = '90'>90</option>
-                        <option value = '95'>95</option>
-                        <option value = 'NR'>NR</option>
-                      </select>
-                      </div>
-                      <div class="form-inline" style = 'float: right;'>
-                      <label for="l5k">L5k</label>
-                      <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
-                        <option value="">
-                        </option>
-                        <option value = '25'>25</option>
-                        <option value = '30'>30</option>
-                        <option value = '35'>35</option>
-                        <option value = '40'>40</option>
-                        <option value = '45'>45</option>
-                        <option value = '50'>50</option>
-                        <option value = '55'>55</option>
-                        <option value = '60'>60</option>
-                        <option value = '65'>65</option>
-                        <option value = '70'>70</option>
-                        <option value = '75'>75</option>
-                        <option value = '80'>80</option>
-                        <option value = '85'>85</option>
-                        <option value = '90'>90</option>
-                        <option value = '95'>95</option>
-                        <option value = 'NR'>NR</option>
-                      </select>
-                      </div>
-
-                    </div>
-                   </div>
-                   <div class="hearing_line" id="studentLine7" style="margin-left: 40px;">
-                   <div class="form-inline">
-                   <div class = 'remove' onclick="remove(7)">X</div>
-                   <div class = 'pass' onclick = 'pass(7)'>	&#10004;</div>
-                   <div class = 'pass' onclick = 'refer(7)'>R</div>
-                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(7)">N</button>
-                   <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student7name" class="form-inline" onclick="addStudent(7)">
-                   <strong>Booth 7</strong>
-
-                 </div>
-                   </div>
-
-                    <input type='hidden' name='studentID[]' value= '' id="student7id"/>
-                    <div class="form-inline">
+                     <div class="form-inline" style="padding-left: 20px">
 
 
-                     <div class="form-inline">
                      <label for="r1k">R1k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r1k[]" id="r1k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r1k[]" id="r1k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -909,10 +778,11 @@
                        <option value = '95'>95</option>
                        <option value = 'NR'>NR</option>
                      </select>
+             </div>
 
                      <div class="form-inline">
                      <label for="r2k">R2k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r2k[]" id="r2k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r2k[]" id="r2k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -935,7 +805,59 @@
                      </div>
                      <div class="form-inline">
                      <label for="r4k">R4k</label>
-                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r4k[]" id="r4k">
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 2)" name="r4k[]" id="r4k">
+                       <option value="">
+                       </option>
+                       <option value = '25'>25</option>
+                       <option value = '30'>30</option>
+                       <option value = '35'>35</option>
+                       <option value = '40'>40</option>
+                       <option value = '45'>45</option>
+                       <option value = '50'>50</option>
+                       <option value = '55'>55</option>
+                       <option value = '60'>60</option>
+                       <option value = '65'>65</option>
+                       <option value = '70'>70</option>
+                       <option value = '75'>75</option>
+                       <option value = '80'>80</option>
+                       <option value = '85'>85</option>
+                       <option value = '90'>90</option>
+                       <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
+                     </select>
+                     </div>
+                     </div>
+
+                     </div>
+                     <div id="extraFreq2" style="visibility: hidden;">
+
+
+                      <div class="form-inline" style = 'float: left;'>
+                      <label for="l5k">L5k</label>
+                      <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
+                        <option value="">
+                        </option>
+                        <option value = '25'>25</option>
+                        <option value = '30'>30</option>
+                        <option value = '35'>35</option>
+                        <option value = '40'>40</option>
+                        <option value = '45'>45</option>
+                        <option value = '50'>50</option>
+                        <option value = '55'>55</option>
+                        <option value = '60'>60</option>
+                        <option value = '65'>65</option>
+                        <option value = '70'>70</option>
+                        <option value = '75'>75</option>
+                        <option value = '80'>80</option>
+                        <option value = '85'>85</option>
+                        <option value = '90'>90</option>
+                        <option value = '95'>95</option>
+                        <option value = 'NR'>NR</option>
+                      </select>
+                      </div>
+                      <div class="form-inline" style="float: right;">
+                     <label for="r5k">R5k</label>
+                     <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
                        <option value="">
                        </option>
                        <option value = '25'>25</option>
@@ -957,7 +879,28 @@
                      </select>
                      </div>
 
-                     <div class="form-inline" style="padding-left: 20px;">
+                    </div>
+                   </div>
+                   <div class="hearing_line" id="studentLine7" style="margin-left: 40px;">
+                   <div class="form-inline">
+                   <div class = 'remove' onclick="remove(7)">X</div>
+                   <div class = 'pass' onclick = 'pass(7)'>	&#10004;</div>
+                   <div class = 'pass' onclick = 'refer(7)'>R</div>
+                   <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(7)">N</button>
+                   <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student7name" class="form-inline" onclick="addStudent(7)">
+                   <strong>Booth 7</strong>
+
+                 </div>
+                   </div>
+
+                    <input type='hidden' name='studentID[]' value= '' id="student7id"/>
+                    <div class="form-inline">
+
+
+                     <div class="form-inline">
+
+
+                     <div class="form-inline">
                      <label for="l1k">L1k</label>
                      <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="l1k[]" id="l1k">
                        <option value="">
@@ -1026,34 +969,83 @@
                        <option value = 'NR'>NR</option>
                      </select>
                      </div>
+                     <div class="form-inline" style="padding-left: 20px">
+
+
+                     <label for="r1k">R1k</label>
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r1k[]" id="r1k">
+                       <option value="">
+                       </option>
+                       <option value = '25'>25</option>
+                       <option value = '30'>30</option>
+                       <option value = '35'>35</option>
+                       <option value = '40'>40</option>
+                       <option value = '45'>45</option>
+                       <option value = '50'>50</option>
+                       <option value = '55'>55</option>
+                       <option value = '60'>60</option>
+                       <option value = '65'>65</option>
+                       <option value = '70'>70</option>
+                       <option value = '75'>75</option>
+                       <option value = '80'>80</option>
+                       <option value = '85'>85</option>
+                       <option value = '90'>90</option>
+                       <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
+                     </select>
+     </div>
+                     <div class="form-inline">
+                     <label for="r2k">R2k</label>
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r2k[]" id="r2k">
+                       <option value="">
+                       </option>
+                       <option value = '25'>25</option>
+                       <option value = '30'>30</option>
+                       <option value = '35'>35</option>
+                       <option value = '40'>40</option>
+                       <option value = '45'>45</option>
+                       <option value = '50'>50</option>
+                       <option value = '55'>55</option>
+                       <option value = '60'>60</option>
+                       <option value = '65'>65</option>
+                       <option value = '70'>70</option>
+                       <option value = '75'>75</option>
+                       <option value = '80'>80</option>
+                       <option value = '85'>85</option>
+                       <option value = '90'>90</option>
+                       <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
+                     </select>
+                     </div>
+                     <div class="form-inline">
+                     <label for="r4k">R4k</label>
+                     <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 7)" name="r4k[]" id="r4k">
+                       <option value="">
+                       </option>
+                       <option value = '25'>25</option>
+                       <option value = '30'>30</option>
+                       <option value = '35'>35</option>
+                       <option value = '40'>40</option>
+                       <option value = '45'>45</option>
+                       <option value = '50'>50</option>
+                       <option value = '55'>55</option>
+                       <option value = '60'>60</option>
+                       <option value = '65'>65</option>
+                       <option value = '70'>70</option>
+                       <option value = '75'>75</option>
+                       <option value = '80'>80</option>
+                       <option value = '85'>85</option>
+                       <option value = '90'>90</option>
+                       <option value = '95'>95</option>
+                       <option value = 'NR'>NR</option>
+                     </select>
+                     </div>
                      </div>
                    </div>
                    <div id="extraFreq7" style="visibility: hidden;">
 
-                     <div class="form-inline" style="float: left;">
-                    <label for="r5k">R5k</label>
-                    <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                      <option value="">
-                      </option>
-                      <option value = '25'>25</option>
-                      <option value = '30'>30</option>
-                      <option value = '35'>35</option>
-                      <option value = '40'>40</option>
-                      <option value = '45'>45</option>
-                      <option value = '50'>50</option>
-                      <option value = '55'>55</option>
-                      <option value = '60'>60</option>
-                      <option value = '65'>65</option>
-                      <option value = '70'>70</option>
-                      <option value = '75'>75</option>
-                      <option value = '80'>80</option>
-                      <option value = '85'>85</option>
-                      <option value = '90'>90</option>
-                      <option value = '95'>95</option>
-                      <option value = 'NR'>NR</option>
-                    </select>
-                    </div>
-                    <div class="form-inline" style = 'float: right;'>
+
+                    <div class="form-inline" style = 'float: left;'>
                     <label for="l5k">L5k</label>
                     <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
                       <option value="">
@@ -1076,7 +1068,29 @@
                       <option value = 'NR'>NR</option>
                     </select>
                     </div>
-
+                    <div class="form-inline" style="float: right;">
+                   <label for="r5k">R5k</label>
+                   <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+                     <option value="">
+                     </option>
+                     <option value = '25'>25</option>
+                     <option value = '30'>30</option>
+                     <option value = '35'>35</option>
+                     <option value = '40'>40</option>
+                     <option value = '45'>45</option>
+                     <option value = '50'>50</option>
+                     <option value = '55'>55</option>
+                     <option value = '60'>60</option>
+                     <option value = '65'>65</option>
+                     <option value = '70'>70</option>
+                     <option value = '75'>75</option>
+                     <option value = '80'>80</option>
+                     <option value = '85'>85</option>
+                     <option value = '90'>90</option>
+                     <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
+                   </select>
+                   </div>
                   </div>
 </div>
                  </div>
@@ -1097,76 +1111,8 @@
                   <input type='hidden' name='studentID[]' value= '' id="student3id"/>
                    <div class="form-inline">
                      <div class="form-inline">
-                   <label for="r1k">R1k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r1k[]" id="r1k">
-                     <option value="">
-                     </option>
-                     <option value = '25'>25</option>
-                     <option value = '30'>30</option>
-                     <option value = '35'>35</option>
-                     <option value = '40'>40</option>
-                     <option value = '45'>45</option>
-                     <option value = '50'>50</option>
-                     <option value = '55'>55</option>
-                     <option value = '60'>60</option>
-                     <option value = '65'>65</option>
-                     <option value = '70'>70</option>
-                     <option value = '75'>75</option>
-                     <option value = '80'>80</option>
-                     <option value = '85'>85</option>
-                     <option value = '90'>90</option>
-                     <option value = '95'>95</option>
-                     <option value = 'NR'>NR</option>
-                   </select>
 
                    <div class="form-inline">
-                   <label for="r2k">R2k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r2k[]" id="r2k">
-                     <option value="">
-                     </option>
-                     <option value = '25'>25</option>
-                     <option value = '30'>30</option>
-                     <option value = '35'>35</option>
-                     <option value = '40'>40</option>
-                     <option value = '45'>45</option>
-                     <option value = '50'>50</option>
-                     <option value = '55'>55</option>
-                     <option value = '60'>60</option>
-                     <option value = '65'>65</option>
-                     <option value = '70'>70</option>
-                     <option value = '75'>75</option>
-                     <option value = '80'>80</option>
-                     <option value = '85'>85</option>
-                     <option value = '90'>90</option>
-                     <option value = '95'>95</option>
-                     <option value = 'NR'>NR</option>
-                   </select>
-                   </div>
-                   <div class="form-inline">
-                   <label for="r4k">R4k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r4k[]" id="r4k">
-                     <option value="">
-                     </option>
-                     <option value = '25'>25</option>
-                     <option value = '30'>30</option>
-                     <option value = '35'>35</option>
-                     <option value = '40'>40</option>
-                     <option value = '45'>45</option>
-                     <option value = '50'>50</option>
-                     <option value = '55'>55</option>
-                     <option value = '60'>60</option>
-                     <option value = '65'>65</option>
-                     <option value = '70'>70</option>
-                     <option value = '75'>75</option>
-                     <option value = '80'>80</option>
-                     <option value = '85'>85</option>
-                     <option value = '90'>90</option>
-                     <option value = '95'>95</option>
-                     <option value = 'NR'>NR</option>
-                   </select>
-                   </div>
-
-                   <div class="form-inline" style="padding-left: 20px;">
                    <label for="l1k">L1k</label>
                    <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="l1k[]" id="l1k">
                      <option value="">
@@ -1235,77 +1181,11 @@
                      <option value = 'NR'>NR</option>
                    </select>
                    </div>
-                   </div>
+                   <div class="form-inline" style="padding-left: 20px;">
 
-                 </div>
-                 <div id="extraFreq3" style="visibility: hidden;">
 
-                   <div class="form-inline" style="float: left;">
-                  <label for="r5k">R5k</label>
-                  <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                    <option value="">
-                    </option>
-                    <option value = '25'>25</option>
-                    <option value = '30'>30</option>
-                    <option value = '35'>35</option>
-                    <option value = '40'>40</option>
-                    <option value = '45'>45</option>
-                    <option value = '50'>50</option>
-                    <option value = '55'>55</option>
-                    <option value = '60'>60</option>
-                    <option value = '65'>65</option>
-                    <option value = '70'>70</option>
-                    <option value = '75'>75</option>
-                    <option value = '80'>80</option>
-                    <option value = '85'>85</option>
-                    <option value = '90'>90</option>
-                    <option value = '95'>95</option>
-                    <option value = 'NR'>NR</option>
-                  </select>
-                  </div>
-                  <div class="form-inline" style = 'float: right;'>
-                  <label for="l5k">L5k</label>
-                  <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
-                    <option value="">
-                    </option>
-                    <option value = '25'>25</option>
-                    <option value = '30'>30</option>
-                    <option value = '35'>35</option>
-                    <option value = '40'>40</option>
-                    <option value = '45'>45</option>
-                    <option value = '50'>50</option>
-                    <option value = '55'>55</option>
-                    <option value = '60'>60</option>
-                    <option value = '65'>65</option>
-                    <option value = '70'>70</option>
-                    <option value = '75'>75</option>
-                    <option value = '80'>80</option>
-                    <option value = '85'>85</option>
-                    <option value = '90'>90</option>
-                    <option value = '95'>95</option>
-                    <option value = 'NR'>NR</option>
-                  </select>
-                  </div>
-
-                </div>
-                 </div>
-                 <div class="hearing_line" id="studentLine8" style="margin-left: 40px;">
-                 <div class="form-inline">
-                 <div class = 'remove' onclick="remove(8)">X</div>
-                 <div class = 'pass' onclick = 'pass(8)'>	&#10004;</div>
-                 <div class = 'pass' onclick = 'refer(8)'>R</div>
-                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(8)">N</button>
-                 <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student8name" class="form-inline" onclick="addStudent(8)">
-                 <strong>Booth 8</strong>
-
-               </div>
-                 </div>
-
-                  <input type='hidden' name='studentID[]' value= '' id="student8id"/>
-                  <div class="form-inline">
-                   <div class="form-inline">
                    <label for="r1k">R1k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r1k[]" id="r1k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r1k[]" id="r1k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1325,10 +1205,10 @@
                      <option value = '95'>95</option>
                      <option value = 'NR'>NR</option>
                    </select>
-
+ </div>
                    <div class="form-inline">
                    <label for="r2k">R2k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r2k[]" id="r2k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r2k[]" id="r2k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1351,7 +1231,7 @@
                    </div>
                    <div class="form-inline">
                    <label for="r4k">R4k</label>
-                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r4k[]" id="r4k">
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 3)" name="r4k[]" id="r4k">
                      <option value="">
                      </option>
                      <option value = '25'>25</option>
@@ -1373,7 +1253,77 @@
                    </select>
                    </div>
 
-                   <div class="form-inline" style="padding-left: 20px;">
+                   </div>
+
+                 </div>
+                 <div id="extraFreq3" style="visibility: hidden;">
+
+
+                  <div class="form-inline" style = 'float: left;'>
+                  <label for="l5k">L5k</label>
+                  <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
+                    <option value="">
+                    </option>
+                    <option value = '25'>25</option>
+                    <option value = '30'>30</option>
+                    <option value = '35'>35</option>
+                    <option value = '40'>40</option>
+                    <option value = '45'>45</option>
+                    <option value = '50'>50</option>
+                    <option value = '55'>55</option>
+                    <option value = '60'>60</option>
+                    <option value = '65'>65</option>
+                    <option value = '70'>70</option>
+                    <option value = '75'>75</option>
+                    <option value = '80'>80</option>
+                    <option value = '85'>85</option>
+                    <option value = '90'>90</option>
+                    <option value = '95'>95</option>
+                    <option value = 'NR'>NR</option>
+                  </select>
+                  </div>
+                  <div class="form-inline" style="float: right;">
+                 <label for="r5k">R5k</label>
+                 <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+                   <option value="">
+                   </option>
+                   <option value = '25'>25</option>
+                   <option value = '30'>30</option>
+                   <option value = '35'>35</option>
+                   <option value = '40'>40</option>
+                   <option value = '45'>45</option>
+                   <option value = '50'>50</option>
+                   <option value = '55'>55</option>
+                   <option value = '60'>60</option>
+                   <option value = '65'>65</option>
+                   <option value = '70'>70</option>
+                   <option value = '75'>75</option>
+                   <option value = '80'>80</option>
+                   <option value = '85'>85</option>
+                   <option value = '90'>90</option>
+                   <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
+                 </select>
+                 </div>
+                </div>
+                 </div>
+                 <div class="hearing_line" id="studentLine8" style="margin-left: 40px;">
+                 <div class="form-inline">
+                 <div class = 'remove' onclick="remove(8)">X</div>
+                 <div class = 'pass' onclick = 'pass(8)'>	&#10004;</div>
+                 <div class = 'pass' onclick = 'refer(8)'>R</div>
+                 <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(8)">N</button>
+                 <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student8name" class="form-inline" onclick="addStudent(8)">
+                 <strong>Booth 8</strong>
+
+               </div>
+                 </div>
+
+                  <input type='hidden' name='studentID[]' value= '' id="student8id"/>
+                  <div class="form-inline">
+                   <div class="form-inline">
+
+                   <div class="form-inline">
                    <label for="l1k">L1k</label>
                    <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="l1k[]" id="l1k">
                      <option value="">
@@ -1442,34 +1392,84 @@
                      <option value = 'NR'>NR</option>
                    </select>
                    </div>
+                   <div class="form-inline" style="padding-left: 20px;">
+
+
+                   <label for="r1k">R1k</label>
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r1k[]" id="r1k">
+                     <option value="">
+                     </option>
+                     <option value = '25'>25</option>
+                     <option value = '30'>30</option>
+                     <option value = '35'>35</option>
+                     <option value = '40'>40</option>
+                     <option value = '45'>45</option>
+                     <option value = '50'>50</option>
+                     <option value = '55'>55</option>
+                     <option value = '60'>60</option>
+                     <option value = '65'>65</option>
+                     <option value = '70'>70</option>
+                     <option value = '75'>75</option>
+                     <option value = '80'>80</option>
+                     <option value = '85'>85</option>
+                     <option value = '90'>90</option>
+                     <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
+                   </select>
+         </div>
+                   <div class="form-inline">
+                   <label for="r2k">R2k</label>
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r2k[]" id="r2k">
+                     <option value="">
+                     </option>
+                     <option value = '25'>25</option>
+                     <option value = '30'>30</option>
+                     <option value = '35'>35</option>
+                     <option value = '40'>40</option>
+                     <option value = '45'>45</option>
+                     <option value = '50'>50</option>
+                     <option value = '55'>55</option>
+                     <option value = '60'>60</option>
+                     <option value = '65'>65</option>
+                     <option value = '70'>70</option>
+                     <option value = '75'>75</option>
+                     <option value = '80'>80</option>
+                     <option value = '85'>85</option>
+                     <option value = '90'>90</option>
+                     <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
+                   </select>
+                   </div>
+                   <div class="form-inline">
+                   <label for="r4k">R4k</label>
+                   <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 8)" name="r4k[]" id="r4k">
+                     <option value="">
+                     </option>
+                     <option value = '25'>25</option>
+                     <option value = '30'>30</option>
+                     <option value = '35'>35</option>
+                     <option value = '40'>40</option>
+                     <option value = '45'>45</option>
+                     <option value = '50'>50</option>
+                     <option value = '55'>55</option>
+                     <option value = '60'>60</option>
+                     <option value = '65'>65</option>
+                     <option value = '70'>70</option>
+                     <option value = '75'>75</option>
+                     <option value = '80'>80</option>
+                     <option value = '85'>85</option>
+                     <option value = '90'>90</option>
+                     <option value = '95'>95</option>
+                     <option value = 'NR'>NR</option>
+                   </select>
+                   </div>
+
                    </div>
                  </div>
                  <div id="extraFreq8" style="visibility: hidden;">
 
-                   <div class="form-inline" style="float: left;">
-                  <label for="r5k">R5k</label>
-                  <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                    <option value="">
-                    </option>
-                    <option value = '25'>25</option>
-                    <option value = '30'>30</option>
-                    <option value = '35'>35</option>
-                    <option value = '40'>40</option>
-                    <option value = '45'>45</option>
-                    <option value = '50'>50</option>
-                    <option value = '55'>55</option>
-                    <option value = '60'>60</option>
-                    <option value = '65'>65</option>
-                    <option value = '70'>70</option>
-                    <option value = '75'>75</option>
-                    <option value = '80'>80</option>
-                    <option value = '85'>85</option>
-                    <option value = '90'>90</option>
-                    <option value = '95'>95</option>
-                    <option value = 'NR'>NR</option>
-                  </select>
-                  </div>
-                  <div class="form-inline" style = 'float: right;'>
+
+                  <div class="form-inline" style = 'float: left;'>
                   <label for="l5k">L5k</label>
                   <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
                     <option value="">
@@ -1492,7 +1492,29 @@
                     <option value = 'NR'>NR</option>
                   </select>
                   </div>
-
+                  <div class="form-inline" style="float: right;">
+                 <label for="r5k">R5k</label>
+                 <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+                   <option value="">
+                   </option>
+                   <option value = '25'>25</option>
+                   <option value = '30'>30</option>
+                   <option value = '35'>35</option>
+                   <option value = '40'>40</option>
+                   <option value = '45'>45</option>
+                   <option value = '50'>50</option>
+                   <option value = '55'>55</option>
+                   <option value = '60'>60</option>
+                   <option value = '65'>65</option>
+                   <option value = '70'>70</option>
+                   <option value = '75'>75</option>
+                   <option value = '80'>80</option>
+                   <option value = '85'>85</option>
+                   <option value = '90'>90</option>
+                   <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
+                 </select>
+                 </div>
                 </div>
 </div>
                </div>
@@ -1513,76 +1535,8 @@
                 <input type='hidden' name='studentID[]' value= ''  id="student4id"/>
                 <div class="form-inline">
                  <div class="form-inline">
-                 <label for="r1k">R1k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r1k[]" id="r1k">
-                   <option value="">
-                   </option>
-                   <option value = '25'>25</option>
-                   <option value = '30'>30</option>
-                   <option value = '35'>35</option>
-                   <option value = '40'>40</option>
-                   <option value = '45'>45</option>
-                   <option value = '50'>50</option>
-                   <option value = '55'>55</option>
-                   <option value = '60'>60</option>
-                   <option value = '65'>65</option>
-                   <option value = '70'>70</option>
-                   <option value = '75'>75</option>
-                   <option value = '80'>80</option>
-                   <option value = '85'>85</option>
-                   <option value = '90'>90</option>
-                   <option value = '95'>95</option>
-                   <option value = 'NR'>NR</option>
-                 </select>
 
-                 <div class="form-inline">
-                 <label for="r2k">R2k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r2k[]" id="r2k">
-                   <option value="">
-                   </option>
-                   <option value = '25'>25</option>
-                   <option value = '30'>30</option>
-                   <option value = '35'>35</option>
-                   <option value = '40'>40</option>
-                   <option value = '45'>45</option>
-                   <option value = '50'>50</option>
-                   <option value = '55'>55</option>
-                   <option value = '60'>60</option>
-                   <option value = '65'>65</option>
-                   <option value = '70'>70</option>
-                   <option value = '75'>75</option>
-                   <option value = '80'>80</option>
-                   <option value = '85'>85</option>
-                   <option value = '90'>90</option>
-                   <option value = '95'>95</option>
-                   <option value = 'NR'>NR</option>
-                 </select>
-                 </div>
-                 <div class="form-inline">
-                 <label for="r4k">R4k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r4k[]" id="r4k">
-                   <option value="">
-                   </option>
-                   <option value = '25'>25</option>
-                   <option value = '30'>30</option>
-                   <option value = '35'>35</option>
-                   <option value = '40'>40</option>
-                   <option value = '45'>45</option>
-                   <option value = '50'>50</option>
-                   <option value = '55'>55</option>
-                   <option value = '60'>60</option>
-                   <option value = '65'>65</option>
-                   <option value = '70'>70</option>
-                   <option value = '75'>75</option>
-                   <option value = '80'>80</option>
-                   <option value = '85'>85</option>
-                   <option value = '90'>90</option>
-                   <option value = '95'>95</option>
-                   <option value = 'NR'>NR</option>
-                 </select>
-                 </div>
-
-                 <div class="form-inline" style="padding-left: 20px;">
+                 <div class="form-inline" >
                  <label for="l1k">L1k</label>
                  <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="l1k[]" id="l1k">
                    <option value="">
@@ -1651,77 +1605,11 @@
                    <option value = 'NR'>NR</option>
                  </select>
                  </div>
-                 </div>
+                 <div class="form-inline" style="padding-left: 20px;">
 
-               </div>
-               <div id="extraFreq4" style="visibility: hidden;">
 
-                 <div class="form-inline" style="float: left;">
-                <label for="r5k">R5k</label>
-                <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                  <option value="">
-                  </option>
-                  <option value = '25'>25</option>
-                  <option value = '30'>30</option>
-                  <option value = '35'>35</option>
-                  <option value = '40'>40</option>
-                  <option value = '45'>45</option>
-                  <option value = '50'>50</option>
-                  <option value = '55'>55</option>
-                  <option value = '60'>60</option>
-                  <option value = '65'>65</option>
-                  <option value = '70'>70</option>
-                  <option value = '75'>75</option>
-                  <option value = '80'>80</option>
-                  <option value = '85'>85</option>
-                  <option value = '90'>90</option>
-                  <option value = '95'>95</option>
-                  <option value = 'NR'>NR</option>
-                </select>
-                </div>
-                <div class="form-inline" style = 'float: right;'>
-                <label for="l5k">L5k</label>
-                <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
-                  <option value="">
-                  </option>
-                  <option value = '25'>25</option>
-                  <option value = '30'>30</option>
-                  <option value = '35'>35</option>
-                  <option value = '40'>40</option>
-                  <option value = '45'>45</option>
-                  <option value = '50'>50</option>
-                  <option value = '55'>55</option>
-                  <option value = '60'>60</option>
-                  <option value = '65'>65</option>
-                  <option value = '70'>70</option>
-                  <option value = '75'>75</option>
-                  <option value = '80'>80</option>
-                  <option value = '85'>85</option>
-                  <option value = '90'>90</option>
-                  <option value = '95'>95</option>
-                  <option value = 'NR'>NR</option>
-                </select>
-                </div>
-
-              </div>
-               </div>
-               <div class="hearing_line" id="studentLine9" style="margin-left: 40px;">
-               <div class="form-inline">
-               <div class = 'remove' onclick="remove(9)">X</div>
-               <div class = 'pass' onclick = 'pass(9)'>	&#10004;</div>
-               <div class = 'pass' onclick = 'refer(9)'>R</div>
-               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(9)">N</button>
-               <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student9name" class="form-inline" onclick="addStudent(9)">
-               <strong>Booth 9</strong>
-
-             </div>
-               </div>
-
-                <input type='hidden' name='studentID[]' value= '' id="student9id"/>
-                <div class="form-inline">
-                 <div class="form-inline">
                  <label for="r1k">R1k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r1k[]" id="r1k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r1k[]" id="r1k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1741,10 +1629,10 @@
                    <option value = '95'>95</option>
                    <option value = 'NR'>NR</option>
                  </select>
-
+                 </div>
                  <div class="form-inline">
                  <label for="r2k">R2k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r2k[]" id="r2k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r2k[]" id="r2k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1767,7 +1655,7 @@
                  </div>
                  <div class="form-inline">
                  <label for="r4k">R4k</label>
-                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9" name="r4k[]" id="r4k">
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 4)" name="r4k[]" id="r4k">
                    <option value="">
                    </option>
                    <option value = '25'>25</option>
@@ -1789,7 +1677,77 @@
                  </select>
                  </div>
 
-                 <div class="form-inline" style="padding-left: 20px;">
+                 </div>
+
+               </div>
+               <div id="extraFreq4" style="visibility: hidden;">
+
+
+                <div class="form-inline" style = 'float: left;'>
+                <label for="l5k">L5k</label>
+                <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
+                  <option value="">
+                  </option>
+                  <option value = '25'>25</option>
+                  <option value = '30'>30</option>
+                  <option value = '35'>35</option>
+                  <option value = '40'>40</option>
+                  <option value = '45'>45</option>
+                  <option value = '50'>50</option>
+                  <option value = '55'>55</option>
+                  <option value = '60'>60</option>
+                  <option value = '65'>65</option>
+                  <option value = '70'>70</option>
+                  <option value = '75'>75</option>
+                  <option value = '80'>80</option>
+                  <option value = '85'>85</option>
+                  <option value = '90'>90</option>
+                  <option value = '95'>95</option>
+                  <option value = 'NR'>NR</option>
+                </select>
+                </div>
+                <div class="form-inline" style="float: right;">
+               <label for="r5k">R5k</label>
+               <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+                 <option value="">
+                 </option>
+                 <option value = '25'>25</option>
+                 <option value = '30'>30</option>
+                 <option value = '35'>35</option>
+                 <option value = '40'>40</option>
+                 <option value = '45'>45</option>
+                 <option value = '50'>50</option>
+                 <option value = '55'>55</option>
+                 <option value = '60'>60</option>
+                 <option value = '65'>65</option>
+                 <option value = '70'>70</option>
+                 <option value = '75'>75</option>
+                 <option value = '80'>80</option>
+                 <option value = '85'>85</option>
+                 <option value = '90'>90</option>
+                 <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
+               </select>
+               </div>
+              </div>
+               </div>
+               <div class="hearing_line" id="studentLine9" style="margin-left: 40px;">
+               <div class="form-inline">
+               <div class = 'remove' onclick="remove(9)">X</div>
+               <div class = 'pass' onclick = 'pass(9)'>	&#10004;</div>
+               <div class = 'pass' onclick = 'refer(9)'>R</div>
+               <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(9)">N</button>
+               <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student9name" class="form-inline" onclick="addStudent(9)">
+               <strong>Booth 9</strong>
+
+             </div>
+               </div>
+
+                <input type='hidden' name='studentID[]' value= '' id="student9id"/>
+                <div class="form-inline">
+                 <div class="form-inline">
+
+                 <div class="form-inline" >
                  <label for="l1k">L1k</label>
                  <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="l1k[]" id="l1k">
                    <option value="">
@@ -1858,34 +1816,85 @@
                    <option value = 'NR'>NR</option>
                  </select>
                  </div>
+                 <div class="form-inline" style="padding-left: 20px;">
+
+                 <label for="r1k">R1k</label>
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r1k[]" id="r1k">
+                   <option value="">
+                   </option>
+                   <option value = '25'>25</option>
+                   <option value = '30'>30</option>
+                   <option value = '35'>35</option>
+                   <option value = '40'>40</option>
+                   <option value = '45'>45</option>
+                   <option value = '50'>50</option>
+                   <option value = '55'>55</option>
+                   <option value = '60'>60</option>
+                   <option value = '65'>65</option>
+                   <option value = '70'>70</option>
+                   <option value = '75'>75</option>
+                   <option value = '80'>80</option>
+                   <option value = '85'>85</option>
+                   <option value = '90'>90</option>
+                   <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
+                 </select>
+
+               </div>
+
+                 <div class="form-inline">
+                 <label for="r2k">R2k</label>
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9)" name="r2k[]" id="r2k">
+                   <option value="">
+                   </option>
+                   <option value = '25'>25</option>
+                   <option value = '30'>30</option>
+                   <option value = '35'>35</option>
+                   <option value = '40'>40</option>
+                   <option value = '45'>45</option>
+                   <option value = '50'>50</option>
+                   <option value = '55'>55</option>
+                   <option value = '60'>60</option>
+                   <option value = '65'>65</option>
+                   <option value = '70'>70</option>
+                   <option value = '75'>75</option>
+                   <option value = '80'>80</option>
+                   <option value = '85'>85</option>
+                   <option value = '90'>90</option>
+                   <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
+                 </select>
+                 </div>
+                 <div class="form-inline">
+                 <label for="r4k">R4k</label>
+                 <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 9" name="r4k[]" id="r4k">
+                   <option value="">
+                   </option>
+                   <option value = '25'>25</option>
+                   <option value = '30'>30</option>
+                   <option value = '35'>35</option>
+                   <option value = '40'>40</option>
+                   <option value = '45'>45</option>
+                   <option value = '50'>50</option>
+                   <option value = '55'>55</option>
+                   <option value = '60'>60</option>
+                   <option value = '65'>65</option>
+                   <option value = '70'>70</option>
+                   <option value = '75'>75</option>
+                   <option value = '80'>80</option>
+                   <option value = '85'>85</option>
+                   <option value = '90'>90</option>
+                   <option value = '95'>95</option>
+                   <option value = 'NR'>NR</option>
+                 </select>
+                 </div>
+
                  </div>
                </div>
                <div id="extraFreq9" style="visibility: hidden;">
 
-                 <div class="form-inline" style="float: left;">
-                <label for="r5k">R5k</label>
-                <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                  <option value="">
-                  </option>
-                  <option value = '25'>25</option>
-                  <option value = '30'>30</option>
-                  <option value = '35'>35</option>
-                  <option value = '40'>40</option>
-                  <option value = '45'>45</option>
-                  <option value = '50'>50</option>
-                  <option value = '55'>55</option>
-                  <option value = '60'>60</option>
-                  <option value = '65'>65</option>
-                  <option value = '70'>70</option>
-                  <option value = '75'>75</option>
-                  <option value = '80'>80</option>
-                  <option value = '85'>85</option>
-                  <option value = '90'>90</option>
-                  <option value = '95'>95</option>
-                  <option value = 'NR'>NR</option>
-                </select>
-                </div>
-                <div class="form-inline" style = 'float: right;'>
+
+                <div class="form-inline" style = 'float: left;'>
                 <label for="l5k">L5k</label>
                 <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
                   <option value="">
@@ -1908,7 +1917,29 @@
                   <option value = 'NR'>NR</option>
                 </select>
                 </div>
-
+                <div class="form-inline" style="float: right;">
+               <label for="r5k">R5k</label>
+               <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+                 <option value="">
+                 </option>
+                 <option value = '25'>25</option>
+                 <option value = '30'>30</option>
+                 <option value = '35'>35</option>
+                 <option value = '40'>40</option>
+                 <option value = '45'>45</option>
+                 <option value = '50'>50</option>
+                 <option value = '55'>55</option>
+                 <option value = '60'>60</option>
+                 <option value = '65'>65</option>
+                 <option value = '70'>70</option>
+                 <option value = '75'>75</option>
+                 <option value = '80'>80</option>
+                 <option value = '85'>85</option>
+                 <option value = '90'>90</option>
+                 <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
+               </select>
+               </div>
               </div>
 </div>
              </div>
@@ -1929,76 +1960,8 @@
               <input type='hidden' name='studentID[]' value= '' id="student5id" />
               <div class="form-inline">
                <div class="form-inline">
-               <label for="r1k">R1k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r1k[]" id="r1k">
-                 <option value="">
-                 </option>
-                 <option value = '25'>25</option>
-                 <option value = '30'>30</option>
-                 <option value = '35'>35</option>
-                 <option value = '40'>40</option>
-                 <option value = '45'>45</option>
-                 <option value = '50'>50</option>
-                 <option value = '55'>55</option>
-                 <option value = '60'>60</option>
-                 <option value = '65'>65</option>
-                 <option value = '70'>70</option>
-                 <option value = '75'>75</option>
-                 <option value = '80'>80</option>
-                 <option value = '85'>85</option>
-                 <option value = '90'>90</option>
-                 <option value = '95'>95</option>
-                 <option value = 'NR'>NR</option>
-               </select>
 
                <div class="form-inline">
-               <label for="r2k">R2k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r2k[]" id="r2k">
-                 <option value="">
-                 </option>
-                 <option value = '25'>25</option>
-                 <option value = '30'>30</option>
-                 <option value = '35'>35</option>
-                 <option value = '40'>40</option>
-                 <option value = '45'>45</option>
-                 <option value = '50'>50</option>
-                 <option value = '55'>55</option>
-                 <option value = '60'>60</option>
-                 <option value = '65'>65</option>
-                 <option value = '70'>70</option>
-                 <option value = '75'>75</option>
-                 <option value = '80'>80</option>
-                 <option value = '85'>85</option>
-                 <option value = '90'>90</option>
-                 <option value = '95'>95</option>
-                 <option value = 'NR'>NR</option>
-               </select>
-               </div>
-               <div class="form-inline">
-               <label for="r4k">R4k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r4k[]" id="r4k">
-                 <option value="">
-                 </option>
-                 <option value = '25'>25</option>
-                 <option value = '30'>30</option>
-                 <option value = '35'>35</option>
-                 <option value = '40'>40</option>
-                 <option value = '45'>45</option>
-                 <option value = '50'>50</option>
-                 <option value = '55'>55</option>
-                 <option value = '60'>60</option>
-                 <option value = '65'>65</option>
-                 <option value = '70'>70</option>
-                 <option value = '75'>75</option>
-                 <option value = '80'>80</option>
-                 <option value = '85'>85</option>
-                 <option value = '90'>90</option>
-                 <option value = '95'>95</option>
-                 <option value = 'NR'>NR</option>
-               </select>
-               </div>
-
-               <div class="form-inline" style="padding-left: 20px;">
                <label for="l1k">L1k</label>
                <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="l1k[]" id="l1k">
                  <option value="">
@@ -2067,76 +2030,11 @@
                  <option value = 'NR'>NR</option>
                </select>
                </div>
-               </div>
-             </div>
-             <div id="extraFreq5" style="visibility: hidden;">
+               <div class="form-inline" style="padding-left:20px;">
 
-               <div class="form-inline" style="float: left;">
-              <label for="r5k">R5k</label>
-              <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                <option value="">
-                </option>
-                <option value = '25'>25</option>
-                <option value = '30'>30</option>
-                <option value = '35'>35</option>
-                <option value = '40'>40</option>
-                <option value = '45'>45</option>
-                <option value = '50'>50</option>
-                <option value = '55'>55</option>
-                <option value = '60'>60</option>
-                <option value = '65'>65</option>
-                <option value = '70'>70</option>
-                <option value = '75'>75</option>
-                <option value = '80'>80</option>
-                <option value = '85'>85</option>
-                <option value = '90'>90</option>
-                <option value = '95'>95</option>
-                <option value = 'NR'>NR</option>
-              </select>
-              </div>
-              <div class="form-inline" style = 'float: right;'>
-              <label for="l5k">L5k</label>
-              <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
-                <option value="">
-                </option>
-                <option value = '25'>25</option>
-                <option value = '30'>30</option>
-                <option value = '35'>35</option>
-                <option value = '40'>40</option>
-                <option value = '45'>45</option>
-                <option value = '50'>50</option>
-                <option value = '55'>55</option>
-                <option value = '60'>60</option>
-                <option value = '65'>65</option>
-                <option value = '70'>70</option>
-                <option value = '75'>75</option>
-                <option value = '80'>80</option>
-                <option value = '85'>85</option>
-                <option value = '90'>90</option>
-                <option value = '95'>95</option>
-                <option value = 'NR'>NR</option>
-              </select>
-              </div>
 
-            </div>
-             </div>
-             <div class="hearing_line" id="studentLine10" style="margin-left: 40px;">
-             <div class="form-inline">
-             <div class = 'remove' onclick="remove(10)">X</div>
-             <div class = 'pass' onclick = 'pass(10)'>	&#10004;</div>
-             <div class = 'pass' onclick = 'refer(10)'>R</div>
-             <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(10)">N</button>
-             <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student10name" class="form-inline" onclick="addStudent(10)">
-             <strong>Booth 10</strong>
-
-           </div>
-             </div>
-
-              <input type='hidden' name='studentID[]' value= ''  id="student10id"/>
-              <div class="form-inline">
-               <div class="form-inline">
                <label for="r1k">R1k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="r1k[]" id="r1k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r1k[]" id="r1k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2156,11 +2054,10 @@
                  <option value = '95'>95</option>
                  <option value = 'NR'>NR</option>
                </select>
-
-
+       </div>
                <div class="form-inline">
                <label for="r2k">R2k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="r2k[]" id="r2k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r2k[]" id="r2k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2183,7 +2080,7 @@
                </div>
                <div class="form-inline">
                <label for="r4k">R4k</label>
-               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="r4k[]" id="r4k">
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 5)" name="r4k[]" id="r4k">
                  <option value="">
                  </option>
                  <option value = '25'>25</option>
@@ -2205,7 +2102,76 @@
                </select>
                </div>
 
-               <div class="form-inline" style="padding-left: 20px;">
+               </div>
+             </div>
+             <div id="extraFreq5" style="visibility: hidden;">
+
+
+              <div class="form-inline" style = 'float: left;'>
+              <label for="l5k">L5k</label>
+              <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
+                <option value="">
+                </option>
+                <option value = '25'>25</option>
+                <option value = '30'>30</option>
+                <option value = '35'>35</option>
+                <option value = '40'>40</option>
+                <option value = '45'>45</option>
+                <option value = '50'>50</option>
+                <option value = '55'>55</option>
+                <option value = '60'>60</option>
+                <option value = '65'>65</option>
+                <option value = '70'>70</option>
+                <option value = '75'>75</option>
+                <option value = '80'>80</option>
+                <option value = '85'>85</option>
+                <option value = '90'>90</option>
+                <option value = '95'>95</option>
+                <option value = 'NR'>NR</option>
+              </select>
+              </div>
+              <div class="form-inline" style="float: right;">
+             <label for="r5k">R5k</label>
+             <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+               <option value="">
+               </option>
+               <option value = '25'>25</option>
+               <option value = '30'>30</option>
+               <option value = '35'>35</option>
+               <option value = '40'>40</option>
+               <option value = '45'>45</option>
+               <option value = '50'>50</option>
+               <option value = '55'>55</option>
+               <option value = '60'>60</option>
+               <option value = '65'>65</option>
+               <option value = '70'>70</option>
+               <option value = '75'>75</option>
+               <option value = '80'>80</option>
+               <option value = '85'>85</option>
+               <option value = '90'>90</option>
+               <option value = '95'>95</option>
+               <option value = 'NR'>NR</option>
+             </select>
+             </div>
+            </div>
+             </div>
+             <div class="hearing_line" id="studentLine10" style="margin-left: 40px;">
+             <div class="form-inline">
+             <div class = 'remove' onclick="remove(10)">X</div>
+             <div class = 'pass' onclick = 'pass(10)'>	&#10004;</div>
+             <div class = 'pass' onclick = 'refer(10)'>R</div>
+             <button type="button" class="pass" data-toggle ='modal' data-target="#exampleModal3" onclick="studentNote(10)">N</button>
+             <div style="background-color: #e8e5e5; padding: 10px; border-radius: 6px; cursor: pointer;" id="student10name" class="form-inline" onclick="addStudent(10)">
+             <strong>Booth 10</strong>
+
+           </div>
+             </div>
+
+              <input type='hidden' name='studentID[]' value= ''  id="student10id"/>
+              <div class="form-inline">
+               <div class="form-inline">
+
+               <div class="form-inline" >
                <label for="l1k">L1k</label>
                <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="l1k[]" id="l1k">
                  <option value="">
@@ -2274,34 +2240,85 @@
                  <option value = 'NR'>NR</option>
                </select>
                </div>
+               <div class="form-inline" style="padding-left: 20px;">
+
+
+               <label for="r1k">R1k</label>
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="r1k[]" id="r1k">
+                 <option value="">
+                 </option>
+                 <option value = '25'>25</option>
+                 <option value = '30'>30</option>
+                 <option value = '35'>35</option>
+                 <option value = '40'>40</option>
+                 <option value = '45'>45</option>
+                 <option value = '50'>50</option>
+                 <option value = '55'>55</option>
+                 <option value = '60'>60</option>
+                 <option value = '65'>65</option>
+                 <option value = '70'>70</option>
+                 <option value = '75'>75</option>
+                 <option value = '80'>80</option>
+                 <option value = '85'>85</option>
+                 <option value = '90'>90</option>
+                 <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
+               </select>
+   </div>
+
+               <div class="form-inline">
+               <label for="r2k">R2k</label>
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="r2k[]" id="r2k">
+                 <option value="">
+                 </option>
+                 <option value = '25'>25</option>
+                 <option value = '30'>30</option>
+                 <option value = '35'>35</option>
+                 <option value = '40'>40</option>
+                 <option value = '45'>45</option>
+                 <option value = '50'>50</option>
+                 <option value = '55'>55</option>
+                 <option value = '60'>60</option>
+                 <option value = '65'>65</option>
+                 <option value = '70'>70</option>
+                 <option value = '75'>75</option>
+                 <option value = '80'>80</option>
+                 <option value = '85'>85</option>
+                 <option value = '90'>90</option>
+                 <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
+               </select>
+               </div>
+               <div class="form-inline">
+               <label for="r4k">R4k</label>
+               <select type="text" class="form-control hearing-dropdown" onchange="passFilter(this, 10)" name="r4k[]" id="r4k">
+                 <option value="">
+                 </option>
+                 <option value = '25'>25</option>
+                 <option value = '30'>30</option>
+                 <option value = '35'>35</option>
+                 <option value = '40'>40</option>
+                 <option value = '45'>45</option>
+                 <option value = '50'>50</option>
+                 <option value = '55'>55</option>
+                 <option value = '60'>60</option>
+                 <option value = '65'>65</option>
+                 <option value = '70'>70</option>
+                 <option value = '75'>75</option>
+                 <option value = '80'>80</option>
+                 <option value = '85'>85</option>
+                 <option value = '90'>90</option>
+                 <option value = '95'>95</option>
+                 <option value = 'NR'>NR</option>
+               </select>
+               </div>
+
                </div>
              </div>
              <div id="extraFreq10" style="visibility: hidden;">
 
-               <div class="form-inline" style="float: left;">
-              <label for="r5k">R5k</label>
-              <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
-                <option value="">
-                </option>
-                <option value = '25'>25</option>
-                <option value = '30'>30</option>
-                <option value = '35'>35</option>
-                <option value = '40'>40</option>
-                <option value = '45'>45</option>
-                <option value = '50'>50</option>
-                <option value = '55'>55</option>
-                <option value = '60'>60</option>
-                <option value = '65'>65</option>
-                <option value = '70'>70</option>
-                <option value = '75'>75</option>
-                <option value = '80'>80</option>
-                <option value = '85'>85</option>
-                <option value = '90'>90</option>
-                <option value = '95'>95</option>
-                <option value = 'NR'>NR</option>
-              </select>
-              </div>
-              <div class="form-inline" style = 'float: right;'>
+
+              <div class="form-inline" style = 'float: left;'>
               <label for="l5k">L5k</label>
               <select type="text" class="form-control hearing-dropdown" name="l5k[]" id="l5k">
                 <option value="">
@@ -2324,7 +2341,29 @@
                 <option value = 'NR'>NR</option>
               </select>
               </div>
-
+              <div class="form-inline" style="float: right;">
+             <label for="r5k">R5k</label>
+             <select type="text" class="form-control hearing-dropdown" name="r5k[]" id="r5k">
+               <option value="">
+               </option>
+               <option value = '25'>25</option>
+               <option value = '30'>30</option>
+               <option value = '35'>35</option>
+               <option value = '40'>40</option>
+               <option value = '45'>45</option>
+               <option value = '50'>50</option>
+               <option value = '55'>55</option>
+               <option value = '60'>60</option>
+               <option value = '65'>65</option>
+               <option value = '70'>70</option>
+               <option value = '75'>75</option>
+               <option value = '80'>80</option>
+               <option value = '85'>85</option>
+               <option value = '90'>90</option>
+               <option value = '95'>95</option>
+               <option value = 'NR'>NR</option>
+             </select>
+             </div>
             </div>
            </div>
            </div>

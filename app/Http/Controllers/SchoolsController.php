@@ -15,7 +15,7 @@ class SchoolsController extends Controller
 
     $students = Student::where('district', 'like', $request->get('district'))->get();
     $schools = $students->unique('school');
-
+  
     foreach($schools as $school){
       $output .= '<option value="'.$school->school.'">'.$school->school.'</option>';
     }
