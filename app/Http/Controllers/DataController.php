@@ -248,8 +248,11 @@ class DataController extends Controller
       $pdfMerger = PDFMerger::init();
       $i = 0;
 
-      $students = Student::where('district', $request->district)
-                          ->where('school', $request->school)->get();
+      $students = Student::orderBy('vision_pass', 'asc')
+                          ->orderBy('lname', 'asc')
+                          ->where('district', $request->district)
+                          ->where('school', $request->school)
+                          ->where('complete', '1')->get();
       $filtered_students = collect();
 
       foreach($students as $student){
@@ -279,8 +282,11 @@ class DataController extends Controller
     public function exportHearingBatches(Request $request){
       $pdfMerger = PDFMerger::init();
       $i = 0;
-      $students = Student::where('district', $request->district)
-                          ->where('school', $request->school)->get();
+      $students = Student::orderBy('hearing_pass', 'asc')
+                          ->orderBy('lname', 'asc')
+                          ->where('district', $request->district)
+                          ->where('school', $request->school)
+                          ->where('hearing_complete', '1')->get();
       $filtered_students = collect();
       foreach($students as $student){
         if($student->hearingPassOrFail($student) == "Fail"){
@@ -336,7 +342,7 @@ class DataController extends Controller
 
     public $path="";
 
-    protected function generateMailCSV($school){
+    protected function generateMailCSV($school, $nurse){
                 $headings = [
             'id',
             'fname',
@@ -386,7 +392,7 @@ class DataController extends Controller
 
     public function mailCSV(Request $request){
 
-           $this->generateMailCSV($request->school);
+           $this->generateMailCSV($request->school, $request->nurse);
            $mail = new PHPMailer(TRUE);
 
 

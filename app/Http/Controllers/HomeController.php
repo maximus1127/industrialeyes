@@ -28,7 +28,7 @@ class HomeController extends Controller
 
       $students = Student::all();
       $districts = $students->unique('district');
-      $staffs = Staff::where('department', 'vision')->get();
+      $staffs = Staff::where('department', 'Vision')->get();
         return view('chartHome')->with(compact('districts', 'staffs'));
     }
 

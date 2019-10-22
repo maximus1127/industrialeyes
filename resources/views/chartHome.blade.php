@@ -46,6 +46,27 @@
                height: 10px;
 
              }
+             .secondList{
+
+               max-height: 600px;
+               overflow: hidden;
+             }
+             ul#students2 li{
+               font-size: 48pt;
+             }
+             .searh-box2{
+               height: 150px;
+               background-color: white;
+               font-size: 48pt;
+               color: white;
+             }
+             .searh-box2:active{
+               height: 150px;
+               background-color: white;
+               font-size: 48pt;
+               color: Black;
+             }
+
 
          </style>
 
@@ -195,6 +216,28 @@
              </div>
 
 
+
+              <div class="modal fade bd-example-modal-lg1"  role="dialog" aria-labelledby="myLargeModalLabel" id="studentModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content secondList">
+                    <div class="searh-box"><input  type="text" onkeyup="findName2()" id="search2" name="search2" placeholder="Search" class="form-control searh-box2" autofocus /></div>
+                    <ul id="students2">
+
+
+                            {{-- @foreach($students as $student)
+                              @if($student->complete == 0)
+                                <li class="student_list" data-fname = "{{$student->fname}}" data-lname = "{{$student->lname}}" data-identify = "{{$student->id}}" data-dob = "{{Carbon\Carbon::parse($student->dob)->format('m/d/Y')}}" data-gender = "{{$student->gender}}" data-number = "{{$student->student_number}}" data-school = "{{$student->school}}" data-teacher = "{{$student->teacher}}" data-district = "{{$student->district}}" onclick="loadStudent(this)">
+                                  {{$student->fname.' '.$student->lname}}
+                                </li>
+                              @endif
+                            @endforeach --}}
+
+                     </ul>
+                  </div>
+                </div>
+              </div>
+
+
            </div>
             </div>
            <div class="main-form-content col-md-8 d-inline-block align-top">
@@ -230,7 +273,7 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="form-group">
                        <!--<label for="dob">Date of Birth</label>-->
-                       <input type="text" class="form-control" name="dob" id="dob" placeholder="Date of Birth" />
+                       <input type="text" class="form-control" name="dob" id="dob" placeholder="DOB M/D/YYYY" />
                      </div>
                  </div>
                  <div class="col-md-2 col-lg-2">
@@ -932,10 +975,11 @@ function populateStudents(){
    {
      // console.log(childs);
       $('#students').html(childs.student_data);
+      $('#students2').html(childs.student_data);
       sessionStorage.setItem("school", $('#search_school').val());
       sessionStorage.setItem("district", $('#search_district').val());
           $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
-      $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school'));
+      $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school')+'/'+sessionStorage.getItem('nurse'));
       $("#hearingURL").attr('href', '/hearing-exam/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#hearingBatch").attr('href', '/export-hearing-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
@@ -956,6 +1000,7 @@ function autoPopulateStudents(){
    {
      // console.log(childs);
       $('#students').html(childs.student_data);
+      $('#students2').html(childs.student_data);
 
    }
  });
@@ -967,6 +1012,28 @@ function findName() {
   input = document.getElementById('search');
   filter = input.value.toUpperCase();
   ul = document.getElementById("students");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    // a = li[i].getElementsByTagName("a")[0];
+    txtValue = $(li[i]).html();
+    numValue = $(li[i]).data('number');
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1 || numValue == filter) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+}
+function findName2() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue, numValue;
+  input = document.getElementById('search2');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("students2");
   li = ul.getElementsByTagName('li');
 
   // Loop through all list items, and hide those who don't match the search query
@@ -1000,7 +1067,7 @@ $(document).ready(function(){
   if(sessionStorage.getItem('district') || sessionStorage.getItem('school')){
     autoPopulateStudents();
     $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
-  $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school'));
+  $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school')+'/'+sessionStorage.getItem('nurse'));
 
 }
     if(!sessionStorage.getItem('bilateral')){
@@ -1068,6 +1135,13 @@ function deleteStudent(){
 }
 }
 
+$(document).on('keydown', function(e){
+  if(e.which == 36){
+    $("#studentModal").modal('toggle');
+    $("#search2").prop('autofocus');
+    // alert('good');
+  }
+})
 
 
 

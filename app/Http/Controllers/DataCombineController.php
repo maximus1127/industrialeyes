@@ -11,7 +11,7 @@ use App\Student;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use App\Exports\StudentsExport;
-use App\Exports\StudentsAutoExport;
+use App\Exports\CombineExport;
 use PDF;
 use DB;
 use LynX39\LaraPdfMerger\Facades\PdfMerger;
@@ -27,6 +27,7 @@ class DataCombineController extends Controller
 
 
   public function combineCSV(Request $request){
+    Combine::truncate();
     $csv = request('csv_import');
     for($i = 0; $i < sizeof($csv); $i++){
       $file = fopen($csv[$i],"r");
@@ -36,7 +37,7 @@ class DataCombineController extends Controller
               $c++;
               continue;
             } else {
-              $student = Student::where('fname', $data[1])->
+              $student = Combine::where('fname', $data[1])->
                                   where('lname', $data[2])->
                                   where('student_number', $data[3])->first();
 
@@ -118,7 +119,7 @@ class DataCombineController extends Controller
               }
               $student->save();
             } else {
-              $student = new Student();
+              $student = new Combine();
               $student->fname = $data[1];
               $student->lname = $data[2];
               $student->student_number = $data[3];
@@ -160,9 +161,11 @@ class DataCombineController extends Controller
 
           fclose($file);
     }
-      return back();
+      return Excel::download(new CombineExport, 'combined.csv');
 
 }
+
+
 
 
 

@@ -61,7 +61,7 @@ Route::get('/get_schools', 'SchoolsController@search')->name('get_schools');
 Route::get('/get_students', 'SchoolsController@searchStudents')->name('get_students');
 Route::get('/student-count', 'ChartController@studentCount')->name('studentCount');
 Route::get('/hearing-student-count', 'ChartController@hearingStudentCount')->name('hearingStudentCount');
-Route::get('/mailcsv/{school}', 'DataController@mailCSV');
+Route::get('/mailcsv/{school}/{nurse}', 'DataController@mailCSV');
 Route::get('/manage-staff', 'StaffController@index')->name('manage-staff');
 Route::post('/add-staff', 'StaffController@store')->name('add-staff');
 Route::get('/remove-staff/{id}', 'StaffController@destroy');

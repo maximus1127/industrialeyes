@@ -57,7 +57,7 @@ $("#grade").val($(e).data('grade'));
     } else {
       $(".ou-background").css('background', '#11b21c');
     }
-  
+
     if (fails.includes($(e).data('ounear'))){
       $(".ou-background").css('background', '#d84b4b');
     } else {
@@ -77,7 +77,7 @@ $("#grade").val($(e).data('grade'));
 
     sessionStorage.setItem('autoSelect', stunum);
 
-
+  $("#studentModal").modal('hide');
 
 }
 

@@ -87,15 +87,27 @@
      </form>
 
      <hr />
-     <form method='get' action='{{route('deleteDatabase')}}' >
-       {{ csrf_field() }}
+
        <div class="form-group">
           <label for="exampleFormControlFile2">Click below to delete the database</label><br />
           <strong style="color: red">This action cannot be undone. Only proceed if you are certain you want to delete the entire database and prepare this device for a new upload of separate student files.</strong>
           {{-- <input type="date" name="date" class="form-control" id="exampleFormControlFile1"> --}}
           <br /><br />
-          <input type='submit' name='submit' value='Delete' class="btn btn-danger">
+          <input type='button' onclick="confirmDelete()" name='submit' value='Delete' class="btn btn-danger">
         </div>
-     </form>
+  <script src="{{asset('/js/jquery.js')}}"></script>
+  <script>
+  function confirmDelete(){
+    var r = confirm("Are you sure you want to delete THE ENTIRE DATABASE?");
+    if(r == true) {
+    var s = confirm("ONE MORE TIME....ARE YOU SURE YOU WANT TO DELETE THE DATABASE??????")
+    if(s == true){
+      window.location.href('/deleteDatabase');
+    }
+  }
+  }
+
+
+  </script>
   </body>
 </html>

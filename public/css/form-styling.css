@@ -44,8 +44,10 @@ ul#students2 li{font-size: 14px;
     color:#fff;
     text-transform:uppercase;
 }
-#search{
+#search, #search2{
     margin-bottom: 15px;
+    color: black;
+    font-weight: bolder;
     background:#fff;
   }
 .new-student {

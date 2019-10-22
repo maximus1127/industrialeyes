@@ -174,7 +174,7 @@ img {
     <script>
 
 
-    var letters = ["&nbspC", "&nbspD", "&nbspH", "&nbspK", "&nbspN", "&nbspO", "&nbspR", "&nbspS", "&nbspV", "&nbspZ"];
+    var letters = ["C", "D", "H", "K", "N", "O", "R", "S", "V", "Z"];
     var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9" , "5"];
     var ees = ["d","j","i","e", "d","j","i","e","i","j"];
     var pictures = ["k", "h", "f", "g", "b", "c", "k", "h", "f", "g", "b", "c"];
@@ -228,7 +228,7 @@ img {
           loopArray = copy1.splice( Math.floor(Math.random()*copy1.length), 1 );
           display_string += loopArray;
       }
-      $("#patient1").html(display_string);
+      $("#patient1").html("&nbsp;"+display_string);
       if($("#patient1").hasClass('tumble20')){
         $("#letterSize").html("20/20");
       }
@@ -358,6 +358,107 @@ img {
       if (event.which == 37 || event.which == 39){
         randomize();
       }
+      if(event.which == 49 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[1] +letters[2] +letters[3] +letters[4] +letters[5])
+      }
+      if(event.which == 49 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[1] +letters[2] +letters[3]);
+      }
+      if(event.which == 49 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[1] +letters[2] );
+      }
+      if(event.which == 49 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[1]);  }
+      if(event.which == 50 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[3] +letters[1]+letters[9] +letters[6] +letters[4])
+      }
+      if(event.which == 50 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[3] +letters[1]+letters[9]);
+      }
+      if(event.which == 50 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[3] +letters[1] );
+      }
+      if(event.which == 50 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[3]);  }
+      if(event.which == 51 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[1] +letters[8]+letters[0]+letters[4]+letters[7])
+      }
+      if(event.which == 51 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[1] +letters[8] +letters[0] );
+      }
+      if(event.which == 51 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[1] +letters[8] );
+      }
+      if(event.which == 51 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[1]);  }
+      if(event.which == 52 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[2] +letters[6] + letters[7] + letters[3] + letters[9])
+      }
+      if(event.which == 52 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[2] +letters[6] + letters[7] + " ");
+      }
+      if(event.which == 52 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[2] +letters[6] + " ");
+      }
+      if(event.which == 52 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[2]);  }
+      if(event.which == 53 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[7] +letters[2] + letters[6] + letters[1] + letters[8] + " ")
+      }
+      if(event.which == 53 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[7] +letters[2] + letters[6] + " ");
+      }
+      if(event.which == 53 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[7] +letters[2] + " ");
+      }
+      if(event.which == 53 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[7]);  }
+      if(event.which == 54 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[2] +letters[4] + letters[8] + letters[5] + letters[9] + " ")
+      }
+      if(event.which == 54 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[2] +letters[4] + letters[8] + " ");
+      }
+      if(event.which == 54 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[2] +letters[4] + " ");
+      }
+      if(event.which == 54 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[2]);  }
+      if(event.which == 55 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[0] +letters[1] + letters[4] + letters[6] + letters[7] + " ")
+      }
+      if(event.which == 55 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[0] +letters[1] + letters[4] + " ");
+      }
+      if(event.which == 55 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[0] +letters[1] + " ");
+      }
+      if(event.which == 55 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[0]);  }
+      if(event.which == 56 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[8] +letters[9] + letters[4] + letters[7] + letters[0] + " ")
+      }
+      if(event.which == 56 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[8] +letters[9] + letters[4] + " ");
+      }
+      if(event.which == 56 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[8] +letters[9] + " ");
+      }
+      if(event.which == 56 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[8]);  }
+      if(event.which == 57 && ($("#patient1").hasClass('tumble20') || $("#patient1").hasClass('tumble25') || $("#patient1").hasClass('tumble30') || $("#patient1").hasClass('tumble40') || $("#patient1").hasClass('tumble50') || $("#patient1").hasClass('tumble60') || $("#patient1").hasClass('tumble70') || $("#patient1").hasClass('tumble80'))) {
+        $("#patient1").html("&nbsp;"+letters[9] +letters[3] + letters[1] + letters[8] + letters[2] + " ")
+      }
+      if(event.which == 57 && $("#patient1").hasClass('tumble100')) {
+        $("#patient1").html("&nbsp;"+letters[9] +letters[3] + letters[1] + " ");
+      }
+      if(event.which == 57 && $("#patient1").hasClass('tumble200')) {
+        $("#patient1").html("&nbsp;"+letters[9] +letters[3] + " ");
+      }
+      if(event.which == 57 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
+        $("#patient1").html("&nbsp;"+letters[9]);
+      }
+
 
 
     });
