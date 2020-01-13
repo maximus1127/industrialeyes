@@ -1,3 +1,4 @@
+var getAtIt;
 function loadStudent(e){
 
     var fails = ['20/40', '20/50', '20/60', '20/70', '20/80', '20/100', '20/200', '20/300', '20/400'];
@@ -19,19 +20,19 @@ function loadStudent(e){
     $("#od_cyl").val($(e).data('odcyl'));
     $("#os_cyl").val($(e).data('oscyl'));
     $("#ou_color").val($(e).data('oucolor'));
-$("#grade").val($(e).data('grade'));
+    $("#grade").val($(e).data('grade'));
     $("#os_near").val($(e).data('osnear'));
     $("#ou_dist").val($(e).data('oudist'));
     $("#ou_near").val($(e).data('ounear'));
-    $("#notes").val($(e).data('notes'));
-    $("#r1k").val($(e).data('r1k'));
-    $("#r2k").val($(e).data('r2k'));
-    $("#r4k").val($(e).data('r4k'));
-    $("#r5k").val($(e).data('r5k'));
-    $("#l1k").val($(e).data('l1k'));
-    $("#l2k").val($(e).data('l2k'));
-    $("#l4k").val($(e).data('l4k'));
-    $("#l5k").val($(e).data('l5k'));
+    $("#notes").html($(e).data('notes'));
+    $("#r1k").html($(e).data('r1k'));
+    $("#r2k").html($(e).data('r2k'));
+    $("#r4k").html($(e).data('r4k'));
+    $("#r5k").html($(e).data('r5k'));
+    $("#l1k").html($(e).data('l1k'));
+    $("#l2k").html($(e).data('l2k'));
+    $("#l4k").html($(e).data('l4k'));
+    $("#l5k").html($(e).data('l5k'));
     if($(e).data('nurse') == ""){
       $("#nurse").val(tester);
     } else {
@@ -78,8 +79,74 @@ $("#grade").val($(e).data('grade'));
     sessionStorage.setItem('autoSelect', stunum);
 
   $("#studentModal").modal('hide');
+  if($(e).data('grade') == '2' && ($(e).data('gender') == 'male' || $(e).data('gender') == 'm')){
+    if(sessionStorage.getItem('bilateral')){
+      $('#startExam').attr('href', '/bilat-color/'+$(e).data('identify'));
+    } else{
+      $('#startExam').attr('href', '/non-bilat-color/'+$(e).data('identify'));
+    }
+  } else {
+    if(sessionStorage.getItem('bilateral')){
+      $('#startExam').attr('href', '/bilat-non-color/'+$(e).data('identify'));
+    } else{
+      $('#startExam').attr('href', '/non-bilat-non-color/'+$(e).data('identify'));
+    }
+  }
+
+  $("#startButton").removeAttr('disabled');
+
 
 }
+
+
+
+function showExam(){
+  if($("#fname").val()!= ""){
+    return win2=window.open('/exam');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
+}
+function showExam2(){
+  if($("#fname").val()!= ""){
+    return win2=window.open('/exam2');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
+}
+function showExam3(){
+  if($("#fname").val()!= ""){
+    return win2=window.open('/exam3');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
+}
+function showExam4(){
+  if($("#fname").val()!= ""){
+    return win2=window.open('/exam4');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
+}
+function showExam5(){
+  if($("#fname").val()!= ""){
+    return win2=window.open('/exam5');
+  } else {
+    $( "#dialog2" ).dialog({
+      modal: true,
+    });
+  }
+}
+
+
 
 
 

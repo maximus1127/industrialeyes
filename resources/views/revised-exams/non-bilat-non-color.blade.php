@@ -171,16 +171,21 @@
     </div>
 
 
-    <script src="{{asset("/js/jquery.js")}}"></script>
+    {{-- <script src="{{asset("/js/jquery.js")}}"></script> --}}
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     <script>
-
+    var student_responses = [];
+    var progress = 0;
+    var sixSize = {{$calibration->size}};
 
     var letters = ["C", "D", "H", "K", "N", "O", "R", "S", "V", "Z"];
     var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9" , "5"];
     var ees = ["d","j","i","e", "d","j","i","e","i","j"];
     var pictures = ["k", "h", "f", "g", "b", "c", "k", "h", "f", "g", "b", "c"];
     var sizes = ['tumble20', 'tumble25', 'tumble30', 'tumble40', 'tumble50', 'tumble60', 'tumble70', 'tumble80', 'tumble100', 'tumble200', 'tumble300', 'tumble400'];
-    var images = ['ishihara5.PNG', 'ishihara8.PNG', 'ishihara29.PNG', 'ishihara74.PNG', 'astigmatism.png'];
 
     var selection = letters;
     var currentSize = 2;
@@ -208,17 +213,6 @@
     }
   }
 
-  var currentImage = 0;
-
-  function showImages(){
-    if (currentImage <=3){
-    currentImage++;
-    $('#patient1').html( "<img src=/images/" + images[currentImage] + ">");
-    $('#letterSize').html("");
-  } else {
-    window.close();
-  }
-  }
 
     function randomize(){
     var display_string = "";
@@ -235,7 +229,11 @@
           $("#letterSize").html("20/25");
         }
         if($("#patient1").hasClass('tumble30')){
+          if(progress == 0){
           $("#letterSize").html("20/32");
+        } else {
+          $('#letterSize').html('20/30');
+        }
         }
         if($("#patient1").hasClass('tumble40')){
           $("#letterSize").html("20/40");
@@ -265,27 +263,8 @@
           $("#letterSize").html("20/400");
         }
     }
-    var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg'];
-
-  var currentImage = 0;
-
-  function showImages(){
-    if (currentImage <= 16){
-
-    $('#patient1').html( "<img src=/images/" + images[currentImage] + ">");
-        currentImage++;
-    $('#letterSize').html("");
-      $('#page').html("");
-        $('#currentExam').html("");
-  } else {
-    window.close();
-  }
-  }
 
 
-var progress = 0;
-    var student_responses = [];
-    var bilateral = false;
 
     $('html').on('keydown', function(event){
       if(event.which == 79){
@@ -319,9 +298,7 @@ var progress = 0;
         $("#content").css('font-size', (sixSize * .6) + 'px');
         $("#page").html("6ft");
       };
-      if (event.which == 50 ){
-        setNear();
-      };
+
       if (event.which == 83 ){
         setSingle();
         console.log('single set');
@@ -350,72 +327,101 @@ var progress = 0;
 
 
       if (event.which == 32 ){
+          if(progress == 0){
 
-        if(progress === 0){
-        student_responses.push($("#letterSize").html());
-        var sixSize = {{$calibration->size}};
-        $("#content").css('font-size', (sixSize * .6) + 'px');
-        $("#page").html("6ft");
-
-        $('#currentExam').html('Right Eye Distance');
-        opener.fillIn();
-        progress =1;
-        }
-        else if(progress === 1){
-          $('#currentExam').html('Left Eye Distance');
-          student_responses.push($("#letterSize").html());
-          opener.fillIn();
-          if(sessionStorage.getItem('bilateral')){
-            bilateral = true;
+            student_responses.push($("#letterSize").html());
+            loopSet();
+            randomize();
+            setSix();
+            if($('#letterSize').html() == '20/32'){
+              $('#letterSize').html('20/30');
+            }
+            $("#page").html("6ft");
+            $('#currentExam').html('Right Eye Distance');
+            progress++;
           }
-            progress=2;
-        }
-        else if(progress === 2 && !bilateral && opener.getAtIt === false){
-          student_responses.push($("#letterSize").html());
-          opener.fillIn();
-          window.close();
+          else if(progress == 1){
+            student_responses.push($("#letterSize").html());
+            loopSet();
+            randomize();
+            $('#currentExam').html('Left Eye Distance');
+            progress++;
+          }
 
-        }
-        else if(progress === 2 && bilateral && opener.getAtIt === false){
-          $('#currentExam').html('Both Eyes Distance');
-          student_responses.push($("#letterSize").html());
-          opener.fillIn();
-          window.close();
-        }
-        else if((progress === 2 || progress ===3) && bilateral && opener.getAtIt === true){
-          $('#currentExam').html('Both Eyes Distance');
-          if(student_responses.length == 2 || student_responses.length == 3){
-          student_responses.push($("#letterSize").html());
-          opener.fillIn();
-          progress = 3;
-        }
-          showImages();
-        }
-        else if(progress === 2 && !bilateral && opener.getAtIt === true){
-          if(student_responses.length == 2){
-          student_responses.push($("#letterSize").html());
-          opener.fillIn();
-        }
-          showImages();
-        }
+          else if(progress == 2){
+            student_responses.push($("#letterSize").html());
+            $('body').html(`
+              <div class="container">
+                <h1>{{$student->fname.' '.$student->lname}}</h1>
+              </div>
+              <div class="row mt20" >
+                <div class="col-md-4 od-group">
+                    <h5>Right</h5>
+                <div class="exam-data-new od-background">
+                  <div class="form-group">
+                    <label for="od_dist">OD Distance</label>
+                    <input type="text" class="form-control" name="od_dist" id="od_dist" value="${student_responses[1]}">
+                  </div>
 
-        // if(progress ==2){
-        //   $('#currentExam').html('Both Eyes Distance');
-        //   student_responses.push($("#letterSize").html());
-        //   opener.fillIn();
-        //   progress ++;
-        // }
-        // if (student_responses.length == 1){
-        //     $("#currentExam").html('Left Eye Near');
-        // } else if (student_responses.length == 2){
-        //     $("#currentExam").html('Both Eyes Near');
-        // }
-        // else if(student_responses.length == 3)
-        // var sixSize = {{$calibration->size}};
-        // $("#content").css('font-size', (sixSize * .6) + 'px');
-        // $("#page").html("6ft");
-        // window.close();
-        };
+                  </div><!--exam-data-new ends-->
+                </div> <!--col-md-4-->
+                <div class="col-md-4">
+                        <h5>Both</h5>
+                        <div class="exam-data-new ou-background">
+                        <div class="form-group">
+                            <label for="ou_near">OU Near</label>
+                            <input type="text" class="form-control" name="ou_near" id="ou_near" value="${student_responses[0]}">
+                          </div>
+                      </div>
+                </div>
+
+                <div class="col-md-4 os-group">
+                        <h5>Left</h5>
+                    <div class="exam-data-new os-background">
+                        <div class="form-group">
+                        <label for="os_dist">OS Distance</label>
+                        <input type="text" class="form-control" name="os_dist" id="os_dist" value="${student_responses[2]}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="width: 100%">
+                  <div class="col-md-4">
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note21" value="Wears Glasses. "> Wears Glasses<br>
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note1" value="Language Barrier. "> Language Barrier<br>
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note2" value="Uncooperative. "> Uncooperative<br>
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note3" value="Immature. "> Immature<br>
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note4" value="Blurring. "> Blurring<br>
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note5" value="Blinking / Squinting. "> Blinking / Squinting<br>
+                    <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note6" value="Straining. "> Straining<br>
+                  </div>
+                  <div class="col-md-4">
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note7" value="Eyes Water / Red. "> Eyes Water / Red<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note8" value="Eyes Cross / Wandering. "> Eyes Cross / Wandering<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note9" value="Does not have glasses at exam. "> Does not have glasses at exam<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note10" value="Wore glasses previously. "> Wore glasses previously<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note11" value="Headaches. "> Headaches<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note12" value="Cold / Congested. "> Cold / Congested<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note13" value="Recent or present earaches. "> Recent or present earaches<br>
+                  </div>
+                  <div class="col-md-4">
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note14" value="Reports history of ear problems. "> Reports history of ear problems<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note15" value="Reports ringing or head noises. "> Reports ringing or head noises<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note16" value="Legal pass Ck 500 Hz. "> Legal pass Ck 500 Hz<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note17" value="Reports awareness problem. "> Reports awareness problem<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note18" value="Surgery. "> Surgery<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note19" value="Exam within last year. "> Exam within last year<br>
+                  <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note20" value="Known problem / Under medical care. "> Known problem / Under medical care<br>
+                  </div>
+                </div>
+
+              </div>
+
+              <input type="hidden" name="student_id" value="{{$student->id}}" id="student_id" />
+              <input type="button" class="btn btn-primary" onclick="wereDone()" value="Submit">
+            `);
+          }
+
+      };
 
       if (event.which == 37 || event.which == 39){
         randomize();
@@ -520,39 +526,7 @@ var progress = 0;
       if(event.which == 57 && ($("#patient1").hasClass('tumble300') || $("#patient1").hasClass('tumble400'))) {
         $("#patient1").html("&nbsp;"+letters[9]);
       }
-
-
     });
-
-
-
-
-    var currentZoom = 20;
-    function grow(){
-        currentZoom += 1;
-        $("#content").css('font-size', currentZoom + 'px');
-        $.ajax({
-          url: "/insert",
-          data:{
-            size: currentZoom
-          }
-
-        });
-    }
-
-
-    function shrink(){
-       currentZoom -= 1;
-       $("#content").css('font-size', currentZoom + 'px');
-       $.ajax({
-         url: "/insert",
-         data:{
-           size: currentZoom
-         }
-
-       });
-    }
-
 
 
 
@@ -560,19 +534,46 @@ function setNear(){
     var smallLine = {{$calibration->size}};
     $("#content").css('font-size', (smallLine * .2) + "px");
 }
+function setSix(){
+    var smallLine = {{$calibration->size}};
+    $("#content").css('font-size', (smallLine * .6) + "px");
+}
 
-
-
-
-
-
-    $(document).ready(function(){
-
-      // $("#currentExam").html('Right Eye Near');
+$(document).ready(function(){
       setNear();
-
     });
 
+function wereDone(){
+  $.ajax({
+    url: "{{route('saveExam4')}}",
+    type: 'GET',
+    data:{
+      oddist: $('#od_dist').val(),
+      osdist: $('#os_dist').val(),
+      ounear: $('#ou_near').val(),
+      notes: notes,
+      studentid: $('#student_id').val()
+    },
+    success: function(data){
+      if(data == 'saved'){
+      window.opener.reload();
+      window.close();
+    } else {
+      alert("Could note save data.")
+    }
+    },
+    error: function(){
+      alert("Could not save exam");
+    }
+  });
+}
+
+var notes = "";
+function addNote(e){
+
+  notes += $(e).val();
+  console.log(notes);
+}
 
 
     </script>

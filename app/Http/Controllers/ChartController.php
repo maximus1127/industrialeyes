@@ -101,33 +101,75 @@ class ChartController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-    public function exam(){
+    public function exam1($id){
       $calibration = Calibration::find(1) ;
-      return view('distanceChart')->with(compact('calibration'));
+      $student = Student::find($id);
+      return view('revised-exams/bilat-color')->with(compact('calibration', 'student'));
     }
-    public function exam2(){
+    public function saveExam1(Request $request){
+    $student = Student::find($request->studentid);
+    $student->od_dist = $request->oddist;
+    $student->os_dist = $request->osdist;
+    $student->notes = $request->notes;
+    $student->ou_near = $request->ounear;
+    $student->ou_dist = $request->oudist;
+    $student->ou_color = $request->color;
+    if($student->save()){
+      return response('saved');
+    }
+  }
+
+    public function exam2($id){
       $calibration = Calibration::find(1) ;
-      return view('nearChart')->with(compact('calibration'));
+      $student = Student::find($id);
+      return view('revised-exams/non-bilat-color')->with(compact('calibration','student'));
     }
-    public function exam3(){
-      return view('colorChart');
+    public function saveExam2(Request $request){
+    $student = Student::find($request->studentid);
+    $student->od_dist = $request->oddist;
+    $student->os_dist = $request->osdist;
+    $student->notes = $request->notes;
+    $student->ou_near = $request->ounear;
+    $student->ou_color = $request->color;
+    if($student->save()){
+      return response('saved');
     }
-    public function exam4(){
-            $calibration = Calibration::find(1) ;
-      return view('sixChart')->with(compact('calibration'));
     }
-    public function exam5(){
-            $calibration = Calibration::find(1) ;
-      return view('hotvChart')->with(compact('calibration'));
+
+
+    public function exam3($id){
+      $calibration = Calibration::find(1) ;
+      $student = Student::find($id);
+      return view('revised-exams/bilat-non-color')->with(compact('calibration', 'student'));
     }
+    public function saveExam3(Request $request){
+    $student = Student::find($request->studentid);
+    $student->od_dist = $request->oddist;
+    $student->os_dist = $request->osdist;
+    $student->notes = $request->notes;
+    $student->ou_near = $request->ounear;
+    $student->ou_dist = $request->oudist;
+    if($student->save()){
+      return response('saved');
+    }
+    }
+    public function exam4($id){
+      $calibration = Calibration::find(1) ;
+      $student = Student::find($id);
+      return view('revised-exams/non-bilat-non-color')->with(compact('calibration', 'student'));
+    }
+    public function saveExam4(Request $request){
+    $student = Student::find($request->studentid);
+    $student->od_dist = $request->oddist;
+    $student->os_dist = $request->osdist;
+    $student->notes = $request->notes;
+    $student->ou_color = $request->color;
+    $student->ou_near = $request->ounear;
+    if($student->save()){
+      return response('saved');
+    }
+    }
+
 
 
     public function submit(Request $request){
@@ -143,30 +185,6 @@ class ChartController extends Controller
       $student->teacher = $request->teacher;
       $student->last_edited = now();
       $student->gender = $request->gender;
-      $student->od_dist = $request->od_dist;
-      $student->os_dist = $request->os_dist;
-      $student->od_near = NULL;
-      $student->os_near = NULL;
-      $student->ou_color = $request->ou_color;
-      $student->od_cyl = $request->od_cyl;
-      $student->os_cyl = $request->os_cyl;
-      $student->ou_dist = $request->ou_dist;
-      $student->ou_near = $request->ou_near;
-      $student->notes = $request->notes;
-      $student->complete = 1;
-      $student->grade = $request->grade;
-      $student->nurse = $request->nurse;
-      $student->r1k = $request->r1k;
-      $student->r2k = $request->r2k;
-      $student->r4k = $request->r4k;
-      $student->r5k = $request->r5k;
-      $student->l1k = $request->l1k;
-      $student->l2k = $request->l2k;
-      $student->l4k = $request->l4k;
-      $student->l5k = $request->l5k;
-      $student->hearing_pass = $student->hearingPassOrFail($student);
-      $student->vision_pass = $student->passOrFail($student);
-
       $student->save();
       return back();
     } else{
@@ -179,30 +197,6 @@ class ChartController extends Controller
       $student->district = $request->district;
       $student->teacher = $request->teacher;
       $student->gender = $request->gender;
-      $student->od_dist = $request->od_dist;
-      $student->os_dist = $request->os_dist;
-      $student->od_near = NULL;
-      $student->os_near = NULL;
-      $student->ou_color = $request->ou_color;
-      $student->od_cyl = $request->od_cyl;
-      $student->os_cyl = $request->os_cyl;
-      $student->ou_dist = $request->ou_dist;
-      $student->ou_near = $request->ou_near;
-      $student->notes = $request->notes;
-      $student->complete = 1;
-      $student->grade = $request->grade;
-        $student->nurse = $request->nurse;
-        $student->r1k = $request->r1k;
-        $student->r2k = $request->r2k;
-        $student->r4k = $request->r4k;
-        $student->r5k = $request->r5k;
-        $student->l1k = $request->l1k;
-        $student->l2k = $request->l2k;
-        $student->l4k = $request->l4k;
-        $student->l5k = $request->l5k;
-        $student->hearing_pass = $student->hearingPassOrFail($student);
-        $student->vision_pass = $student->passOrFail($student);
-$student->last_edited = now();
       $student->save();
       return back();
 
@@ -233,6 +227,7 @@ $student->last_edited = now();
 
 
     public function autosave(Request $request){
+
       $student = Student::find($request->studentID);
       $student->od_dist = $request->ODdist;
       $student->os_dist = $request->OSdist;
@@ -390,9 +385,6 @@ $student->last_edited = now();
       } else {
         return back()->with('error','No students from that day!');
       }
-
-
-
 
     }
 

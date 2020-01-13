@@ -14,13 +14,25 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('chartHome', 'ChartController@index');
-Route::get('/exam', 'ChartController@exam')->name('exam');
-Route::get('/exam2', 'ChartController@exam2')->name('exam2');
-Route::get('/exam3', 'ChartController@exam3')->name('exam3');
-Route::get('/exam4', 'ChartController@exam4')->name('exam4');
-Route::get('/exam5', 'ChartController@exam5')->name('exam5');
+
+// Route::get('/exam', 'ChartController@exam')->name('exam');
+// Route::get('/exam2', 'ChartController@exam2')->name('exam2');
+// Route::get('/exam3', 'ChartController@exam3')->name('exam3');
+// Route::get('/exam4', 'ChartController@exam4')->name('exam4');
+// Route::get('/exam5', 'ChartController@exam5')->name('exam5');
+Route::get('/bilat-color/{id}', 'ChartController@exam1');
+Route::get('save-exam-1', 'ChartController@saveExam1')->name('saveExam1');
+Route::get('/non-bilat-color/{id}', 'ChartController@exam2');
+Route::get('save-exam-2', 'ChartController@saveExam2')->name('saveExam2');
+Route::get('/bilat-non-color/{id}', 'ChartController@exam3');
+Route::get('save-exam-3', 'ChartController@saveExam3')->name('saveExam3');
+Route::get('/non-bilat-non-color/{id}', 'ChartController@exam4');
+Route::get('save-exam-4', 'ChartController@saveExam4')->name('saveExam4');
+
+
+
 Route::post('/submitExam', 'ChartController@submit')->name('submitExam');
-Route::get('/print/{id}', 'ChartController@print')->name('print');
+
 Route::get('/delete/{id}', 'ChartController@delete')->name('delete');
 Route::get('/autosave', 'ChartController@autosave')->name('autosave');
 Route::get('/autosave2', 'ChartController@autosave2')->name('autosave2');
