@@ -423,7 +423,8 @@
                   <input type="checkbox" style = "height: 20px; width: 20px;" onchange="addNote(this)" name="note20" value="Known problem / Under medical care. "> Known problem / Under medical care<br>
                   </div>
                 </div>
-
+                <label for="notes">Notes</label>
+                <input type="text" class="form-control" name="notes" id="notes" value="">
               </div>
 
               <input type="hidden" name="student_id" value="{{$student->id}}" id="student_id" />
@@ -562,7 +563,7 @@ function wereDone(){
       osdist: $('#os_dist').val(),
       oudist: $('#ou_dist').val(),
       ounear: $('#ou_near').val(),
-      notes: notes,
+      notes: $("#notes").val(),
       studentid: $('#student_id').val()
     },
     success: function(data){
@@ -579,11 +580,13 @@ function wereDone(){
   });
 }
 
-var notes = "";
 function addNote(e){
 
-  notes += $(e).val();
-  console.log(notes);
+var note = $(e).val();
+var notebox = $("#notes");
+note = notebox.val() + note;
+notebox.val(note);
+
 }
 
 

@@ -78,9 +78,18 @@
                bottom: 4px;
                left: 4px;
              }
+             #generateBarcodes{
+               position: absolute;
+               bottom: 4px;
+               left: 131px;
+             }
 
              .container{
                width: 80% !important;
+             }
+
+             .list-hidden{
+               display: none;
              }
 
 
@@ -346,6 +355,7 @@
 
 
     <a href="" id="mailcsv"><button class="btn btn-sm btn-info">Data Transfer</button></a>
+    <a href="" id="generateBarcodes"><button class="btn btn-sm btn-info">Print Barcodes</button></a>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -533,6 +543,7 @@ function populateStudents(){
       sessionStorage.setItem("district", $('#search_district').val());
       $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
       $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school')+'/'+sessionStorage.getItem('nurse'));
+      $("#generateBarcodes").attr('href', '/barcode/'+sessionStorage.getItem('school'));
       $("#hearingURL").attr('href', '/hearing-exam/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
       $("#hearingBatch").attr('href', '/export-hearing-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
@@ -567,6 +578,7 @@ function findName2() {
   filter = input.value.toUpperCase();
   ul = document.getElementById("students2");
   li = ul.getElementsByTagName('li');
+  notLi = []
 
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
@@ -575,13 +587,26 @@ function findName2() {
     numValue = $(li[i]).data('number');
 
     if (txtValue.toUpperCase().indexOf(filter) > -1 || numValue == filter) {
-      li[i].style.display = "";
+      li[i].classList.remove("list-hidden")
+      notLi.push(li[i])
+      // li[i].style.display = "";
     } else {
-      li[i].style.display = "none";
+      // li[i].style.display = "none";
+      li[i].classList.add("list-hidden")
     }
+
+  }
+  if(notLi.length === 1){
+    $(notLi[0]).trigger('click');
   }
 
 }
+
+
+//autofocus student input in Modal
+$('#studentModal').on('shown.bs.modal', function () {
+    $('#search2').focus();
+})
 
 function autoDistrict(){
   if( sessionStorage.getItem('district')){
@@ -600,6 +625,7 @@ $(document).ready(function(){
       autoPopulateStudents();
       $("#search").attr('placeholder', sessionStorage.getItem('school')+ ' in ' + sessionStorage.getItem('district') + ' district');
       $("#mailcsv").attr('href', '/mailcsv/'+sessionStorage.getItem('school')+'/'+sessionStorage.getItem('nurse'));
+      $("#generateBarcodes").attr('href', '/barcode/'+sessionStorage.getItem('school'));
       $('#school').attr('placeholder', sessionStorage.getItem('school'));
       $('#district').attr('placeholder', sessionStorage.getItem('district'));
       $("#studentModal").modal('show');
@@ -618,6 +644,10 @@ $(document).ready(function(){
   $("#visionBatch").attr('href', '/export-vision-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
   $("#hearingBatch").attr('href', '/export-hearing-batches/'+sessionStorage.getItem('district')+'/'+sessionStorage.getItem('school'));
 });
+
+
+
+
 
 function bilateral(){
   if(!sessionStorage.getItem('bilateral')){

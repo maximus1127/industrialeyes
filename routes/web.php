@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Student;
 
 Route::get('/', 'HomeController@index');
 Route::get('chartHome', 'ChartController@index');
@@ -77,3 +77,6 @@ Route::get('/mailcsv/{school}/{nurse}', 'DataController@mailCSV');
 Route::get('/manage-staff', 'StaffController@index')->name('manage-staff');
 Route::post('/add-staff', 'StaffController@store')->name('add-staff');
 Route::get('/remove-staff/{id}', 'StaffController@destroy');
+
+
+Route::get('/barcode/{school}', 'BarcodeController@index');
